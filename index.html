@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NEXUS — Игровые миры</title>
+        <meta
+            name="description"
+            content="Исследуй игровые миры, культовые истории и вселенные видеоигр."
+        >
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        >
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="site-shell">
+            <header class="header">
+                <a class="logo" href="index.html" aria-label="NEXUS — главная">
+                    <span class="logo-symbol">N</span>
+                    <span class="logo-name">NEXUS<span class="logo-dot">.</span></span>
+                </a>
+                <nav class="navigation" aria-label="Главная навигация">
+                    <a class="nav-link nav-link-active" href="#home">Главная</a>
+                    <a class="nav-link" href="#games">Игры</a>
+                    <a class="nav-link" href="#about">О проекте</a>
+                </nav>
+                <a class="header-action" href="#games">
+                    Исследовать
+                    <span aria-hidden="true">↗</span>
+                </a>
+            </header>
+            <main>
+                <section class="hero" id="home">
+                    <div class="hero-grid" aria-hidden="true"></div>
+                    <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+                    <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+                    <div class="hero-posters" aria-hidden="true">
+                        <img src="images/witcher.jpg" alt="">
+                        <img src="images/gta.jpg" alt="">
+                        <img src="images/detroit.jpg" alt="">
+                        <img src="images/it_takes_two.jpg" alt="">
+                        <img src="images/syberia.jpg" alt="">
+                        <img src="images/the_last_of_us.jpg" alt="">
+                        <img src="images/the_last_of_us_2.jpg" alt="">
+
+                        <img src="images/Outlast.jpg" alt="">
+                        <img src="images/untill_dawn.jpg" alt="">
+                        <img src="images/resident_7.jpg" alt="">
+                        <img src="images/resident_8.jpg" alt="">
+                        <img src="images/Marvel’sSpiderMan2.jpg" alt="">
+                        <img src="images/stray.jpg" alt="">
+                        <img src="images/cyberpunk.jpg" alt="">
+
+                        <img src="images/gta.jpg" alt="">
+                        <img src="images/cyberpunk.jpg" alt="">
+                        <img src="images/witcher.jpg" alt="">
+                        <img src="images/stray.jpg" alt="">
+                        <img src="images/detroit.jpg" alt="">
+                        <img src="images/resident_8.jpg" alt="">
+                        <img src="images/the_last_of_us.jpg" alt="">
+
+                        <img src="images/witcher.jpg" alt="">
+                        <img src="images/gta.jpg" alt="">
+                        <img src="images/detroit.jpg" alt="">
+                        <img src="images/it_takes_two.jpg" alt="">
+                        <img src="images/syberia.jpg" alt="">
+                        <img src="images/the_last_of_us.jpg" alt="">
+                        <img src="images/the_last_of_us_2.jpg" alt="">
+                    </div>
+                    <div class="hero-overlay"></div>
+                    <div class="hero-content">
+                        <div class="eyebrow">
+                                <span class="status-dot"></span>
+                                <span>ИНТЕРАКТИВНЫЙ АРХИВ ИГРОВЫХ МИРОВ</span>
+                            </div>
+                            <h1>
+                                ENTER ANOTHER<br>
+                                <span>REALITY<span class="accent-mark">.</span></span>
+                            </h1>
+                            <p class="hero-description">
+                                За пределами экрана — целые вселенные.
+                                Исследуй истории, которые остаются с тобой
+                                даже после финальных титров.
+                            </p>
+                            <div class="hero-buttons">
+                                <a class="button button-primary" href="#games">
+                                    <span>Посмотреть игры</span>
+                                    <span class="button-arrow" aria-hidden="true">↗</span>
+                                </a>
+                                <a class="button button-secondary" href="#about">
+                                    О проекте
+                                </a>
+                            </div>
+                            <div class="hero-footnote">
+                                <span class="footnote-line"></span>
+                                <span>НЕ ПРОСТО ИГРЫ. ЦЕЛЫЕ МИРЫ.</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="games-section" id="games">
+                    <div class="section-heading">
+                        <div>
+                            <div class="section-kicker">
+                                <span class="kicker-line"></span>
+                                SELECT YOUR UNIVERSE
+                            </div>
+                            <h2>Миры, в которые<br>хочется <span>вернуться.</span></h2>
+                        </div>
+                        <div class="section-side">
+                            <p>
+                                Разные реальности.<br>
+                                Незабываемые истории.
+                            </p>
+                            <div class="slider-controls" aria-label="Управление каруселью">
+                                <button
+                                    class="slider-arrow"
+                                    id="sliderPrev"
+                                    type="button"
+                                    aria-label="Предыдущая игра"
+                                >←</button>
+                                <span>ЛИСТАЙ</span>
+                                <button
+                                    class="slider-arrow"
+                                    id="sliderNext"
+                                    type="button"
+                                    aria-label="Следующая игра"
+                                >→</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="games-slider">
+                        <a class="game-card" href="witcher3.html">
+                            <div class="game-card-top">
+                                <span class="game-number">01</span>
+                                <span class="game-type">DARK FANTASY</span>
+                            </div>
+                            <div class="poster-art poster-witcher">
+                                <img
+                                    src="images/witcher.jpg"
+                                    alt="Постер игры The Witcher 3: Wild Hunt"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">WILD HUNT</span>
+                                    <h3>The Witcher 3: Wild Hunt</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="gta5.html">
+                            <div class="game-card-top">
+                                <span class="game-number">02</span>
+                                <span class="game-type">OPEN WORLD</span>
+                            </div>
+                            <div class="poster-art poster-gta">
+                                <img
+                                    src="images/gta.jpg"
+                                    alt="Постер игры Grand Theft Auto V"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">LOS SANTOS</span>
+                                    <h3>Grand Theft Auto V</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="detroit.html">
+                            <div class="game-card-top">
+                                <span class="game-number">03</span>
+                                <span class="game-type">CHOICE / STORY</span>
+                            </div>
+                            <div class="poster-art poster-detroit">
+                                <img
+                                    src="images/detroit.jpg"
+                                    alt="Постер игры Detroit: Become Human"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">FUTURE CITY</span>
+                                    <h3>Detroit: Become Human</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="it-takes-two.html">
+                            <div class="game-card-top">
+                                <span class="game-number">04</span>
+                                <span class="game-type">CO-OP ADVENTURE</span>
+                            </div>
+                            <div class="poster-art poster-it-takes-two">
+                                <img
+                                    src="images/it_takes_two.jpg"
+                                    alt="Постер игры It Takes Two"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">TOGETHER</span>
+                                    <h3>It Takes Two</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="syberia-3.html">
+                            <div class="game-card-top">
+                                <span class="game-number">05</span>
+                                <span class="game-type">PUZZLE ADVENTURE</span>
+                            </div>
+                            <div class="poster-art poster-syberia">
+                                <img
+                                    src="images/syberia.jpg"
+                                    alt="Постер игры Syberia 3"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">FROZEN LANDS</span>
+                                    <h3>Syberia 3</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="the-last-of-us-1.html">
+                            <div class="game-card-top">
+                                <span class="game-number">06</span>
+                                <span class="game-type">SURVIVAL / STORY</span>
+                            </div>
+                            <div class="poster-art poster-tlou-one">
+                                <img
+                                    src="images/the_last_of_us.jpg"
+                                    alt="Постер игры The Last of Us"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">THE JOURNEY</span>
+                                    <h3>The Last of Us Part I</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="the-last-of-us-2.html">
+                            <div class="game-card-top">
+                                <span class="game-number">07</span>
+                                <span class="game-type">SURVIVAL / DRAMA</span>
+                            </div>
+                            <div class="poster-art poster-tlou-two">
+                                <img
+                                    src="images/the_last_of_us_2.jpg"
+                                    alt="Постер игры The Last of Us"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">CONSEQUENCES</span>
+                                    <h3>The Last of Us Part II</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="outlast.html">
+                            <div class="game-card-top">
+                                <span class="game-number">08</span>
+                                <span class="game-type">PSYCHOLOGICAL HORROR</span>
+                            </div>
+                            <div class="poster-art poster-outlast">
+                                <img
+                                    src="images/Outlast.jpg"
+                                    alt="Постер игры Outlast"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">MOUNT MASSIVE</span>
+                                    <h3>Outlast</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="until-dawn.html">
+                            <div class="game-card-top">
+                                <span class="game-number">09</span>
+                                <span class="game-type">SURVIVAL HORROR</span>
+                            </div>
+                            <div class="poster-art poster-until-dawn">
+                                <img
+                                    src="images/untill_dawn.jpg"
+                                    alt="Постер игры Until Dawn"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">BLACKWOOD PINES</span>
+                                    <h3>Until Dawn</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="resident-evil-7.html">
+                            <div class="game-card-top">
+                                <span class="game-number">10</span>
+                                <span class="game-type">SURVIVAL HORROR</span>
+                            </div>
+                            <div class="poster-art poster-re7">
+                                <img
+                                    src="images/resident_7.jpg"
+                                    alt="Постер игры Resident Evil Biohazard"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">THE BAKER ESTATE</span>
+                                    <h3>Resident Evil 7</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="resident-evil-8.html">
+                            <div class="game-card-top">
+                                <span class="game-number">11</span>
+                                <span class="game-type">GOTHIC HORROR</span>
+                            </div>
+                            <div class="poster-art poster-re8">
+                                <img
+                                    src="images/resident_8.jpg"
+                                    alt="Постер игры Resident Evil Village"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">EUROPEAN NIGHTMARE</span>
+                                    <h3>Resident Evil Village</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="spider-man.html">
+                            <div class="game-card-top">
+                                <span class="game-number">12</span>
+                                <span class="game-type">SUPERHERO / ACTION</span>
+                            </div>
+                            <div class="poster-art poster-spider-man">
+                                <img
+                                    src="images/Marvel’sSpiderMan2.jpg"
+                                    alt="Постер игры Marvel’s Spider-Man 2"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">FRIENDLY NEIGHBORHOOD</span>
+                                    <h3>Marvel's Spider-Man</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="stray.html">
+                            <div class="game-card-top">
+                                <span class="game-number">13</span>
+                                <span class="game-type">SCI-FI ADVENTURE</span>
+                            </div>
+                            <div class="poster-art poster-stray">
+                                <img
+                                    src="images/stray.jpg"
+                                    alt="Постер игры Stray"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">WALLED CITY</span>
+                                    <h3>Stray</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                        <a class="game-card" href="cyberpunk.html">
+                            <div class="game-card-top">
+                                <span class="game-number">14</span>
+                                <span class="game-type">SCI-FI / OPEN WORLD</span>
+                            </div>
+                            <div class="poster-art poster-cyberpunk">
+                                <img
+                                    src="images/cyberpunk.jpg"
+                                    alt="Постер игры Cyberpunk 2077"
+                                >
+                            </div>
+                            <div class="game-card-bottom">
+                                <div>
+                                    <span class="game-universe">NEVER STOP FIGHTING</span>
+                                    <h3>Cyberpunk 2077</h3>
+                                </div>
+                                <span class="card-arrow">↗</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="slider-footer">
+                        <span>01 — 14 / WORLDS</span>
+                        <span class="slider-track"><span class="slider-progress"></span></span>
+                        <span>SCROLL TO DISCOVER ↗</span>
+                    </div>
+                </section>
+                <section class="about-section" id="about">
+                    <div class="about-mark" aria-hidden="true">N.</div>
+                    <div class="about-content">
+                        <div class="section-kicker">
+                            <span class="kicker-line"></span>
+                            THE IDEA BEHIND NEXUS
+                        </div>
+                        <h2>Некоторые миры<br>невозможно <span>забыть.</span></h2>
+                        <p>
+                            NEXUS — концептуальный архив видеоигр, созданный
+                            для исследования игровых вселенных, персонажей
+                            и историй, которые выходят далеко за пределы экрана.
+                        </p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">ВОЗМОЖНОСТЕЙ</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">01</span>
+                            <span class="stat-label">НОВАЯ РЕАЛЬНОСТЬ</span>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="footer">
+                <a class="logo footer-logo" href="#home">
+                    <span class="logo-symbol">N</span>
+                    <span class="logo-name">NEXUS<span class="logo-dot">.</span></span>
+                </a>
+                <span class="footer-note">FAN-MADE PORTFOLIO CONCEPT</span>
+                <a class="back-to-top" href="#home">
+                    НАВЕРХ <span aria-hidden="true">↑</span>
+                </a>
+            </footer>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
