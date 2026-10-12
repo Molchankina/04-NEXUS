@@ -150,14 +150,12 @@ a:focus-visible {
 }
 .hero {
     position: relative;
-    display: grid;
-    grid-template-columns: 1.08fr 0.92fr;
-    align-items: center;
     min-height: min(760px, calc(100svh - 88px));
-    padding-top: 72px;
-    padding-bottom: 104px;
+    padding: 72px clamp(22px, 6vw, 96px) 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     isolation: isolate;
-    place-items: center;
     overflow: hidden;
 }
 .hero-posters {
@@ -191,44 +189,13 @@ a:focus-visible {
         #080A12 100%
         );
     pointer-events: none;
-    }
-.hero-grid {
-    position: absolute;
-    z-index: -2;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-    background-size: 72px 72px;
-    mask-image: linear-gradient(to right, black, transparent 95%);
-}
-.hero-glow {
-    position: absolute;
-    z-index: -1;
-    width: 420px;
-    height: 420px;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
-}
-.hero-glow-one {
-    top: 8%;
-    left: 15%;
-    background: rgba(120, 155, 70, 0.08);
-}
-.hero-glow-two {
-    right: 5%;
-    bottom: 5%;
-    background: rgba(56, 91, 160, 0.11);
 }
 .hero-content {
     position: relative;
     z-index: 1;
     width: min(900px, 90%);
     margin-inline: auto;
-    padding: 100px 0;
     text-align: center;
-    padding-top: 15px;
 }
 .eyebrow,
 .section-kicker {
@@ -239,6 +206,9 @@ a:focus-visible {
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.15em;
+}
+.hero .eyebrow{
+    justify-content: center;
 }
 .status-dot {
     width: 7px;
@@ -254,7 +224,6 @@ a:focus-visible {
     font-weight: 800;
     line-height: 0.89;
     letter-spacing: -0.09em;
-    margin-inline: auto;
 }
 .hero h1 > span {
     color: transparent;
@@ -269,7 +238,7 @@ a:focus-visible {
 }
 .hero-description {
     max-width: 430px;
-    margin: 0;
+    margin: 0 auto;
     color: #a0a3ad;
     font-size: 14px;
     line-height: 1.9;
@@ -277,6 +246,7 @@ a:focus-visible {
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 12px;
     margin-top: 34px;
 }
@@ -319,8 +289,9 @@ a:focus-visible {
 .hero-footnote {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
-    margin-top: 66px;
+    margin-top: 50px;
     color: #777c87;
     font-size: 9px;
     font-weight: 700;
@@ -329,6 +300,7 @@ a:focus-visible {
 .footnote-line {
     width: 32px;
     height: 1px;
+    flex-shrink: 0;
     background: var(--accent);
 }
 .games-section {
@@ -757,7 +729,6 @@ a:focus-visible {
         display: none;
     }
     .hero {
-        grid-template-columns: 1fr;
         min-height: 600px;
         padding-top: 65px;
         padding-bottom: 90px;
@@ -769,13 +740,11 @@ a:focus-visible {
     }
     .hero-content {
         width: 92%;
-        padding: 80px 0;
     }
     .hero h1 {
-        font-size: clamp(58px, 12vw, 86px);
+        font-size: clamp(48px, 12vw, 76px);
     }
     .hero-description {
-        max-width: 440px;
         font-size: 13px;
     }
     .hero-footnote {
@@ -865,6 +834,10 @@ a:focus-visible {
     .hero h1 {
         font-size: 56px;
     }
+    .hero .eyebrow {
+        font-size: 8px;
+        letter-spacing: 0.1em;
+    }
     .eyebrow,
     .section-kicker {
         font-size: 8px;
@@ -874,7 +847,7 @@ a:focus-visible {
         gap: 9px;
     }
     .button {
-        gap: 15px;
+        gap: 15px;    
         min-height: 49px;
         padding: 0 13px;
         font-size: 11px;
