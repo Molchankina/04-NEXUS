@@ -150,8 +150,8 @@ a:focus-visible {
 }
 .hero {
     position: relative;
-    min-height: min(760px, calc(100svh - 88px));
-    padding: 72px clamp(22px, 6vw, 96px) 104px;
+    min-height: min(650px, calc(100svh - 88px));
+    padding: 48px clamp(22px, 6vw, 96px) 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -304,8 +304,8 @@ a:focus-visible {
     background: var(--accent);
 }
 .games-section {
-    padding-top: 120px;
-    padding-bottom: 100px;
+    padding-top: 80px;
+    padding-bottom: 70px;
     border-top: 1px solid var(--line);
     background:
         radial-gradient(ellipse at 75% 0%, rgba(61, 77, 99, 0.09), transparent 45%),
@@ -548,8 +548,8 @@ a:focus-visible {
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 50px;
-    padding-top: 115px;
-    padding-bottom: 115px;
+    padding-top: 75px;
+    padding-bottom: 70px;
     overflow: hidden;
     border-top: 1px solid var(--line);
 }
@@ -729,9 +729,9 @@ a:focus-visible {
         display: none;
     }
     .hero {
-        min-height: 600px;
-        padding-top: 65px;
-        padding-bottom: 90px;
+        min-height: 520px;
+        padding-top: 45px;
+        padding-bottom: 50px;
     }
     .hero-posters {
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -762,8 +762,8 @@ a:focus-visible {
         bottom: 27px;
     }
     .games-section {
-        padding-top: 78px;
-        padding-bottom: 70px;
+        padding-top: 60px;
+        padding-bottom: 50px;
     }
     .section-heading {
         align-items: flex-start;
@@ -782,12 +782,16 @@ a:focus-visible {
     .games-slider {
         grid-auto-columns: minmax(245px, 72%);
         gap: 13px;
+        height: 370px;
+    }
+    .game-card {
+        width: min(210px, 65vw);
     }
     .about-section {
         grid-template-columns: 1fr;
         gap: 40px;
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
     .about-stats {
         display: grid;
@@ -813,7 +817,7 @@ a:focus-visible {
     height: 440px;
     }
     .game-card {
-    width: min(270px, 72vw);
+    width: min(250px, 65vw);
     }
 }
 @media (max-width: 420px) {
@@ -881,7 +885,7 @@ a:focus-visible {
     height: 405px;
     }
     .game-card {
-    width: 74vw;
+    width: min(190px, 72vw);
     }
 }
 @media (prefers-reduced-motion: reduce) {

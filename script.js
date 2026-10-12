@@ -7,7 +7,7 @@ let activeIndex = 0;
 let touchStartX = 0;
 
 function renderCarousel() {
-const step = Math.min(slider.clientWidth * 0.29, 285);
+const step = Math.min(slider.clientWidth * 0.25, 250);
 
 cards.forEach((card, index) => {
 const total = cards.length;
