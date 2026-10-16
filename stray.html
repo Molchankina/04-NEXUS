@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Stray — история маленького кота в огромном забытом городе.">
+        <title>STRAY — Путь к свету</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+        >
+        <link rel="stylesheet" href="stray.css">
+    </head>
+    <body>
+        <!-- ОБЩИЙ ФОН СТРАНИЦЫ -->
+        <div class="world-light" aria-hidden="true"></div>
+        <!-- НАВиГАЦИЯ -->
+        <header class="site-header">
+            <a class="nexus-logo" href="index.html" aria-label="Вернуться в NEXUS">
+                <span class="logo-mark">N</span><span>NEXUS<span class="gold">.</span></span>
+            </a>
+                <nav class="navigation" id="navigation">
+                    <a href="#world">Город</a>
+                    <a href="#companion">B-12</a>
+                    <a href="#journey">Путь</a>
+                    <a href="#ending">Финал</a>
+                </nav>
+            <a class="header-link" href="index.html#games">Архив миров</a>
+            <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="navigation"
+            >
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+        <main>
+            <!-- 01. HERO -->
+            <section class="hero" id="home">
+                <div class="hero-image" aria-hidden="true"></div>
+                <div class="hero-shade" aria-hidden="true"></div>
+                <div class="hero-content">
+                    <p class="eyebrow hero-eyebrow">ANNAPURNA INTERACTIVE · A JOURNEY INTO THE UNKNOWN</p>
+                    <div class="stray-title" aria-label="Stray">
+                        <span class="stray-title-letter">S</span>
+                        <span class="stray-title-letter">T</span>
+                        <span class="stray-title-letter">R</span>
+                        <span class="stray-title-letter stray-flicker">A</span>
+                        <span class="stray-title-letter">Y</span>
+                    </div>
+                    <p class="hero-description">
+                    Потерянный в городе, забытом человечеством.
+                    Один среди теней, огней и безмолвных улиц.
+                    Его путь домой начинается здесь.
+                    </p>
+                    <a class="primary-link" href="#world">Начать путешествие<span>↓</span></a>
+                </div>
+                <div class="hero-bottom">
+                    <span>THE FALL</span>
+                    <span class="scroll-hint">ПРОКРУТИ, ЧТОБЫ УЗНАТЬ ИСТОРИЮ</span>
+                    <span>STRAY · 2022</span>
+                </div>
+                <span class="hero-coordinate" aria-hidden="true">31° 14' / BELOW</span>
+            </section>
+            <!-- 03. КОТ — ИСТОРИЯ СТАНОВИТСЯ ЛИЧНОЙ -->
+            <section class="cat-section" id="journey">
+                <div class="cat-atmosphere" aria-hidden="true"></div>
+                <div class="cat-layout">
+                    <div class="cat-visual reveal">
+                        <img
+                        src="images/stray-cat.jpg"
+                        alt="Рыжий кот исследует забытый город"
+                        loading="lazy"
+                        >
+                        <div class="image-label">
+                            <span>CAT</span>
+                            <span>UNKNOWN / ALONE</span>
+                        </div>
+                    </div>
+                    <div class="cat-copy reveal">
+                        <p class="eyebrow">A DIFFERENT PERSPECTIVE</p>
+                        <h2>Мир слишком<br>велик для<br><span>одного кота.</span></h2>
+                        <p>
+                        Он не герой легенды и не спаситель мира.
+                        Он просто хочет найти дорогу назад.
+                        </p>
+                        <p>
+                        Но в этом странном месте каждый прыжок,
+                        каждый звук и каждая открытая дверь
+                        становятся частью большого путешествия.
+                        </p>
+                        <div class="cat-fact">
+                            <span class="fact-symbol">↗</span>
+                            <span>Исследуй. Слушай. Не бойся идти дальше.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-transition" aria-hidden="true"></div>
+            </section>
+            <!-- 02. ГОРОД — ПЕРЕХОД ОТ HERO -->
+            <section class="world-section" id="world">
+                <div class="world-backdrop" aria-hidden="true"></div>
+                <div class="section-intro reveal">
+                    <p class="eyebrow">THE CITY BELOW</p>
+                    <h2>Здесь время<br><span>остановилось.</span></h2>
+                    <p>
+                    Под поверхностью мира существует другая жизнь.
+                    Узкие переулки, ржавые конструкции и свет,
+                    который никогда не рассеивает темноту полностью.
+                    </p>
+                </div>
+                <div class="city-scene reveal">
+                    <div class="city-caption">
+                        <span class="caption-dot"></span>
+                        <span>THE WALLS HAVE SEEN EVERYTHING</span>
+                    </div>
+                </div>
+                <div class="world-note reveal">
+                    <span class="note-index">01</span>
+                    <p>
+                    <strong>Город не пуст.</strong>
+                    Просто его обитатели давно привыкли жить
+                    среди руин чужого прошлого.
+                    </p>
+                </div>
+            </section>
+            <!-- 04. B-12 — ТЁПЛЫЙ СВЕТ СРЕДИ ТЕМНОТЫ -->
+            <section class="companion-section" id="companion">
+                <div class="companion-glow" aria-hidden="true"></div>
+                <div class="companion-heading reveal">
+                    <p class="eyebrow">A SMALL LIGHT</p>
+                    <h2>Даже в темноте<br>можно найти <span>кого-то.</span></h2>
+                </div>
+                <div class="companion-layout">
+                    <div class="companion-copy reveal">
+                        <span class="chapter-number">B-12 / ONLINE</span>
+                        <h3>Не совсем один.</h3>
+                        <p>Маленький дрон становится глазами, голосом и проводником в незнакомом мире.</p>
+                        <p>Он помогает понять прошлое города, а кот напоминает ему о том, что значит чувствовать и быть рядом.</p>
+                        <span class="signal-line">
+                            <span></span>
+                            SIGNAL ESTABLISHED
+                        </span>
+                    </div>
+                    <div class="companion-visual reveal">
+                        <img
+                        src="images/stray-b12.jpg"
+                        alt="Дрон B-12 рядом с рыжим котом"
+                        loading="lazy"
+                        >
+                        <span class="visual-caption">A FRIEND IN THE DARK</span>
+                    </div>
+                </div>
+            </section>
+            <!-- 05. ЖИТЕЛИ — РАСКРЫТИЕ МИРА -->
+            <section class="inhabitants-section" id="inhabitants">
+                <div class="inhabitants-intro reveal">
+                    <p class="eyebrow">LIFE GOES ON</p>
+                    <div class="inhabitants-title">
+                        <h2>У каждого здесь<br><span>своя история.</span></h2>
+                        <p>
+                        Среди металла и бетона сохранилось то,
+                        что делает город живым: память, привычки,
+                        встречи и надежда.
+                        </p>
+                    </div>
+                </div>
+                <div class="inhabitants-gallery">
+                    <article class="inhabitant-card inhabitant-large reveal">
+                        <img
+                        src="images/stray-slums.jpg"
+                        alt="Улицы трущоб города Stray"
+                        loading="lazy"
+                        >
+                        <div class="inhabitant-overlay">
+                            <span>SLAMS</span>
+                            <h3>Трущобы</h3>
+                            <p>Место, где среди руин продолжается жизнь.</p>
+                        </div>
+                    </article>
+                    <article class="inhabitant-card reveal">
+                        <img
+                        src="images/stray-residents.jpg"
+                        alt="Роботы — жители подземного города"
+                        loading="lazy"
+                        >
+                        <div class="inhabitant-overlay">
+                            <span>THE RESIDENTS</span>
+                            <h3>Жители</h3>
+                            <p>Машины, которые научились быть похожими на нас.</p>
+                        </div>
+                    </article>
+                    <article class="inhabitant-card reveal">
+                        <img
+                        src="images/stray-midtown.jpg"
+                        alt="Неоновые улицы Мидтауна"
+                        loading="lazy"
+                        >
+                        <div class="inhabitant-overlay">
+                            <span>MIDTOWN</span>
+                            <h3>Мидтаун</h3>
+                            <p>Яркие огни не всегда означают свободу.</p>
+                        </div>
+                    </article>
+                </div>
+                <p class="gallery-footnote">
+                ONE CITY · MANY STORIES · ONE WAY HOME
+                </p>
+            </section>
+            <!-- 06. ПУТЬ К СВЕТУ -->
+            <section class="final-section" id="ending">
+                <div class="final-image" aria-hidden="true"></div>
+                <div class="final-overlay" aria-hidden="true"></div>
+                <div class="final-content reveal">
+                    <p class="eyebrow">THE WAY HOME</p>
+                    <h2>Иногда нужно<br>потеряться,<br><span>чтобы найти путь.</span></h2>
+                    <p>
+                    Это история не о том, как изменить весь мир.
+                    Это история о маленьком существе,
+                    которое продолжало идти, даже когда дорога
+                    казалась бесконечной.
+                    </p>
+                    <a class="final-link" href="index.html#games">Вернуться в архив</a>
+                </div>
+                <div class="final-bottom">
+                    <span>STRAY</span>
+                    <span>A JOURNEY THROUGH THE UNKNOWN</span>
+                    <span>END / BEGINNING</span>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <a class="nexus-logo" href="index.html" aria-label="Вернуться в NEXUS">
+                <span class="logo-mark">N</span><span>NEXUS<span class="gold">.</span></span>
+            </a>
+            <p>Фанатский концепт-сайт, посвящённый игре Stray.</p>
+            <a href="#home">Наверх ↑</a>
+        </footer>
+        <div class="b-12-follower" aria-hidden="true">
+            <img src="images/b12-drone.png" alt="">
+        </div>
+        <script src="stray.js"></script>
+    </body>
+</html>
