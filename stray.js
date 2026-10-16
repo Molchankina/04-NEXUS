@@ -15,7 +15,6 @@ const revealObserver = new IntersectionObserver(
 revealElements.forEach((element) => {
     revealObserver.observe(element);
 });
-/* 2. МОБИЛЬНОЕ МЕНЮ */
 const menuToggle = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".navigation");
 const navigationLinks = document.querySelectorAll(".navigation a");
@@ -60,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const isMobile = window.matchMedia(
         "(max-width: 900px), (pointer: coarse)"
     ).matches;
-    // На телефонах и планшетах дрон просто висит в углу.
     if (isMobile) {
         return;
     }
@@ -122,7 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.warn("B-12: IntersectionObserver не поддерживается.");
     }
-        // Если нужные секции не найдены, дрон останется в углу.
     updateB12();
     if (!citySection) {
         console.warn("B-12: не найдена секция #world.");

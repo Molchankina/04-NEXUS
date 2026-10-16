@@ -112,7 +112,6 @@ p {
 section[id] {
     scroll-margin-top: 76px;
 }
-/* 2. НАВИГАЦИЯ */
 .site-header {
     position: absolute;
     top: 0;
@@ -192,7 +191,6 @@ section[id] {
 .menu-toggle[aria-expanded="true"] span:last-child {
     transform: translateY(-3px) rotate(-45deg);
 }
-/* 3. HERO — ПОГРУЖЕНИЕ В МИР */
 .hero {
     display: flex;
     flex-direction: column;
@@ -314,7 +312,6 @@ section[id] {
     letter-spacing: 0.18em;
     writing-mode: vertical-rl;
 }
-/* 4. ГОРОД — ФОН ПЕРЕХОДИТ ИЗ HERO */
 .world-section {
     padding: 90px 0 80px;
     overflow: hidden;
@@ -412,7 +409,6 @@ section[id] {
     color: var(--text);
     font-weight: 600;
 }
-/* 5. КОТ — ПЕРВАЯ ЛИЧНАЯ ИСТОРИЯ */
 .cat-section {
     padding: 90px 0 80px;
     overflow: hidden;
@@ -534,7 +530,6 @@ section[id] {
     );
     pointer-events: none;
 }
-/* 6. B-12 — ПОЯВЛЕНИЕ ТЁПЛОГО СВЕТА */
 .companion-section {
     padding: 20px 0 50px;
     overflow: hidden;
@@ -642,7 +637,6 @@ section[id] {
     font-size: 9px;
     letter-spacing: 0.18em;
 }
-/* 7. ЖИТЕЛИ — МИР СТАНОВИТСЯ ШИРЕ */
 .inhabitants-section {
     padding: 70px 0 80px;
     overflow: hidden;
@@ -742,7 +736,6 @@ section[id] {
     letter-spacing: 0.15em;
     text-align: right;
 }
-/* 8. ФИНАЛ — ИЗ ТЕМНОТЫ К СВЕТУ */
 .final-section {
     display: flex;
     flex-direction: column;
@@ -822,7 +815,6 @@ section[id] {
     font-size: 9px;
     letter-spacing: 0.13em;
 }
-/* 9. ПОДВАЛ */
 .site-footer {
     display: flex;
     align-items: center;
@@ -887,7 +879,6 @@ section[id] {
         drop-shadow(0 0 24px rgba(60, 180, 255, 0.75))
         drop-shadow(0 0 42px rgba(60, 180, 255, 0.4));
 }
-/* 10. ПОЯВЛЕНИЕ ПРИ ПРОКРУТКЕ */
 .reveal {
     opacity: 0;
     transform: translateY(28px);
@@ -899,7 +890,6 @@ section[id] {
     opacity: 1;
     transform: translateY(0);
 }
-/* 11. АНИМАЦИИ HERO */
 @keyframes neon-flicker{
     0%, 18%, 20%, 22%, 60%, 62%, 100% {
         opacity: 1;
@@ -941,7 +931,6 @@ section[id] {
         transform: translateY(-8px);
     }
 }
-/* 12. ПЛАНШЕТЫ */
 @media (max-width: 900px) {
     .site-header {
         min-height: 72px;
@@ -1002,7 +991,6 @@ section[id] {
         left: 18px;
     }
 }
-/* 13. ТЕЛЕФОНЫ */
 @media (max-width: 600px) {
     html {
         scroll-padding-top: 70px;
@@ -1275,7 +1263,6 @@ section[id] {
         width: 100%;
     }
 }
-/* 14. МАЛЕНЬКИЕ ЭКРАНЫ */
 @media (max-width: 360px) {
     .hero h1 {
         font-size: 40px;
@@ -1291,7 +1278,6 @@ section[id] {
         font-size: 11px;
     }
 }
-/* 15. УВАЖАЕМ НАСТРОЙКУ УМЕНЬШЕННОГО ДВИЖЕНИЯ */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
