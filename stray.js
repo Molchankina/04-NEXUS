@@ -1,77 +1,99 @@
-const revealElements = document.querySelectorAll(".reveal");
-const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
+document.addEventListener("DOMContentLoaded", () => {
+    const revealElements = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12,
+            }
+        );
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
+        });
+    } else {
+        revealElements.forEach((element) => {
+            element.classList.add("is-visible");
+        });
+    }
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector(".navigation");
+    const navigationLinks = document.querySelectorAll(".navigation a");
+    function closeMenu() {
+        if (!menuToggle || !navigation) return;
+        navigation.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Открыть меню");
+    }
+    if (menuToggle && navigation) {
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navigation.classList.toggle("is-open");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Закрыть меню" : "Открыть меню"
+            );
+        });
+        navigationLinks.forEach((link) => {
+            link.addEventListener("click", closeMenu);
+        });
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeMenu();
             }
         });
-    },
-    {
-        threshold: 0.12,
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 600) {
+                closeMenu();
+            }
+        });
     }
-);
-revealElements.forEach((element) => {
-    revealObserver.observe(element);
-});
-const menuToggle = document.querySelector(".menu-toggle");
-const navigation = document.querySelector(".navigation");
-const navigationLinks = document.querySelectorAll(".navigation a");
-function closeMenu() {
-    navigation.classList.remove("is-open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Открыть меню");
-}
-menuToggle.addEventListener("click", () => {
-    const isOpen = navigation.classList.toggle("is-open");
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Закрыть меню" : "Открыть меню"
-    );
-});
-navigationLinks.forEach((link) => {
-    link.addEventListener("click", closeMenu);
-});
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        closeMenu();
-    }
-});
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 600) {
-        closeMenu();
-    }
-});
-document.addEventListener("DOMContentLoaded", () => {
     const b12 = document.querySelector("#b12-follower");
     if (!b12) {
-        console.warn("B-12: изображение или HTML-элемент не найден.");
+        console.warn(
+            "B-12: не найден элемент #b12-follower. Проверь HTML."
+        );
         return;
     }
-    const followSections = [
-        document.querySelector("#world"),
-        document.querySelector(".companion-section")
-    ].filter(Boolean);
-    const citySection = document.querySelector("#world");
-    const storySection = document.querySelector(".companion-section");
+    const companionSection = document.querySelector("#companion");
     const isMobile = window.matchMedia(
         "(max-width: 900px), (pointer: coarse)"
     ).matches;
+    if (companionSection && "IntersectionObserver" in window) {
+        const companionObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    b12.classList.toggle(
+                        "is-charged",
+                        entry.isIntersecting
+                    );
+                });
+            },
+            {
+                threshold: 0.2,
+            }
+        );
+        companionObserver.observe(companionSection);
+    }
     if (isMobile) {
         return;
     }
-    let activeSections = new Set();
     let targetX = window.innerWidth - 90;
     let targetY = window.innerHeight - 90;
-    // Положение дрона относительно курсора.
-    window.addEventListener("pointermove", (event) => {
-        targetX = event.clientX + 65;
-        targetY = event.clientY + 35;
-        // Не даём дрону выходить за границы экрана.
+    let currentX = targetX;
+    let currentY = targetY;
+    function moveB12(event) {
+        if (event.pointerType !== "mouse") return;
         const halfWidth = b12.offsetWidth / 2;
         const halfHeight = b12.offsetHeight / 2;
+        targetX = event.clientX + 65;
+        targetY = event.clientY + 35;
         targetX = Math.max(
             halfWidth + 8,
             Math.min(window.innerWidth - halfWidth - 8, targetX)
@@ -80,53 +102,20 @@ document.addEventListener("DOMContentLoaded", () => {
             halfHeight + 8,
             Math.min(window.innerHeight - halfHeight - 8, targetY)
         );
-        if (b12.classList.contains("is-following")) {
-            b12.style.setProperty("--b12-x", `${targetX}px`);
-            b12.style.setProperty("--b12-y", `${targetY}px`);
-        }
+        b12.classList.add("is-following");
+    }
+    function animateB12() {
+        const smoothness = 0.055;
+        currentX += (targetX - currentX) * smoothness;
+        currentY += (targetY - currentY) * smoothness;
+        b12.style.setProperty("--b12-x", '${currentX}px');
+        b12.style.setProperty("--b12-y", '${currentY}px');
+        requestAnimationFrame(animateB12);
+    }
+    window.addEventListener("pointermove", moveB12);
+    window.addEventListener("resize", () => {
+        targetX = Math.min(targetX, window.innerWidth - 60);
+        targetY = Math.min(targetY, window.innerHeight - 60);
     });
-    function updateB12() {
-        const shouldFollow = activeSections.size > 0;
-        b12.classList.toggle("is-following", shouldFollow);
-        // Усиливаем свечение только в истории B-12.
-        b12.classList.toggle(
-            "is-charged",
-            activeSections.has(storySection)
-        );
-        if (shouldFollow) {
-            b12.style.setProperty("--b12-x", `${targetX}px`);
-            b12.style.setProperty("--b12-y", `${targetY}px`);
-        }
-    }
-    if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        activeSections.add(entry.target);
-                    } else {
-                        activeSections.delete(entry.target);
-                    }
-                });
-                updateB12();
-            },
-            {
-            threshold: 0.15
-            }
-        );
-        followSections.forEach((section) => {
-            observer.observe(section);
-        });
-    } else {
-        console.warn("B-12: IntersectionObserver не поддерживается.");
-    }
-    updateB12();
-    if (!citySection) {
-        console.warn("B-12: не найдена секция #world.");
-    }
-    if (!storySection) {
-        console.warn(
-            "B-12: не найдена секция .companion-section."
-        );
-    }
+    animateB12();
 });

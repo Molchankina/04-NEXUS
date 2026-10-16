@@ -848,12 +848,10 @@ section[id] {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%) scale(0.8);
-    transition: 
-        left 0.16s ease-out,
-        top 0.16s ease-out,
-        right 0.45s ease,
-        bottom 0.45s ease,
-        filter 0.5s ease;
+    transition:
+        right 0.6s ease,
+        bottom 0.6s ease,
+        filter 0.8s ease;
 }
 .b12-follower img{
     display: block;
