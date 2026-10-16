@@ -51,16 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("B-12: изображение или HTML-элемент не найден.");
         return;
     }
-    /*
-    УКАЖИ СВОИ СЕКЦИИ НИЖЕ.
-
-    Город: #world
-    История B-12: .companion-section
-
-    Если у твоих секций другие названия,
-    замени селекторы на реальные.
-    */
-
     const followSections = [
         document.querySelector("#world"),
         document.querySelector(".companion-section")
