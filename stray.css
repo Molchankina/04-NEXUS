@@ -842,7 +842,7 @@ section[id] {
     bottom: 28px;
     left: auto;
     top: auto;
-    width: clamp(70px, 8vw, 115px);
+    width: clamp(80px, 8vw, 115px);
     z-index: 100;
     pointer-events: none;
     opacity: 1;
@@ -987,6 +987,14 @@ section[id] {
         right: 18px;
         bottom: 20px;
         left: 18px;
+    }
+    .final-section {
+    min-height: 780px;
+    padding: 130px 10% 110px;
+    }
+    .b12-follower{
+    right: 14px;
+    bottom: 14px;
     }
 }
 @media (max-width: 600px) {
@@ -1259,6 +1267,10 @@ section[id] {
     .site-footer p {
         order: 3;
         width: 100%;
+    }
+    .b12-follower.is-following{
+        right: 8px;
+        bottom: 8px;
     }
 }
 @media (max-width: 360px) {

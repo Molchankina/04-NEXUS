@@ -108,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const smoothness = 0.055;
         currentX += (targetX - currentX) * smoothness;
         currentY += (targetY - currentY) * smoothness;
-        b12.style.setProperty("--b12-x", '${currentX}px');
-        b12.style.setProperty("--b12-y", '${currentY}px');
+        b12.style.setProperty("--b12-x", `${currentX}px`);
+        b12.style.setProperty("--b12-y", `${currentY}px`);
         requestAnimationFrame(animateB12);
     }
     window.addEventListener("pointermove", moveB12);
