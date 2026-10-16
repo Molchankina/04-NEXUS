@@ -865,7 +865,7 @@ section[id] {
 }
 .b12-follower.is-following {
     left: var(--b12-x, 50vw);
-    top: var(--b12-x, 50vh);
+    top: var(--b12-y, 50vh);
     right: auto;
     bottom: auto;
     transform: translate(-50%, -50%);
