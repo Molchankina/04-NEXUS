@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#171717">
+        <meta name="description" content="Grand Theft Auto V — интерактивная страница игры в архиве Nexus.">
+        <title>Grand Theft Auto V — NEXUS</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="gta5.css">
+        <script src="gta5.js" defer></script>
+    </head>
+    <body>
+        <main class="gta-page">
+            <section class="hero" id="top">
+                <div class="hero-background"></div>
+                <div class="hero-shade"></div>
+                <header class="site-header">
+                    <a class="nexus-logo" href="../index.html" aria-label="Вернуться в NEXUS">
+                        <span class="logo-mark">N</span><span>NEXUS<span class="gold">.</span></span>
+                    </a>
+                    <a class="back-link" href="../index.html">← АРХИВ ИГР</a>
+                </header>
+                <div class="hero-content">
+                    <p class="hero-kicker">ROCKSTAR GAMES / 2013</p>
+                    <h1>GRAND<br>THEFT<br><span>AUTO V</span></h1>
+                    <p class="hero-description">
+                        ОДИН ГОРОД. ТРИ ИСТОРИИ. НИКАКИХ ПРАВИЛ.
+                    </p>
+                    <button class="hero-button" type="button" data-open-menu>
+                        ОТКРЫТЬ МЕНЮ
+                    </button>
+                </div>
+                <div class="hero-bottom">
+                    <span>LOS SANTOS, SAN ANDREAS</span>
+                    <span>ПРОКРУТИ ВНИЗ ↓</span>
+                </div>
+            </section>
+            <section class="pause-section" id="game-menu">
+                <div class="pause-background"></div>
+                <div class="pause-overlay"></div>
+                <div class="game-interface">
+                    <div class="game-heading">
+                        <div class="game-title-wrap">
+                            <a class="game-title" href="#game-menu">
+                                Grand Theft Auto V
+                            </a>
+                            <span class="game-subtitle">NEXUS GAME DATABASE</span>
+                        </div>
+                        <div class="game-status">
+                            <span class="status-dot"></span>
+                            <span>LOS SANTOS</span>
+                        </div>
+                    </div>
+                    <nav class="game-tabs" aria-label="Игровое меню">
+                        <a class="game-tab archive-tab" href="../index.html">
+                            В АРХИВ
+                        </a>
+                        <button class="game-tab is-active" data-tab="characters" type="button" aria-selected="true">
+                            ПЕРСОНАЖИ
+                        </button>
+                        <button class="game-tab" data-tab="city" type="button" aria-selected="false">
+                            ЛОС-САНТОС
+                        </button>
+                        <button class="game-tab" data-tab="gameplay" type="button" aria-selected="false">
+                            ГЕЙМПЛЕЙ
+                        </button>
+                    </nav>
+                    <div class="interface-content">
+                        <aside class="interface-sidebar">
+                            <div class="sidebar-heading">СОДЕРЖАНИЕ</div>
+                            <button class="sidebar-item is-active" data-tab="characters" type="button">
+                                <span>01</span> Персонажи
+                            </button>
+                            <button class="sidebar-item" data-tab="city" type="button">
+                                <span>02</span> Лос-Сантос
+                            </button>
+                            <button class="sidebar-item" data-tab="gameplay" type="button">
+                                <span>03</span> Геймплей
+                            </button>
+                            <div class="sidebar-divider"></div>
+                            <div class="sidebar-note">
+                                <span class="note-label">СИСТЕМА</span>
+                                <span>NEXUS ARCHIVE</span>
+                                <span class="note-muted">GAME FILE: 005</span>
+                            </div>
+                        </aside>
+                        <div class="panel-content">
+                            <section class="tab-panel is-active" id="panel-characters" data-panel="characters">
+                                <div class="panel-heading">
+                                    <div>
+                                        <p class="section-index">ПРОФИЛИ</p>
+                                        <h2>ТРИ ЛИЦА <span>ЛОС-САНТОСА</span></h2>
+                                    </div>
+                                    <span class="panel-counter">03 / 03</span>
+                                </div>
+                                <p class="panel-intro">
+                                    Три человека. Три судьбы. Одна преступная игра.
+                                    Выбери персонажа, чтобы открыть его досье.
+                                </p>
+                                <div class="character-grid">
+                                    <button class="character-card michael" data-character="michael" type="button" aria-pressed="false">
+                                        <div class="character-image">
+                                            <img src="images/gta5-michael.jpg" alt="Майкл Де Санта" loading="lazy">
+                                            <span class="character-plus">+</span>
+                                        </div>
+                                        <div class="character-info">
+                                            <span class="character-role">THE MASTERmind</span>
+                                            <h3>МАЙКЛ</h3>
+                                            <span class="character-fullname">MICHAEL DE SANTA</span>
+                                        </div>
+                                    </button>
+                                    <button class="character-card trevor" data-character="trevor" type="button" aria-pressed="false">
+                                        <div class="character-image">
+                                            <img src="images/gta5-trevor.jpg" alt="Тревор Филипс" loading="lazy">
+                                            <span class="character-plus">+</span>
+                                        </div>
+                                        <div class="character-info">
+                                            <span class="character-role">THE WILDCARD</span>
+                                            <h3>ТРЕВОР</h3>
+                                            <span class="character-fullname">TREVOR PHILIPS</span>
+                                        </div>
+                                    </button>
+                                    <button class="character-card franklin" data-character="franklin" type="button" aria-pressed="false">
+                                        <div class="character-image">
+                                            <img src="images/gta5-franklin.jpg" alt="Франклин Клинтон" loading="lazy">
+                                            <span class="character-plus">+</span>
+                                        </div>
+                                        <div class="character-info">
+                                            <span class="character-role">THE PRODIGY</span>
+                                            <h3>ФРАНКЛИН</h3>
+                                            <span class="character-fullname">FRANKLIN CLINTON</span>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div class="character-dossier" id="character-dossier" hidden aria-live="polite">
+                                    <div class="dossier-topline">
+                                        <span class="dossier-label">PERSONAL FILE</span>
+                                        <button class="dossier-close" type="button" aria-label="Закрыть досье">×</button>
+                                    </div>
+                                    <div class="dossier-body">
+                                        <div>
+                                            <span class="dossier-number" id="dossier-number">01</span>
+                                            <h3 id="dossier-name">МАЙКЛ ДЕ САНТА</h3>
+                                            <p id="dossier-role"></p>
+                                        </div>
+                                        <p class="dossier-description" id="dossier-description"></p>
+                                    </div>
+                                    <div class="dossier-tags" id="dossier-tags"></div>
+                                </div>
+                                <div class="panel-footer">
+                                    <span>ВЫБЕРИ ПРОФИЛЬ ДЛЯ ПОДРОБНОСТЕЙ</span>
+                                    <span>SCROLL / EXPLORE</span>
+                                </div>
+                            </section>
+                            <section class="tab-panel" id="panel-city" data-panel="city" hidden>
+                                <div class="panel-heading">
+                                    <div>
+                                        <p class="section-index">WORLD MAP</p>
+                                        <h2>ГОРОД <span>БЕЗ ГРАНИЦ</span></h2>
+                                    </div>
+                                    <span class="panel-counter">SAN ANDREAS</span>
+                                </div>
+                                <p class="panel-intro">
+                                    От солнечных холмов Вайнвуда до улиц Южного Лос-Сантоса.
+                                    Выбери отметку на карте.
+                                </p>
+                                <div class="map-legend">
+                                    <button class="legend-item is-active" data-filter="all" type="button">
+                                        <span class="legend-dot all-dot"></span> ВСЕ МЕСТА
+                                    </button>
+                                    <button class="legend-item" data-filter="michael" type="button">
+                                        <span class="legend-dot michael-dot"></span> МАЙКЛ
+                                    </button>
+                                    <button class="legend-item" data-filter="trevor" type="button">
+                                        <span class="legend-dot trevor-dot"></span> ТРЕВОР
+                                    </button>
+                                    <button class="legend-item" data-filter="franklin" type="button">
+                                        <span class="legend-dot franklin-dot"></span> ФРАНКЛИН
+                                    </button>
+                                </div>
+                                <div class="map-layout">
+                                    <div class="city-map" id="city-map" aria-label="Интерактивная карта Лос-Сантоса">
+                                        <div class="map-grid"></div>
+                                        <div class="map-label map-label-north">VINEWOOD HILLS</div>
+                                        <div class="map-label map-label-center">LOS SANTOS</div>
+                                        <div class="map-label map-label-south">SOUTH LOS SANTOS</div>
+                                        <div class="map-label map-label-west">PACIFIC OCEAN</div>
+                                        <button class="map-marker michael-marker" data-location="vinewood" data-character="michael" style="--x:43%;--y:61%" type="button" aria-label="Вайнвуд — Майкл">
+                                            <span></span>
+                                        </button>
+                                        <button class="map-marker franklin-marker" data-location="forum" data-character="franklin" style="--x:48%;--y:81%" type="button" aria-label="Строберри — Франклин">
+                                            <span></span>
+                                        </button>
+                                        <button class="map-marker trevor-marker" data-location="sandy" data-character="trevor" style="--x:64%;--y:37%" type="button" aria-label="Sandy Shores — Тревор">
+                                            <span></span>
+                                        </button>
+                                        <button class="map-marker michael-marker" data-location="studio" data-character="michael" style="--x:30%;--y:70%" type="button" aria-label="Ponsonbys — Майкл">
+                                            <span></span>
+                                        </button>
+                                        <button class="map-marker franklin-marker" data-location="customs" data-character="franklin" style="--x:43%;--y:76.5%" type="button" aria-label="Premium Deluxe Motorsport — Франклин">
+                                            <span></span>
+                                        </button>
+                                        <button class="map-marker trevor-marker" data-location="airfield" data-character="trevor" style="--x:58%;--y:42%" type="button" aria-label="Аэродром — Тревор">
+                                            <span></span>
+                                        </button>
+                                        <div class="map-coordinate">LS / 001—006</div>
+                                        <div class="map-compass">N <span>↑</span></div>
+                                    </div>
+                                    <aside class="location-card" id="location-card" aria-live="polite">
+                                        <div class="location-image" id="location-image">
+                                            <span class="location-code" id="location-code">LS / 001</span>
+                                        </div>
+                                        <div class="location-info">
+                                            <span class="location-type" id="location-type">DISTRICT / VINEWOOD</span>
+                                            <h3 id="location-name">ВЫБЕРИ ЛОКАЦИЮ</h3>
+                                            <p id="location-description">
+                                                Нажми на одну из цветных отметок, чтобы узнать больше о месте и его связи с персонажами.
+                                            </p>
+                                        </div>
+                                        <div class="location-owner">
+                                            <span>СВЯЗАННЫЙ ПЕРСОНАЖ</span>
+                                            <strong id="location-owner">—</strong>
+                                        </div>
+                                    </aside>
+                                </div>
+                                <div class="panel-footer">
+                                    <span>НАЖМИ НА ОТМЕТКУ НА КАРТЕ</span>
+                                    <span>MAP DATA / SAN ANDREAS</span>
+                                </div>
+                            </section>
+                            <section class="tab-panel" id="panel-gameplay" data-panel="gameplay" hidden>
+                                <div class="panel-heading">
+                                    <div>
+                                        <p class="section-index">GAME SYSTEMS</p>
+                                        <h2>ИГРАЙ <span>ПО-СВОИМ ПРАВИЛАМ</span></h2>
+                                    </div>
+                                    <span class="panel-counter">OPEN WORLD</span>
+                                </div>
+                                <p class="panel-intro">
+                                    Лос-Сантос — не просто декорация. Это огромный мир, где
+                                    каждая история переплетается с другими.
+                                </p>
+                                <div class="gameplay-feature">
+                                    <div class="feature-visual feature-heists">
+                                        <span class="feature-visual-title">THE BIG SCORE</span>
+                                    </div>
+                                    <div class="feature-copy">
+                                        <span class="feature-category">PLANNING / ACTION</span>
+                                        <h3>ОГРАБЛЕНИЯ</h3>
+                                        <p>
+                                            Подготовка, выбор подхода, команда и риск.
+                                            Большие дела требуют расчёта — и иногда полной импровизации.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="gameplay-feature reverse">
+                                    <div class="feature-visual feature-openworld">
+                                        <span class="feature-visual-title">NO LIMITS</span>
+                                    </div>
+                                    <div class="feature-copy">
+                                        <span class="feature-category">EXPLORATION / FREEDOM</span>
+                                        <h3>ОТКРЫТЫЙ МИР</h3>
+                                        <p>
+                                            Городские кварталы, пустыня, горы и побережье.
+                                            Можно следовать сюжету или отправиться исследовать мир самостоятельно.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="gameplay-feature">
+                                    <div class="feature-visual feature-vehicles">
+                                        <span class="feature-visual-title">FULL THROTTLE</span>
+                                    </div>
+                                    <div class="feature-copy">
+                                        <span class="feature-category">DRIVING / CUSTOMIZATION</span>
+                                        <h3>ТРАНСПОРТ</h3>
+                                        <p>
+                                            Спортивные автомобили, мотоциклы, самолёты и другие
+                                            виды транспорта. Скорость — часть жизни Лос-Сантоса.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="gameplay-feature reverse">
+                                    <div class="feature-visual feature-switch">
+                                        <span class="feature-visual-title">THREE PROTAGONISTS</span>
+                                    </div>
+                                    <div class="feature-copy">
+                                        <span class="feature-category">STORY / CHARACTERS</span>
+                                        <h3>ТРИ ИСТОРИИ</h3>
+                                        <p>
+                                            Переключайся между Майклом, Тревором и Франклином.
+                                            У каждого свой характер, окружение и взгляд на происходящее.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <span>WELCOME TO LOS SANTOS</span>
+                                    <span>END OF TRANSMISSION</span>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <footer class="interface-footer">
+                        <span><kbd>↑</kbd><kbd>↓</kbd> НАВИГАЦИЯ</span>
+                            <span><kbd>ENTER</kbd> ВЫБРАТЬ</span>
+                        <span>NEXUS / GTA V ARCHIVE</span>
+                    </footer>
+                </div>
+            </section>
+            <footer class="site-footer">
+                <a class="nexus-logo" href="../index.html" aria-label="Вернуться в NEXUS">
+                    <span class="logo-mark">N</span><span>NEXUS<span class="gold">.</span></span>
+                </a>
+                <p>LOS SANTOS IS WAITING.</p>
+                <a href="#top">НАВЕРХ ↑</a>
+            </footer>
+        </main>
+    </body>
+</html>
