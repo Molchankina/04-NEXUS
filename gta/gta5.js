@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         vinewood: {
             type: "DISTRICT / VINEWOOD",
             name: "VINEWOOD",
-            image: "images/vinewood",
+            image: "images/vinewood.jpg",
             description:
                 "Знаменитый район на холмах с роскошными домами, панорамными видами и атмосферой голливудской жизни. Здесь особенно заметен контраст между богатством и остальным городом.",
             owner: "МАЙКЛ",
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
         forum: {
             type: "DISTRICT / STRAWBERRY",
             name: "STRAWBERRY",
-            image: "images/strawberry",
+            image: "images/strawberry.jpg",
             description:
                 "Южная часть города с оживлёнными улицами и знакомыми Франклину районами. Здесь чувствуется совсем другой ритм жизни, чем в богатых кварталах на севере.",
             owner: "ФРАНКЛИН",
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
         sandy: {
             type: "REGION / DESERT",
             name: "SANDY SHORES",
-            image: "images/Sandy Shores",
+            image: "images/Sandy Shores.jpg",
             description:
                 "Пыльный посёлок у пустыни, где жизнь течёт по собственным правилам. Это подходящее место для Тревора — вдали от прилизанного и предсказуемого городского мира.",
             owner: "ТРЕВОР",
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
         studio: {
             type: "LOCATION / ROCKFORD HILLS",
             name: "PONSONBYS",
-            image: "images/ponsonbys",
+            image: "images/ponsonbys.jpg",
             description:
                 "Майкл туда заглядывает, чтобы соответствовать статусу — это подчёркивает его желание выглядеть как часть элиты Лос‑Сантоса.",
             owner: "МАЙКЛ",
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
         customs: {
             type: "LOCATION / VEHICLES",
             name: "Premium Deluxe Motorsport",
-            image: "images/premium Deluxe Motorsport",
+            image: "images/premium Deluxe Motorsport.jpg",
             description:
                 "Здесь завязывается сотрудничество, которое задаёт вектор дальнейших событий. Место становится отправной точкой для череды решений, серьёзно влияющих на путь героя.",
             owner: "ФРАНКЛИН",
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
         airfield: {
             type: "LOCATION / AIRFIELD",
             name: "Sandy Shores Airfield",
-            image: "images/Sandy-shores-airfield",
+            image: "images/Sandy-shores-airfield.jpg",
             description:
                 "Удалённая взлётная полоса в пустынном регионе. Она отражает тягу Тревора к авиации и его жизнь вдали от привычных городских правил.",
             owner: "ТРЕВОР",
@@ -220,6 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (locationImage && location.image){
             locationImage.style.backgroundImage =
                 `url("${location.image}")`;
+            locationImage.hidden = false;
         }
         locationOwner.style.color =
             `var(--${location.character})`;
@@ -259,6 +260,8 @@ document.addEventListener("DOMContentLoaded", () => {
             locationCode.textContent = "LS / MAP";
             locationType.textContent = "LOCATION DATABASE";
             locationName.textContent = "ВЫБЕРИ ЛОКАЦИЮ";
+            locationImage.hidden = true;
+            locationImage.style.backgroundImage = "none";
             locationDescription.textContent =
                 "Выбери подходящую цветную отметку на карте, чтобы открыть описание места.";
             locationOwner.textContent = "—";

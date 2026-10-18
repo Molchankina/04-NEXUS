@@ -984,8 +984,7 @@ padding: 10px 14px;
 }
 @media (max-width: 600px) {
     .hero {
-    min-height: 720px;
-    min-height: 100svh;
+    min-height: 70svh;
     padding: 21px 20px;
     }
     .hero-background {
