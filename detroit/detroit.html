@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#05080c">
+        <meta name="description" content="Detroit: Become Human — интерактивное досье NEXUS.">
+        <title>Detroit: Become Human — NEXUS</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="detroit.css">
+        <script src="detroit.js" defer></script>
+    </head>
+    <body>
+        <main class="detroit-page">
+            <div class="system-background" aria-hidden="true">
+                <div class="background-orb orb-one"></div>
+                <div class="background-orb orb-two"></div>
+                <div class="background-grid"></div>
+            </div>
+            <section class="activation-screen" id="activation-screen" aria-label="Активация системы">
+                <div class="activation-top">
+                    <span class="system-label"><i class="status-light"></i> NEXUS SYSTEM INTERFACE</span>
+                    <span class="system-version">ANDROID OS / 2038</span>
+                </div>
+                <div class="activation-center">
+                    <p class="system-prompt" id="system-prompt">СИСТЕМА ОЖИДАЕТ КОМАНДУ</p>
+                    <button class="diode-trigger" id="diode-trigger" type="button" aria-label="Нажать для загрузки системы">
+                        <img src="images/detroit-diode.webp" alt="" class="diode-image">
+                        <span class="diode-hit-area" aria-hidden="true"></span>
+                    </button>
+                    <p class="activation-hint" id="activation-hint">КОСНИСЬ ДИОДА ДЛЯ ЗАГРУЗКИ СИСТЕМЫ</p>
+                </div>
+                <div class="loading-interface" id="loading-interface" aria-live="polite">
+                    <p class="activation-message" id="activation-message">НАЧИНАЕТСЯ АКТИВАЦИЯ</p>
+                    <div class="loading-meta">
+                        <span id="loading-status">ИНИЦИАЛИЗАЦИЯ СИСТЕМЫ</span>
+                        <span id="loading-percent">0%</span>
+                    </div>
+                    <div class="loading-track" role="progressbar" aria-label="Загрузка системы" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="loading-track">
+                        <span class="loading-fill" id="loading-fill"></span>
+                        <span class="loading-glint"></span>
+                    </div>
+                    <p class="loading-footnote" id="loading-footnote">ПОЖАЛУЙСТА, НЕ ПРЕРЫВАЙТЕ ПРОЦЕСС</p>
+                </div>
+                <div class="activation-bottom">
+                    <span>CYBERLIFE COMPATIBLE INTERFACE</span>
+                    <span>SECURE CONNECTION <i class="status-light"></i></span>
+                </div>
+            </section>
+            <div class="system-content" id="system-content" aria-hidden="true">
+                <header class="site-header">
+                    <a class="nexus-logo" href="../index.html" aria-label="Вернуться в NEXUS">
+                        <span class="logo-mark">N</span><span>NEXUS<span class="blue-dot">.</span></span>
+                    </a>
+                    <div class="header-status"><span class="status-light"></span> SYSTEM ONLINE</div>
+                    <a class="back-link" href="../index.html">АРХИВ ИГР</a>
+                </header>
+                <section class="hero" id="top">
+                    <div class="hero-copy">
+                        <p class="eyebrow">CYBERLIFE / MODEL RK800</p>
+                        <h1>DETROIT:<br><span>BECOME HUMAN</span></h1>
+                        <p class="hero-description">ОДИН МИР. ТРИ ИСТОРИИ. СОТНИ РЕШЕНИЙ, КОТОРЫЕ МЕНЯЮТ ВСЁ.</p>
+                        <a class="primary-link" href="#database">ОТКРЫТЬ ДОСЬЕ</a>
+                    </div>
+                    <div class="hero-data" aria-hidden="true">
+                        <span>28 / 11 / 2038</span>
+                        <span class="data-line"></span>
+                        <span>HUMANITY NOT FOUND</span>
+                    </div>
+                    <div class="hero-bottom"><span>QUANTIC DREAM / 2018</span><span>CHOICE IS EVERYTHING ↓</span></div>
+                </section>
+                <section class="database-section" id="database">
+                    <div class="section-heading">
+                        <div><p class="eyebrow">NEXUS ARCHIVE / DATABASE 008</p><h2>СИСТЕМА <span>ПЕРСОНАЖЕЙ</span></h2></div>
+                    </div>
+                    <p class="section-intro">Каждый выбор оставляет след. Изучи досье андроидов, чьи решения способны изменить ход истории.</p>
+                    <div class="character-grid">
+                        <article class="character-card connor">
+                            <div class="character-visual visual-connor">
+                                <span class="visual-index">RK800 / 51</span>
+                                <img src="images/Conner.jpg">
+                            </div>
+                            <div class="character-info" alt="Коннор">
+                                <span class="character-model">MODEL RK800</span>
+                                <h3>КОННОР</h3>
+                                <p>
+                                    Охотник на девиантов. Создан анализировать, 
+                                    находить закономерности и выполнять приказы. Но что происходит, 
+                                    когда логика сталкивается с выбором?
+                                </p>
+                                <div class="character-tags"><span>АНАЛИЗ</span><span>ТОЧНОСТЬ</span><span>ВЫБОР</span></div>
+                            </div>
+                        </article>
+                        <article class="character-card kara">
+                            <div class="character-visual visual-kara">
+                                <span class="visual-index">AX400 / 19</span>
+                                <img src="images/Kara.jpg">
+                            </div>
+                            <div class="character-info">
+                                <span class="character-model">MODEL AX400</span>
+                                <h3>КАРА</h3>
+                                <p>
+                                    Домашний андроид, чья история превращается в путь через страх, 
+                                    опасность и ответственность за чужую жизнь.
+                                </p>
+                                <div class="character-tags"><span>ЗАЩИТА</span><span>ЗАБОТА</span><span>СВОБОДА</span></div>
+                            </div>
+                        </article>
+                        <article class="character-card markus">
+                            <div class="character-visual visual-markus">
+                                <span class="visual-index">RK200 / 03</span>
+                                <img src="images/Markus.jpg">
+                            </div>
+                            <div class="character-info">
+                                <span class="character-model">MODEL RK200</span>
+                                <h3>МАРКУС</h3>
+                                <p>
+                                    Помощник и художник, которому предстоит стать голосом тех, 
+                                    кто больше не согласен оставаться собственностью.
+                                </p>
+                                <div class="character-tags"><span>ЛИДЕРСТВО</span><span>ВЕРА</span><span>БУДУЩЕЕ</span></div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="system-note"><span class="status-light"></span><span>ДОСЬЕ РАСШИФРОВАНЫ</span><span class="note-line"></span><span>USER DECISIONS: UNDEFINED</span></div>
+                </section>
+                <section class="choice-section">
+                    <div class="choice-mark">“</div>
+                    <p class="eyebrow">SYSTEM QUESTION</p>
+                    <h2>ЧТО ДЕЛАЕТ НАС <span>ЛЮДЬМИ?</span></h2>
+                    <p>Память? Чувства? Способность выбирать, даже когда выбор противоречит программе?</p>
+                    <div class="choice-footer"><span>THINK FOR YOURSELF</span><span>END OF FILE / 008</span></div>
+                </section>
+                <footer class="site-footer"><a class="nexus-logo" href="../index.html"><span class="logo-mark">N</span><span>NEXUS<span class="blue-dot">.</span></span></a><span>DETROIT: BECOME HUMAN / ARCHIVE 008</span><a href="#top">В НАЧАЛО ↑</a></footer>
+            </div>
+        </main>
+    </body>
+</html>
