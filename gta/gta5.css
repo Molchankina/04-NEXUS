@@ -756,18 +756,25 @@ padding: 10px 14px;
 }
 .location-image {
     position: relative;
-    min-height: 115px;
-    background:
-        linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent),
-        linear-gradient(135deg, #51594a, #262b25);
+    min-height: 220px;
+    overflow: hidden;
+    background-color: #252723;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid var(--gta-line);
+    transition: background-image 0.3s ease;
 }
 .location-code {
     position: absolute;
-    bottom: 10px;
-    left: 11px;
-    color: white;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+    padding: 7px 10px;
+    background: rgba(10, 10, 9, 0.75);
+    color: var(--gta-white);
     font-size: 10px;
-    letter-spacing: 0.13em;
+    letter-spacing: 0.12em;
 }
 .location-info {
     padding: 14px;
@@ -1145,6 +1152,10 @@ padding: 10px 14px;
         order: 3;
         width: 100%;
         margin-bottom: 0;
+    }
+    #character-dossier,
+    #location-card {
+        scroll-margin-top: 20px;
     }
 }
 @media (prefers-reduced-motion: reduce) {

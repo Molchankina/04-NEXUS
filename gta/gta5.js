@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+    function scrollToInfo(element) {
+        if (!element) return;
+        if (window.matchMedia("(max-width: 600px)").matches) {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            }); 
+        }
+    }
     const tabButtons = document.querySelectorAll("[data-tab]");
     const tabPanels = document.querySelectorAll("[data-panel]");
     const openMenuButton = document.querySelector("[data-open-menu]");
@@ -122,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
             dossierTags.append(tagElement);
         });
         dossier.hidden = false;
+        scrollToInfo(dossier);
     }
     characterCards.forEach((card) => {
         card.addEventListener("click", () => {
@@ -133,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         vinewood: {
             type: "DISTRICT / VINEWOOD",
             name: "VINEWOOD",
+            image: "images/vinewood",
             description:
                 "Знаменитый район на холмах с роскошными домами, панорамными видами и атмосферой голливудской жизни. Здесь особенно заметен контраст между богатством и остальным городом.",
             owner: "МАЙКЛ",
@@ -141,6 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
         forum: {
             type: "DISTRICT / STRAWBERRY",
             name: "STRAWBERRY",
+            image: "images/strawberry",
             description:
                 "Южная часть города с оживлёнными улицами и знакомыми Франклину районами. Здесь чувствуется совсем другой ритм жизни, чем в богатых кварталах на севере.",
             owner: "ФРАНКЛИН",
@@ -149,6 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
         sandy: {
             type: "REGION / DESERT",
             name: "SANDY SHORES",
+            image: "images/Sandy Shores",
             description:
                 "Пыльный посёлок у пустыни, где жизнь течёт по собственным правилам. Это подходящее место для Тревора — вдали от прилизанного и предсказуемого городского мира.",
             owner: "ТРЕВОР",
@@ -157,6 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
         studio: {
             type: "LOCATION / ROCKFORD HILLS",
             name: "PONSONBYS",
+            image: "images/ponsonbys",
             description:
                 "Майкл туда заглядывает, чтобы соответствовать статусу — это подчёркивает его желание выглядеть как часть элиты Лос‑Сантоса.",
             owner: "МАЙКЛ",
@@ -165,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
         customs: {
             type: "LOCATION / VEHICLES",
             name: "Premium Deluxe Motorsport",
+            image: "images/premium Deluxe Motorsport",
             description:
                 "Здесь завязывается сотрудничество, которое задаёт вектор дальнейших событий. Место становится отправной точкой для череды решений, серьёзно влияющих на путь героя.",
             owner: "ФРАНКЛИН",
@@ -172,7 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         airfield: {
             type: "LOCATION / AIRFIELD",
-            name: "ПУСТЫННЫЙ АЭРОДРОМ",
+            name: "Sandy Shores Airfield",
+            image: "images/Sandy-shores-airfield",
             description:
                 "Удалённая взлётная полоса в пустынном регионе. Она отражает тягу Тревора к авиации и его жизнь вдали от привычных городских правил.",
             owner: "ТРЕВОР",
@@ -186,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const locationName = document.querySelector("#location-name");
     const locationDescription = document.querySelector("#location-description");
     const locationOwner = document.querySelector("#location-owner");
+    const locationImage = document.querySelector("#location-image")
     let activeLocation = null;
     let activeFilter = "all";
     function selectLocation(locationId, marker) {
@@ -200,17 +217,19 @@ document.addEventListener("DOMContentLoaded", () => {
         locationName.textContent = location.name;
         locationDescription.textContent = location.description;
         locationOwner.textContent = location.owner;
-
+        if (locationImage && location.image){
+            locationImage.style.backgroundImage =
+                `url("${location.image}")`;
+        }
         locationOwner.style.color =
             `var(--${location.character})`;
+        scrollToInfo(document.querySelector("#location-card"));
     }
-
     mapMarkers.forEach((marker) => {
         marker.addEventListener("click", () => {
             selectLocation(marker.dataset.location, marker);
         });
     });
-
     function filterLocations(characterId) {
         activeFilter = characterId;
         legendButtons.forEach((button) => {
@@ -225,8 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 marker.dataset.character === characterId;
             marker.classList.toggle("is-filtered", !matches);
         });
-        // Если выбранная точка скрыта фильтром,
-        // снимаем выделение и показываем подсказку.
         const selectedMarker = Array.from(mapMarkers).find(
             (marker) => marker.dataset.location === activeLocation
         );
