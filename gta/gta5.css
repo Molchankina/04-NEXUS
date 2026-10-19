@@ -910,15 +910,6 @@ padding: 10px 14px;
     padding: 13px 0;
     border-top: 1px solid var(--gta-line);
 }
-.interface-footer kbd {
-    display: inline-block;
-    margin-right: 4px;
-    padding: 4px 6px;
-    border: 1px solid var(--gta-line);
-    background: rgba(0, 0, 0, 0.28);
-    color: #eee;
-    font: inherit;
-}
 .site-footer {
     display: flex;
     align-items: center;
