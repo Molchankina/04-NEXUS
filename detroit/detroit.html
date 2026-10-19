@@ -77,7 +77,7 @@
                     </div>
                     <p class="section-intro">Каждый выбор оставляет след. Изучи досье андроидов, чьи решения способны изменить ход истории.</p>
                     <div class="character-grid">
-                        <article class="character-card connor">
+                        <article class="character-card connor" data-character="connor" role="button" tadinex="0" aria-label="Открытье досье Коннора">
                             <div class="character-visual visual-connor">
                                 <span class="visual-index">RK800 / 51</span>
                                 <img src="images/Conner.jpg">
@@ -85,15 +85,9 @@
                             <div class="character-info" alt="Коннор">
                                 <span class="character-model">MODEL RK800</span>
                                 <h3>КОННОР</h3>
-                                <p>
-                                    Охотник на девиантов. Создан анализировать, 
-                                    находить закономерности и выполнять приказы. Но что происходит, 
-                                    когда логика сталкивается с выбором?
-                                </p>
-                                <div class="character-tags"><span>АНАЛИЗ</span><span>ТОЧНОСТЬ</span><span>ВЫБОР</span></div>
                             </div>
                         </article>
-                        <article class="character-card kara">
+                        <article class="character-card kara" data-character="kara" role="button" tadinex="0" aria-label="Открытье досье Кары"></article>>
                             <div class="character-visual visual-kara">
                                 <span class="visual-index">AX400 / 19</span>
                                 <img src="images/Kara.jpg">
@@ -101,14 +95,9 @@
                             <div class="character-info">
                                 <span class="character-model">MODEL AX400</span>
                                 <h3>КАРА</h3>
-                                <p>
-                                    Домашний андроид, чья история превращается в путь через страх, 
-                                    опасность и ответственность за чужую жизнь.
-                                </p>
-                                <div class="character-tags"><span>ЗАЩИТА</span><span>ЗАБОТА</span><span>СВОБОДА</span></div>
                             </div>
                         </article>
-                        <article class="character-card markus">
+                        <article class="character-card markus" data-character="markus" role="button" tadinex="0" aria-label="Открытье досье Маркус"></article>>
                             <div class="character-visual visual-markus">
                                 <span class="visual-index">RK200 / 03</span>
                                 <img src="images/Markus.jpg">
@@ -116,15 +105,15 @@
                             <div class="character-info">
                                 <span class="character-model">MODEL RK200</span>
                                 <h3>МАРКУС</h3>
-                                <p>
-                                    Помощник и художник, которому предстоит стать голосом тех, 
-                                    кто больше не согласен оставаться собственностью.
-                                </p>
-                                <div class="character-tags"><span>ЛИДЕРСТВО</span><span>ВЕРА</span><span>БУДУЩЕЕ</span></div>
                             </div>
                         </article>
                     </div>
-                    <div class="system-note"><span class="status-light"></span><span>ДОСЬЕ РАСШИФРОВАНЫ</span><span class="note-line"></span><span>USER DECISIONS: UNDEFINED</span></div>
+                    <div class="system-note" id="system-note">
+                        <span class="status-light status-light-locked" id="dossier-status-light"></span>
+                        <span id="dossier-status-text">ДОСЬЕ РАСШИФРОВАНЫ</span>
+                        <span class="note-line"></span>
+                        <span id="dossier-counter">0 / 3</span>
+                    </div>
                 </section>
                 <section class="choice-section">
                     <div class="choice-mark">“</div>
@@ -133,8 +122,86 @@
                     <p>Память? Чувства? Способность выбирать, даже когда выбор противоречит программе?</p>
                     <div class="choice-footer"><span>THINK FOR YOURSELF</span><span>END OF FILE / 008</span></div>
                 </section>
-                <footer class="site-footer"><a class="nexus-logo" href="../index.html"><span class="logo-mark">N</span><span>NEXUS<span class="blue-dot">.</span></span></a><span>DETROIT: BECOME HUMAN / ARCHIVE 008</span><a href="#top">В НАЧАЛО ↑</a></footer>
+                <footer class="site-footer">
+                    <a class="nexus-logo" href="../index.html">
+                        <span class="logo-mark">N</span><span>NEXUS<span class="blue-dot">.</span></span>
+                    </a><span>DETROIT: BECOME HUMAN / ARCHIVE 008</span>
+                    <a href="#top">В НАЧАЛО ↑</a>
+                </footer>
             </div>
+            <dialog class="dossier-dialog" id="dossier-dialog">
+                <section class="dossier-stage" id="dossier-confirm">
+                    <span class="dossier-eyebrow">NEXUS / SECURITY PROTOCOL</span>
+                    <div class="dossier-symbol">◈</div>
+                    <h2>ВЫ УВЕРЕНЫ, ЧТО ХОТИТЕ ПРОСМОТРЕТЬ ДОСЬЕ?</h2>
+                    <p class="dossier-description">
+                        Запрашивается доступ к персональному файлу андроида.
+                    </p>
+                    <div class="dossier-actions">
+                        <button class="dossier-button dossier-button--primary"
+                                id="dossier-yes" type="button">
+                            ДА
+                        </button>
+                        <button class="dossier-button"
+                                id="dossier-no" type="button">
+                            НЕТ
+                        </button>
+                    </div>
+                </section>
+                <section class="dossier-stage" id="dossier-loading" hidden>
+                    <span class="dossier-eyebrow">CYBERLIFE / DATA ACCESS</span>
+                    <h2>АКТИВАЦИЯ ДОСЬЕ</h2>
+                    <p class="dossier-description" id="dossier-loading-name">
+                        ПОДКЛЮЧЕНИЕ К ФАЙЛУ...
+                    </p>
+                    <div class="dossier-progress-meta">
+                        <span>РАСШИФРОВКА</span>
+                        <span id="dossier-progress-percent">0%</span>
+                    </div>
+                    <div class="dossier-progress-track"
+                        role="progressbar"
+                        aria-label="Расшифровка досье"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-valuenow="0"
+                        id="dossier-progress-track">
+                        <span id="dossier-progress-fill"></span>
+                    </div>
+                    <p class="dossier-description" id="dossier-loading-status">
+                        ПРОВЕРКА ДОСТУПА
+                    </p>
+                </section>
+                <section class="dossier-stage" id="dossier-result" hidden>
+                    <div class="dossier-result-top">
+                        <span class="dossier-eyebrow">NEXUS / DECRYPTED FILE</span>
+                        <span class="dossier-clearance">ACCESS GRANTED</span>
+                    </div>
+                    <div class="dossier-result-heading">
+                        <div>
+                            <p class="dossier-model" id="dossier-model"></p>
+                            <h2 id="dossier-name"></h2>
+                        </div>
+                        <span class="dossier-symbol">◈</span>
+                    </div>
+                    <p class="dossier-role" id="dossier-role"></p>
+                    <div class="dossier-data-block">
+                        <span class="dossier-eyebrow">ОПИСАНИЕ</span>
+                        <p id="dossier-description"></p>
+                    </div>
+                    <div class="dossier-data-block">
+                        <span class="dossier-eyebrow">ОСОБЕННОСТИ</span>
+                        <p id="dossier-traits"></p>
+                    </div>
+                    <div class="dossier-data-block">
+                        <span class="dossier-eyebrow">ДАННЫЕ СИСТЕМЫ</span>
+                        <p id="dossier-system-note"></p>
+                    </div>
+                    <button class="dossier-button dossier-button--primary"
+                            id="dossier-close" type="button">
+                        ЗАКРЫТЬ ДОСЬЕ
+                    </button>
+                </section>
+            </dialog>
         </main>
     </body>
 </html>
