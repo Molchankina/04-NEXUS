@@ -4,7 +4,7 @@
     --panel: #171B20;
     --text: #F1F2F4;
     --muted: #9299A5;
-    --line: rgba(197, 201, 255, 0.14);
+    --line: rgba(182, 187, 197, 0.16);
     --accent: #B6BBC5;
     --accent-soft: #343B45;
     --container: 1440px;
@@ -66,7 +66,7 @@ select:focus-visible {
     gap: 28px;
     padding: 18px clamp(22px, 6vw, 96px);
     border-bottom: 1px solid var(--line);
-    background: rgba(8, 10, 18, 0.94);
+    background: rgba(9, 11, 14, 0.96);
 }
 .catalog-logo {
     display: inline-flex;
@@ -140,8 +140,17 @@ select:focus-visible {
     border-bottom: 1px solid var(--line);
     isolation: isolate;
     background:
-        radial-gradient(ellipse at 76% 38%, rgba(124, 131, 255, 0.15), transparent 32%),
-        linear-gradient(115deg, #090b14 0%, #111625 54%, #080A12 100%);
+        radial-gradient(
+            ellipse at 76% 38%, 
+            rgba(182, 187, 197, 0.09), 
+            transparent 35%
+        ),
+        linear-gradient(
+            115deg, 
+            #090B0E 0%, 
+            #171B20 54%, 
+            #090B0E 100%
+        );
 }
 .hero-content { 
     width: min(800px, 100%); 
@@ -163,7 +172,7 @@ select:focus-visible {
     flex: 0 0 7px;
     border-radius: 50%;
     background: var(--accent);
-    box-shadow: 0 0 15px rgba(124, 131, 255, 0.7);
+    box-shadow: 0 0 12px rgba(182, 187, 197, 0.05);
 }
 .catalog-hero h1 {
     margin: 30px 0 23px;
@@ -175,55 +184,8 @@ select:focus-visible {
 .catalog-hero h1 span { 
     color: var(--accent); 
 }
-.hero-description {
-    max-width: 520px;
-    margin: 0;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.9;
-}
-.hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 36px;
-    margin-top: 31px;
-    padding: 15px 18px;
-    border: 1px solid rgba(124, 131, 255, 0.55);
-    background: rgba(124, 131, 255, 0.06);
-    font-size: 10px;
-    font-weight: 800;
-    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-}
-.hero-cta span { 
-    color: var(--accent); 
-    font-size: 16px; 
-}
-.hero-cta:hover { 
-    background: var(--accent); 
-    color: var(--bg); 
-}
-.hero-cta:hover span { 
-    color: var(--bg); 
-}
-.hero-index {
-    position: absolute;
-    right: clamp(22px, 6vw, 90px);
-    bottom: 30px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: rgba(146, 152, 174, 0.7);
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-}
-.index-line { 
-    width: 45px; 
-    height: 1px; 
-    background: var(--accent); 
-}
 .library-section {
-    padding: clamp(64px, 8vw, 110px) clamp(22px, 6vw, 96px) 90px;
+    padding: 60px clamp(22px, 6vw, 96px) 90px;
     background:
         radial-gradient(ellipse at 12% 0%, rgba(61, 77, 99, 0.1), transparent 40%),
         var(--bg-soft);
@@ -285,7 +247,7 @@ select:focus-visible {
     transition: border-color 0.25s ease;
 }
 .search-field:focus-within { 
-    border-color: rgba(124, 131, 255, 0.75); 
+    border-color: rgba(182, 187, 197, 0.7); 
 }
 .search-icon { 
     color: var(--accent); 
@@ -324,13 +286,13 @@ select:focus-visible {
     padding: 0 30px 0 12px;
     border: 1px solid var(--line);
     border-radius: 0;
-    background-color: #0b0e18;
+    background-color: #101318;
     color: var(--text);
     font-size: 10px;
     cursor: pointer;
 }
 .filter-field select:hover { 
-    border-color: rgba(124, 131, 255, 0.5); 
+    border-color: rgba(182, 187, 197, 0.5); 
 }
 .reset-filters {
     display: inline-flex;
@@ -390,14 +352,14 @@ select:focus-visible {
     flex-direction: column;
     padding: 8px;
     border: 1px solid var(--line);
-    background: rgba(8, 10, 18, 0.78);
+    background: rgba(16, 19, 24, 0.85);
     transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
     animation: card-enter 0.35s ease both;
 }
 .catalog-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(124, 131, 255, 0.65);
-    background: #0c1020;
+    border-color: rgba(182, 187, 197, 0.65);
+    background: #1C2128;
 }
 .card-top {
     display: flex;
