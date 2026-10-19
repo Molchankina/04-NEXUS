@@ -119,7 +119,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Модель сочетает практические функции с возможностями творческой деятельности."
         }
     };
-    let selectedCharacter = null;
+    let savedScrollY = 0;
+    function lockPageScroll() {
+        savedScrollY = window.scrollY;
+        document.body.classList.add("dossier-open");
+        document.body.style.top = `-${savedScrollY}px`;
+    }
+    function unlockPageScroll() {
+        document.body.classList.remove("dossier-open");
+        document.body.style.top = "";
+        window.scrollTo({
+            top: savedScrollY,
+            behavior: "instant"
+        });
+    }
     const decodedDossiers = new Set();
     function showDossierStage(stage) {
         confirmStage.hidden = stage !== "confirm";
@@ -139,9 +152,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     function openDossierConfirmation(characterId) {
-        if (!dossierData[characterId]) return;
+        const dossier = dossierData[characterId];
+        if (!dossier) return;
         selectedCharacter = characterId;
+        if (decodedDossiers.has(characterId)) {
+            dossierName.textContent = dossier.name;
+            dossierModel.textContent = dossier.model;
+            dossierRole.textContent = dossier.role;
+            dossierDescription.textContent = dossier.description;
+            dossierTraits.textContent = dossier.traits;
+            dossierSystemNote.textContent = dossier.systemNote;
+            showDossierStage("result");
+            lockPageScroll();
+            dossierDialog.showModal();
+            return;
+        }
         showDossierStage("confirm");
+        lockPageScroll();
         dossierDialog.showModal();
     }
     function activateDossier() {
@@ -206,6 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dossierDialog.close();
     });
     dossierDialog.addEventListener("close", () => {
+        unlockPageScroll();
         selectedCharacter = null;
         showDossierStage("confirm");
     });

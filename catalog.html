@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Исследуй каталог NEXUS: сюжетные игры, хорроры, RPG, приключения и кооперативные игры.">
+    <meta name="theme-color" content="#080A12">
+    <title>Каталог игр — NEXUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="catalog.css">
+    <script src="catalog.js" defer></script>
+</head>
+<body>
+    <div class="catalog-shell">
+        <header class="catalog-header">
+            <a class="catalog-logo" href="index.html" aria-label="NEXUS — главная">
+                <span class="catalog-logo-mark">N</span>
+                <span>NEXUS<span class="accent">.</span></span>
+            </a>
+            <nav class="catalog-nav" aria-label="Основная навигация">
+                <a href="index.html">Главная</a>
+                <a class="is-current" href="catalog.html" aria-current="page">Каталог игр</a>
+            </nav>
+            <a class="header-home-link" href="index.html">На главную <span aria-hidden="true">↗</span></a>
+        </header>
+        <main>
+            <section class="catalog-hero" aria-labelledby="catalog-title">
+                <div class="hero-content">
+                    <p class="eyebrow"><span class="status-dot"></span> NEXUS DATABASE / GAME INDEX</p>
+                    <h1 id="catalog-title">Найди свой<br><span>следующий мир.</span></h1>
+                    <p class="hero-description">
+                        Истории, которые меняют тебя. Миры, в которых хочется остаться.
+                        Выбери настроение — и найди игру для следующего путешествия.
+                    </p>
+                    <a class="hero-cta" href="#game-library">Исследовать каталог <span aria-hidden="true">↓</span></a>
+                </div>
+                <div class="hero-index" aria-hidden="true">
+                    <span>ARCHIVE 001—014</span>
+                    <span class="index-line"></span>
+                    <span>SELECT / FILTER / DISCOVER</span>
+                </div>
+            </section>
+            <section class="library-section" id="game-library" aria-labelledby="library-title">
+                <div class="library-heading">
+                    <div>
+                        <p class="section-kicker"><span class="kicker-line"></span> SELECT YOUR UNIVERSE</p>
+                        <h2 id="library-title">Игровой <span>архив.</span></h2>
+                    </div>
+                    <p class="library-intro">Настрой фильтры под себя или просто изучай коллекцию.</p>
+                </div>
+                <div class="filter-panel">
+                    <div class="search-wrap">
+                        <label for="game-search">Поиск по каталогу</label>
+                        <div class="search-field">
+                            <span aria-hidden="true" class="search-icon">⌕</span>
+                            <input id="game-search" type="search" placeholder="Название игры..." autocomplete="off">
+                            <kbd>SEARCH</kbd>
+                        </div>
+                    </div>
+                    <div class="filters-grid">
+                        <div class="filter-field">
+                            <label for="story-filter">Акцент на сюжет</label>
+                            <select id="story-filter">
+                                <option value="all">Любой</option>
+                                <option value="story">Сюжетные</option>
+                                <option value="open">Свободное исследование</option>
+                            </select>
+                        </div>
+                        <div class="filter-field">
+                            <label for="mode-filter">Режим игры</label>
+                            <select id="mode-filter">
+                                <option value="all">Любой режим</option>
+                                <option value="solo">Одиночная</option>
+                                <option value="coop">Кооператив</option>
+                                <option value="multi">Мультиплеер</option>
+                            </select>
+                        </div>
+                        <div class="filter-field">
+                            <label for="genre-filter">Жанр</label>
+                            <select id="genre-filter">
+                                <option value="all">Все жанры</option>
+                                <option value="action">Экшен</option>
+                                <option value="adventure">Приключение</option>
+                                <option value="horror">Хоррор</option>
+                                <option value="rpg">RPG</option>
+                                <option value="puzzle">Головоломка</option>
+                            </select>
+                        </div>
+                        <div class="filter-field">
+                            <label for="camera-filter">Камера</label>
+                            <select id="camera-filter">
+                                <option value="all">Любая</option>
+                                <option value="first">От первого лица</option>
+                                <option value="third">От третьего лица</option>
+                            </select>
+                        </div>
+                        <div class="filter-field">
+                            <label for="mood-filter">Атмосфера</label>
+                            <select id="mood-filter">
+                                <option value="all">Любая</option>
+                                <option value="dark">Мрачная</option>
+                                <option value="emotional">Эмоциональная</option>
+                                <option value="calm">Спокойное исследование</option>
+                                <option value="energetic">Динамичная</option>
+                            </select>
+                        </div>
+                        <button class="reset-filters" id="reset-filters" type="button">Сбросить фильтры <span aria-hidden="true">↺</span></button>
+                    </div>
+                </div>
+                <div class="results-bar" aria-live="polite">
+                    <p><span class="results-label">MATCHING WORLDS</span> <strong id="results-count">14</strong></p>
+                    <p id="active-filter-note">Все игры каталога</p>
+                </div>
+                <div class="game-grid" id="game-grid">
+                    <!-- Карточки создаются из массива в catalog.js -->
+                </div>
+                <div class="empty-state" id="empty-state" hidden>
+                    <span class="empty-symbol" aria-hidden="true">∅</span>
+                    <h3>Мир не найден.</h3>
+                    <p>Попробуй изменить фильтры или поисковый запрос.</p>
+                    <button class="reset-filters empty-reset" type="button">Сбросить фильтры</button>
+                </div>
+            </section>
+        </main>
+        <footer class="catalog-footer">
+            <a class="catalog-logo footer-logo" href="index.html">
+                <span class="catalog-logo-mark">N</span>
+                <span>NEXUS<span class="accent">.</span></span>
+            </a>
+            <p>НЕ ПРОСТО ИГРЫ. ЦЕЛЫЕ МИРЫ.</p>
+            <a href="#catalog-title" class="back-to-top">НАВЕРХ ↑</a>
+        </footer>
+    </div>
+</body>
+</html>

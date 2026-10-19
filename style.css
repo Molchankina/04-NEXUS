@@ -1,12 +1,12 @@
 :root {
-    --bg: #080A12;
-    --bg-soft: #111625;
-    --panel: #171D2D;
-    --text: #F1F2FA;
-    --muted: #9298AE;
+    --bg: #090B0E;
+    --bg-soft: #101318;
+    --panel: #171B20;
+    --text: #F1F2F4;
+    --muted: #9299A5;
     --line: rgba(197, 201, 255, 0.14);
-    --accent: #7C83FF;
-    --accent-dark: #575FE0;
+    --accent: #B6BBC5;
+    --accent-dark: #343B45;
     --container: 1440px;
 }
 * {
@@ -62,7 +62,7 @@ a:focus-visible {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 88px;
+    min-height: 70px;
     border-bottom: 1px solid var(--line);
     background: rgba(8, 9, 12, 0.92);
 }
@@ -150,45 +150,26 @@ a:focus-visible {
 }
 .hero {
     position: relative;
-    min-height: min(900px, 100svh);
+    min-height: min(900px, calc(100svh - 70px));
     padding: 48px clamp(22px, 6vw, 96px) 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     isolation: isolate;
     overflow: hidden;
-}
-.hero-posters {
-    position: absolute;
-    inset: -60px;
-    z-index: -2;
-    display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    grid-auto-rows: 220px;
-    gap: clamp(4px, 1vw, 14px);
-    transform: rotate(-6deg) scale(1.08);
-    opacity: 0.7;
-    filter: blur(1px);
-    pointer-events: none;
-}
-.hero-posters img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: 
-        linear-gradient(
-        180deg,
-        rgba(8, 10, 18, 0.55) 0%,
-        rgba(8, 10, 18, 0.72) 55%,
-        #080A12 100%
-        );
-    pointer-events: none;
+    background-image:
+        radial-gradient(
+            ellipse at center,
+            rgba(9, 11, 14, 0.92) 0%,
+            rgba(9, 11, 14, 0.78) 35%,
+            rgba(9, 11, 14, 0.45) 65%,
+            rgba(9, 11, 14, 0.12) 90%,
+            rgba(9, 11, 14, 0) 100%
+        ),
+        url("images/nexus-hero-bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .hero-content {
     position: relative;
@@ -629,6 +610,57 @@ a:focus-visible {
 .back-to-top:hover {
     color: var(--text);
 }
+.catalog-cta-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 480px;
+    padding: clamp(70px, 10vw, 130px) 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #0e1015;
+    background-image:
+        linear-gradient(
+        to bottom,
+        rgba(8, 9, 12, 0.45),
+        rgba(8, 9, 12, 0.78)
+        ),
+        url("images/catalog-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.catalog-cta-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 780px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.catalog-cta-content .section-kicker {
+    justify-content: center;
+    margin-bottom: 24px;
+}
+.catalog-cta-content h2 {
+    max-width: 750px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+.catalog-cta-content p {
+    max-width: 600px;
+    margin: 0 auto 32px;
+    text-align: center;
+    line-height: 1.7;
+}
+.catalog-cta-content .button {
+    align-self: center;
+}
 @keyframes art-appear {
     from {
         opacity: 0;
@@ -790,6 +822,10 @@ a:focus-visible {
         top: 0;
         right: -5%;
         font-size: 280px;
+    }
+    .catalog-cta-section {
+        min-height: 420px;
+        padding: 70px 20px;
     }
     .footer {
         flex-wrap: wrap;
