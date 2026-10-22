@@ -35,9 +35,9 @@ function createCard(game, index) {
     poster.append(image);
     const info = document.createElement("div");
     info.className = "card-info";
-    const universe = document.createElement("span");
-    universe.className = "card-universe";
-    universe.textContent = game.universe;
+    const developer = document.createElement("span");
+    developer.className = "card-universe";
+    developer.textContent = game.universe;
     const title = document.createElement("h3");
     title.textContent = game.title;
     const tags = document.createElement("div");
@@ -54,7 +54,7 @@ function createCard(game, index) {
     arrow.setAttribute("aria-hidden", "true");
     arrow.textContent = "↗";
     open.append(arrow);
-    info.append(universe, title, tags, open);
+    info.append(developer, title, tags, open);
     card.append(top, poster, info);
     return card;
 }
