@@ -139,6 +139,8 @@ function editGame(game) {
     document.querySelector("#game-category").value = game.category ?? "";
     document.querySelector("#game-image").value = game.image ?? "";
     document.querySelector("#game-alt").value = game.alt ?? "";
+    document.querySelector("#game-description").value =
+        game.description ?? "";
     document.querySelector("#game-url").value = game.url ?? "";
     document.querySelector("#game-story").value =
         game.story ? "story" : "open";
@@ -171,6 +173,7 @@ function getGameFormData() {
         category: document.querySelector("#game-category").value,
         image: document.querySelector("#game-image").value.trim(),
         alt: document.querySelector("#game-alt").value.trim(),
+        description: document.querySelector("#game-description").value.trim(),
         url: document.querySelector("#game-url").value.trim(),
         story: document.querySelector("#game-story").value === "story",
         modes: getSelectedValues("#game-modes"),
