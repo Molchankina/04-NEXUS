@@ -110,7 +110,7 @@
                                 <p class="field-hint">
                                     Используй латиницу, цифры и дефисы.
                                 </p>
-                                <label for="game-universe">Вселенная / серия</label>
+                                <label for="game-universe">Разработчик игры</label>
                                 <input id="game-universe" name="universe" required>
                                 <label for="game-category">Категория</label>
                                 <input id="game-category" name="category" required>
@@ -156,43 +156,133 @@
                                     <option value="story">Сюжетная</option>
                                     <option value="open">Свободное исследование</option>
                                 </select>
-                                <label for="game-modes">Режимы игры</label>
-                                <input
-                                    id="game-modes"
-                                    name="modes"
-                                    placeholder="solo, coop"
-                                    required
-                                >
-                                <p class="field-hint">
-                                    Несколько значений разделяй запятыми: solo, coop, multi.
-                                </p>
-                                <label for="game-genres">Жанры</label>
-                                <input
-                                    id="game-genres"
-                                    name="genres"
-                                    placeholder="action, rpg"
-                                    required
-                                >
+                                <label>Режимы игры</label>
+                                <div class="choice-group" id="game-modes">
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="solo">
+                                        Одиночная
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="coop">
+                                        Кооператив
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="multi">
+                                        Мультиплеер
+                                    </label>
+                                </div>
+                                <p class="field-hint">Можно выбрать несколько режимов.</p>
+                                <label>Жанры</label>
+                                <div class="choice-group" id="game-genres">
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="action"> Экшен
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="rpg"> Ролевые игры
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="strategy"> Стратегии
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="adventure"> Приключения
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="simulation"> Симуляторы
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="racing"> Гонки
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="fighting"> Файтинги
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="stealth"> Стелс
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="arcade"> Аркады
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="casual"> Казуальные игры
+                                    </label>
+                                </div>
+                                <p class="field-hint">Можно выбрать несколько жанров.</p>
                                 <label for="game-camera">Камера</label>
                                 <select id="game-camera" name="camera" required>
                                     <option value="third">От третьего лица</option>
                                     <option value="first">От первого лица</option>
                                 </select>
-
-                                <label for="game-moods">Атмосфера</label>
-                                <input
-                                    id="game-moods"
-                                    name="moods"
-                                    placeholder="dark, emotional"
-                                    required
-                                >
-                                <label for="game-tags">Теги карточки</label>
-                                <input
-                                    id="game-tags"
-                                    name="tags"
-                                    placeholder="Мрачная, Выборы, Приключение"
-                                    required
-                                >
+                                <label>Атмосфера</label>
+                                <div class="choice-group" id="game-moods">
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="dark">
+                                        Мрачная
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="emotional">
+                                        Эмоциональная
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="calm">
+                                        Спокойное исследование
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="energetic">
+                                        Динамичная
+                                    </label>
+                                </div>
+                                <p class="field-hint">Можно выбрать несколько вариантов.</p>
+                                <label>Теги карточки</label>
+                                <div class="choice-group" id="game-tags">
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Сюжет">
+                                        Сюжет
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Выборы">
+                                        Выборы
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Открытый мир">
+                                        Открытый мир
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Приключение">
+                                        Приключение
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Исследование">
+                                        Исследование
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Кооператив">
+                                        Кооператив
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Хоррор">
+                                        Хоррор
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Выживание">
+                                        Выживание
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Головоломки">
+                                        Головоломки
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Научная фантастика">
+                                        Научная фантастика
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Постапокалипсис">
+                                        Постапокалипсис
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Эмоциональная история">
+                                        Эмоциональная история
+                                    </label>
+                                </div>
+                                <p class="field-hint">Можно выбрать несколько тегов.</p>
                                 <label class="publish-option" for="game-published">
                                     <input id="game-published" type="checkbox" checked>
                                     Опубликовать игру в каталоге

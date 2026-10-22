@@ -122,6 +122,15 @@ function renderGames(games) {
         adminGamesList.append(item);
     });
 }
+function setCheckboxes(selector, selectedValues) {
+    const container = document.querySelector(selector);
+    const values = Array.isArray(selectedValues)
+        ? selectedValues
+        : [];
+    container.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+        checkbox.checked = values.includes(checkbox.value);
+    });
+}
 function editGame(game) {
     document.querySelector("#game-id").value = game.id;
     document.querySelector("#game-title").value = game.title ?? "";
@@ -133,15 +142,11 @@ function editGame(game) {
     document.querySelector("#game-url").value = game.url ?? "";
     document.querySelector("#game-story").value =
         game.story ? "story" : "open";
-    document.querySelector("#game-modes").value =
-        (game.modes ?? []).join(", ");
-    document.querySelector("#game-genres").value =
-        (game.genres ?? []).join(", ");
+    setCheckboxes("#game-modes", game.modes);
+    setCheckboxes("#game-genres", game.genres);
     document.querySelector("#game-camera").value = game.camera ?? "";
-    document.querySelector("#game-moods").value =
-        (game.moods ?? []).join(", ");
-    document.querySelector("#game-tags").value =
-        (game.tags ?? []).join(", ");
+    setCheckboxes("#game-moods", game.moods);
+    setCheckboxes("#game-tags", game.tags);
     document.querySelector("#game-published").checked =
         Boolean(game.published);
     document.querySelector("#save-game-button").textContent =
@@ -154,11 +159,11 @@ function editGame(game) {
     });
 }
 function getGameFormData() {
-    const splitList = (selector) =>
-        document.querySelector(selector).value
-            .split(",")
-            .map((item) => item.trim())
-            .filter(Boolean);
+    const getSelectedValues = (selector) =>
+        Array.from(
+            document.querySelector(selector)
+                .querySelectorAll('input[type="checkbox"]:checked')
+        ).map((checkbox) => checkbox.value);
     return {
         title: document.querySelector("#game-title").value.trim(),
         slug: document.querySelector("#game-slug").value.trim(),
@@ -168,11 +173,12 @@ function getGameFormData() {
         alt: document.querySelector("#game-alt").value.trim(),
         url: document.querySelector("#game-url").value.trim(),
         story: document.querySelector("#game-story").value === "story",
-        modes: splitList("#game-modes"),
-        genres: splitList("#game-genres"),
+        modes: getSelectedValues("#game-modes"),
+        genres: getSelectedValues("#game-genres"),
         camera: document.querySelector("#game-camera").value,
         moods: splitList("#game-moods"),
-        tags: splitList("#game-tags"),
+        moods: getSelectedValues("#game-moods"),
+        tags: getSelectedValues("#game-tags"),
         published: document.querySelector("#game-published").checked
     };
 }
