@@ -425,6 +425,12 @@ select:focus-visible {
     line-height: 1.4;
     letter-spacing: -0.035em;
 }
+.card-description {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
 .card-tags {
     display: flex;
     flex-wrap: wrap;

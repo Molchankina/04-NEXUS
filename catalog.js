@@ -40,6 +40,9 @@ function createCard(game, index) {
     developer.textContent = game.universe;
     const title = document.createElement("h3");
     title.textContent = game.title;
+    const description = document.createElement("p");
+    description.className = "card-description";
+    description.textContent = game.description;
     const tags = document.createElement("div");
     tags.className = "card-tags";
     game.tags.slice(0, 3).forEach((tagText) => {
@@ -54,7 +57,7 @@ function createCard(game, index) {
     arrow.setAttribute("aria-hidden", "true");
     arrow.textContent = "↗";
     open.append(arrow);
-    info.append(developer, title, tags, open);
+    info.append(developer, title, description, tags, open);
     card.append(top, poster, info);
     return card;
 }
