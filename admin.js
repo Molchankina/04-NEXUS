@@ -176,7 +176,6 @@ function getGameFormData() {
         modes: getSelectedValues("#game-modes"),
         genres: getSelectedValues("#game-genres"),
         camera: document.querySelector("#game-camera").value,
-        moods: splitList("#game-moods"),
         moods: getSelectedValues("#game-moods"),
         tags: getSelectedValues("#game-tags"),
         published: document.querySelector("#game-published").checked
