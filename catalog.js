@@ -120,6 +120,7 @@ async function loadGames() {
         games = data.map((game) => ({
             id: game.slug,
             title: game.title,
+            description: game.description ?? "",
             universe: game.universe,
             category: game.category,
             image: game.image,
