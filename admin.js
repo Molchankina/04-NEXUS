@@ -142,6 +142,8 @@ function editGame(game) {
         game.plot_summary ?? "";
     document.querySelector("#game-gameplay").value =
         game.gameplay ?? "";
+    document.querySelector("#features").value =
+        Array.isArray(game.features) ? game.features.join("\n") : "";
     document.querySelector("#game-pc-min").value =
         game.pc_min_requirements ?? "";
     document.querySelector("#game-pc-recommended").value =
@@ -186,6 +188,10 @@ function getGameFormData() {
             : null,
         plot_summary: document.querySelector("#game-plot-summary").value.trim(),
         gameplay: document.querySelector("#game-gameplay").value.trim(),
+        features: document.querySelector("#features").value
+            .split("\n")
+            .map(feature => feature.trim())
+            .filter(feature => feature.length > 0),
         pc_min_requirements: document.querySelector("#game-pc-min").value.trim(),
         pc_recommended_requirements:
             document.querySelector("#game-pc-recommended").value.trim(),
