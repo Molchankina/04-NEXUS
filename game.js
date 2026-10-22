@@ -111,6 +111,7 @@ async function loadGame() {
         renderChips("#game-platforms", game.platforms);
         setText("#game-plot", game.plot_summary);
         setText("#game-gameplay", game.gameplay);
+        renderFeatures(game.features);
         setText("#game-minimum", game.pc_min_requirements);
         setText("#game-recommended", game.pc_recommended_requirements);
         setOptionalSection("#game-story-section", game.plot_summary);
