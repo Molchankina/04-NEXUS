@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#090B0E">
+        <meta name="description" content="Игровой архив NEXUS">
+        <title>Игра — NEXUS</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        >
+        <link rel="stylesheet" href="game.css">
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="supabase-config.js"></script>
+        <script src="game.js" defer></script>
+    </head>
+    <body>
+        <div class="game-shell">
+            <header class="game-header">
+                <a class="game-logo" href="index.html">
+                    <span class="game-logo-mark">N</span>
+                    <span>NEXUS<span class="accent">.</span></span>
+                </a>
+                <nav class="game-nav">
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Каталог игр</a>
+                </nav>
+            </header>
+            <main id="game-content">
+                <section class="game-loading" id="game-loading">
+                    <span class="loading-mark">N.</span>
+                    <p>ЗАГРУЖАЕМ ИГРОВОЙ АРХИВ</p>
+                </section>
+                <section class="game-error" id="game-error" hidden>
+                    <p class="section-kicker">NEXUS / ERROR</p>
+                    <h1>Игра не найдена.</h1>
+                    <p id="game-error-message">
+                        Не удалось загрузить информацию об игре.
+                    </p>
+                    <a class="back-link" href="catalog.html">
+                        Вернуться в каталог <span>↗</span>
+                    </a>
+                </section>
+                <article id="game-page" hidden>
+                    <section class="game-hero">
+                        <div class="hero-background" id="hero-background"></div>
+                        <div class="hero-content">
+                            <p class="section-kicker">
+                                <span class="status-dot"></span>
+                                NEXUS / GAME DATABASE
+                            </p>
+                            <p class="game-developer" id="game-developer"></p>
+                            <h1 id="game-title"></h1>
+                            <p class="game-description" id="game-description"></p>
+                            <div class="hero-meta">
+                                <span id="game-year"></span>
+                                <span id="game-category"></span>
+                            </div>
+                            <a class="back-link" href="catalog.html">
+                                ← Весь каталог
+                            </a>
+                        </div>
+                        <div class="hero-poster">
+                            <img id="game-poster" alt="">
+                        </div>
+                    </section>
+                    <section class="game-section" id="game-information">
+                        <p class="section-kicker">01 / INFORMATION</p>
+                        <h2>Об игре<span class="accent">.</span></h2>
+                        <div class="information-grid">
+                            <div class="information-item">
+                                <span>ГОД ВЫХОДА</span>
+                                <p id="info-year"></p>
+                            </div>
+                            <div class="information-item">
+                                <span>РАЗРАБОТЧИК</span>
+                                <p id="info-developer"></p>
+                            </div>
+                            <div class="information-item">
+                                <span>ЖАНРЫ</span>
+                                <div class="chip-list" id="game-genres"></div>
+                            </div>
+                            <div class="information-item">
+                                <span>РЕЖИМЫ</span>
+                                <div class="chip-list" id="game-modes"></div>
+                            </div>
+                            <div class="information-item">
+                                <span>ПЛАТФОРМЫ</span>
+                                <div class="chip-list" id="game-platforms"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="game-section story-section" id="game-story-section">
+                        <p class="section-kicker">02 / STORY</p>
+                        <h2>История<span class="accent">.</span></h2>
+                        <p class="section-description" id="game-plot"></p>
+                    </section>
+                    <section class="game-section gameplay-section" id="game-gameplay-section">
+                        <p class="section-kicker">03 / GAMEPLAY</p>
+                        <h2>Геймплей<span class="accent">.</span></h2>
+                        <p class="section-description" id="game-gameplay"></p>
+                    </section>
+                    <section class="game-section requirements-section" id="game-requirements-section">
+                        <p class="section-kicker">04 / SYSTEM REQUIREMENTS</p>
+                        <h2>Системные требования<span class="accent">.</span></h2>
+                        <div class="requirements-grid">
+                            <div class="requirement-card" id="minimum-card">
+                                <h3>Минимальные</h3>
+                                <p id="game-minimum"></p>
+                            </div>
+                            <div class="requirement-card" id="recommended-card">
+                                <h3>Рекомендуемые</h3>
+                                <p id="game-recommended"></p>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+            </main>
+            <footer class="game-footer">
+                <a class="game-logo" href="index.html">
+                    <span class="game-logo-mark">N</span>
+                    <span>NEXUS<span class="accent">.</span></span>
+                </a>
+                <p>НЕ ПРОСТО ИГРЫ. ЦЕЛЫЕ МИРЫ.</p>
+            </footer>
+        </div>
+    </body>
+</html>
