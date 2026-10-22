@@ -3,15 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#090B0E">
-        <meta name="description" content="Игровой архив NEXUS">
+        <meta name="theme-color" content="#090a0d">
+        <meta name="description" content="Игровое досье NEXUS">
         <title>Игра — NEXUS</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet"
-        >
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="game.css">
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
         <script src="supabase-config.js"></script>
@@ -24,7 +21,7 @@
                     <span class="game-logo-mark">N</span>
                     <span>NEXUS<span class="accent">.</span></span>
                 </a>
-                <nav class="game-nav">
+                <nav class="game-nav" aria-label="Основная навигация">
                     <a href="index.html">Главная</a>
                     <a href="catalog.html">Каталог игр</a>
                 </nav>
@@ -32,44 +29,48 @@
             <main id="game-content">
                 <section class="game-loading" id="game-loading">
                     <span class="loading-mark">N.</span>
-                    <p>ЗАГРУЖАЕМ ИГРОВОЙ АРХИВ</p>
+                    <p>ОТКРЫВАЕМ ДОСЬЕ</p>
                 </section>
                 <section class="game-error" id="game-error" hidden>
                     <p class="section-kicker">NEXUS / ERROR</p>
-                    <h1>Игра не найдена.</h1>
-                    <p id="game-error-message">
-                        Не удалось загрузить информацию об игре.
-                    </p>
-                    <a class="back-link" href="catalog.html">
-                        Вернуться в каталог <span>↗</span>
-                    </a>
+                    <h1>Досье недоступно<span class="accent">.</span></h1>
+                    <p id="game-error-message">Не удалось загрузить информацию об игре.</p>
+                    <a class="back-link" href="catalog.html">Вернуться в каталог ↗</a>
                 </section>
-                <article id="game-page" hidden>
+                <article class="game-page" id="game-page" hidden>
                     <section class="game-hero">
                         <div class="hero-background" id="hero-background"></div>
+                        <div class="hero-shade"></div>
                         <div class="hero-content">
                             <p class="section-kicker">
                                 <span class="status-dot"></span>
-                                NEXUS / GAME DATABASE
+                                NEXUS / GAME DOSSIER
                             </p>
                             <p class="game-developer" id="game-developer"></p>
                             <h1 id="game-title"></h1>
                             <p class="game-description" id="game-description"></p>
                             <div class="hero-meta">
                                 <span id="game-year"></span>
+                                <span class="meta-divider"></span>
                                 <span id="game-category"></span>
                             </div>
-                            <a class="back-link" href="catalog.html">
-                                ← Весь каталог
-                            </a>
+                            <a class="back-link" href="catalog.html">← Весь каталог</a>
                         </div>
-                        <div class="hero-poster">
+                        <figure class="hero-poster">
                             <img id="game-poster" alt="">
-                        </div>
+                            <figcaption>ИГРОВОЕ ДОСЬЕ / NEXUS ARCHIVE</figcaption>
+                        </figure>
+                        <div class="hero-index" aria-hidden="true">N — 01</div>
                     </section>
-                    <section class="game-section" id="game-information">
-                        <p class="section-kicker">01 / INFORMATION</p>
-                        <h2>Об игре<span class="accent">.</span></h2>
+                    <section class="game-section overview-section" id="game-information">
+                        <div class="section-heading">
+                            <p class="section-kicker">01 / OVERVIEW</p>
+                            <h2>Об игре<span class="accent">.</span></h2>
+                            <p class="section-lead">
+                                Основные сведения, которые помогают понять характер
+                                и масштаб этого мира.
+                            </p>
+                        </div>
                         <div class="information-grid">
                             <div class="information-item">
                                 <span>ГОД ВЫХОДА</span>
@@ -93,30 +94,76 @@
                             </div>
                         </div>
                     </section>
-                    <section class="game-section story-section" id="game-story-section">
-                        <p class="section-kicker">02 / STORY</p>
-                        <h2>История<span class="accent">.</span></h2>
-                        <p class="section-description" id="game-plot"></p>
+                    <section class="game-section narrative-section" id="game-story-section">
+                        <div class="section-heading">
+                            <p class="section-kicker">02 / THE WORLD</p>
+                            <h2>История и мир<span class="accent">.</span></h2>
+                        </div>
+                        <div class="narrative-layout">
+                            <div class="narrative-marker" aria-hidden="true">02</div>
+                            <div class="narrative-copy">
+                                <p class="copy-label">БЕЗ СПОЙЛЕРОВ</p>
+                                <p class="section-description" id="game-plot"></p>
+                            </div>
+                        </div>
                     </section>
                     <section class="game-section gameplay-section" id="game-gameplay-section">
-                        <p class="section-kicker">03 / GAMEPLAY</p>
-                        <h2>Геймплей<span class="accent">.</span></h2>
-                        <p class="section-description" id="game-gameplay"></p>
+                        <div class="section-heading">
+                            <p class="section-kicker">03 / GAMEPLAY</p>
+                            <h2>Геймплей<span class="accent">.</span></h2>
+                            <p class="section-lead">
+                                Механики, ощущения и особенности игрового процесса.
+                            </p>
+                        </div>
+                        <div class="gameplay-panel">
+                            <div class="gameplay-number">N / 03</div>
+                            <p class="section-description" id="game-gameplay"></p>
+                        </div>
+                    </section>
+                    <section class="game-section dossier-section">
+                        <div class="section-heading">
+                            <p class="section-kicker">04 / DETAILS</p>
+                            <h2>Детали досье<span class="accent">.</span></h2>
+                        </div>
+                        <div class="dossier-note">
+                            <span class="dossier-symbol" aria-hidden="true">✳</span>
+                            <p>
+                                Каждая игра — отдельная вселенная. Здесь собраны
+                                основные сведения, которые помогают понять её
+                                настроение, формат и особенности до начала прохождения.
+                            </p>
+                        </div>
                     </section>
                     <section class="game-section requirements-section" id="game-requirements-section">
-                        <p class="section-kicker">04 / SYSTEM REQUIREMENTS</p>
-                        <h2>Системные требования<span class="accent">.</span></h2>
+                        <div class="section-heading">
+                            <p class="section-kicker">05 / PC REQUIREMENTS</p>
+                            <h2>Системные требования<span class="accent">.</span></h2>
+                            <p class="section-lead">
+                                Проверь, готов ли компьютер к запуску игры.
+                            </p>
+                        </div>
                         <div class="requirements-grid">
                             <div class="requirement-card" id="minimum-card">
-                                <h3>Минимальные</h3>
+                                <div class="requirement-top">
+                                    <span>01</span>
+                                    <h3>Минимальные</h3>
+                                </div>
                                 <p id="game-minimum"></p>
                             </div>
                             <div class="requirement-card" id="recommended-card">
-                                <h3>Рекомендуемые</h3>
+                                <div class="requirement-top">
+                                    <span>02</span>
+                                    <h3>Рекомендуемые</h3>
+                                </div>
                                 <p id="game-recommended"></p>
                             </div>
                         </div>
                     </section>
+                    <div class="end-of-dossier">
+                        <span>NEXUS<span class="accent">.</span></span>
+                        <p>КОНЕЦ ДОСЬЕ — НАЧАЛО ПРИКЛЮЧЕНИЯ</p>
+                        <a href="catalog.html">ВЫБРАТЬ ДРУГУЮ ИГРУ ↗</a>
+                    </div>
                 </article>
             </main>
             <footer class="game-footer">

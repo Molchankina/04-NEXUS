@@ -13,7 +13,11 @@ const activeFilterNote = document.querySelector("#active-filter-note");
 function createCard(game, index) {
     const card = document.createElement("a");
     card.className = "catalog-card";
-    card.href = game.url;
+    const pagePath = game.url || "";
+    const isUniversalPage = pagePath.split("?")[0].endsWith("game.html");
+    card.href = isUniversalPage
+        ? `${pagePath.split("?")[0]}?slug=${encodeURIComponent(game.id)}`
+        : pagePath;
     card.style.animationDelay = `${Math.min(index * 25, 250)}ms`;
     card.setAttribute("aria-label", `Открыть страницу игры ${game.title}`);
     const top = document.createElement("div");
