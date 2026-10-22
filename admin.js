@@ -136,6 +136,16 @@ function editGame(game) {
     document.querySelector("#game-title").value = game.title ?? "";
     document.querySelector("#game-slug").value = game.slug ?? "";
     document.querySelector("#game-universe").value = game.universe ?? "";
+    document.querySelector("#game-release-year").value =
+        game.release_year ?? "";
+    document.querySelector("#game-plot-summary").value =
+        game.plot_summary ?? "";
+    document.querySelector("#game-gameplay").value =
+        game.gameplay ?? "";
+    document.querySelector("#game-pc-min").value =
+        game.pc_min_requirements ?? "";
+    document.querySelector("#game-pc-recommended").value =
+        game.pc_recommended_requirements ?? "";
     document.querySelector("#game-category").value = game.category ?? "";
     document.querySelector("#game-image").value = game.image ?? "";
     document.querySelector("#game-alt").value = game.alt ?? "";
@@ -146,6 +156,7 @@ function editGame(game) {
         game.story ? "story" : "open";
     setCheckboxes("#game-modes", game.modes);
     setCheckboxes("#game-genres", game.genres);
+    setCheckboxes("#game-platforms", game.platforms);
     document.querySelector("#game-camera").value = game.camera ?? "";
     setCheckboxes("#game-moods", game.moods);
     setCheckboxes("#game-tags", game.tags);
@@ -170,6 +181,14 @@ function getGameFormData() {
         title: document.querySelector("#game-title").value.trim(),
         slug: document.querySelector("#game-slug").value.trim(),
         universe: document.querySelector("#game-universe").value.trim(),
+        release_year: document.querySelector("#game-release-year").value
+            ? Number(document.querySelector("#game-release-year").value)
+            : null,
+        plot_summary: document.querySelector("#game-plot-summary").value.trim(),
+        gameplay: document.querySelector("#game-gameplay").value.trim(),
+        pc_min_requirements: document.querySelector("#game-pc-min").value.trim(),
+        pc_recommended_requirements:
+            document.querySelector("#game-pc-recommended").value.trim(),
         category: document.querySelector("#game-category").value,
         image: document.querySelector("#game-image").value.trim(),
         alt: document.querySelector("#game-alt").value.trim(),
@@ -178,6 +197,7 @@ function getGameFormData() {
         story: document.querySelector("#game-story").value === "story",
         modes: getSelectedValues("#game-modes"),
         genres: getSelectedValues("#game-genres"),
+        platforms: getSelectedValues("#game-platforms"),
         camera: document.querySelector("#game-camera").value,
         moods: getSelectedValues("#game-moods"),
         tags: getSelectedValues("#game-tags"),

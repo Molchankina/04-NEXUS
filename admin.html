@@ -112,6 +112,65 @@
                                 </p>
                                 <label for="game-universe">Разработчик игры</label>
                                 <input id="game-universe" name="universe" required>
+                                <label for="game-release-year">Год выхода</label>
+                                <input
+                                    id="game-release-year"
+                                    name="release_year"
+                                    type="number"
+                                    min="1970"
+                                    max="2100"
+                                    placeholder="Например, 2015"
+                                >
+                                <label for="game-plot-summary">Описание сюжета без спойлеров</label>
+                                <textarea
+                                    id="game-plot-summary"
+                                    name="plot_summary"
+                                    rows="5"
+                                    placeholder="Расскажи о завязке, мире и главном герое, не раскрывая ключевые повороты сюжета."
+                                ></textarea>
+                                <label for="game-gameplay">Геймплей</label>
+                                <textarea
+                                    id="game-gameplay"
+                                    name="gameplay"
+                                    rows="5"
+                                    placeholder="Опиши основные механики, исследование мира, сражения, выборы и другие особенности."
+                                ></textarea>
+                                <label for="game-pc-min">Минимальные требования ПК</label>
+                                <textarea
+                                    id="game-pc-min"
+                                    name="pc_min_requirements"
+                                    rows="5"
+                                    placeholder="ОС, процессор, оперативная память, видеокарта, место на диске."
+                                ></textarea>
+                                <label for="game-pc-recommended">Рекомендуемые требования ПК</label>
+                                <textarea
+                                    id="game-pc-recommended"
+                                    name="pc_recommended_requirements"
+                                    rows="5"
+                                    placeholder="ОС, процессор, оперативная память, видеокарта, место на диске."
+                                ></textarea>
+                                <label>Платформы</label>
+                                <div class="choice-group" id="game-platforms">
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="PC"> PC
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="PlayStation 4"> PlayStation 4
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="PlayStation 5"> PlayStation 5
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Xbox One"> Xbox One
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Xbox Series X|S"> Xbox Series X|S
+                                    </label>
+                                    <label class="choice-option">
+                                        <input type="checkbox" value="Nintendo Switch"> Nintendo Switch
+                                    </label>
+                                </div>
+                                <p class="field-hint">Отметь все платформы, на которых доступна игра.</p>
                                 <label for="game-category">Категория</label>
                                 <input id="game-category" name="category" required>
                                 <label for="game-image">Путь к изображению</label>
@@ -137,7 +196,6 @@
                                     Выбери существующую страницу из подсказок или укажи путь к новому HTML-файлу.
                                     Путь начинается от корня сайта, без домена.
                                 </p>
-
                                 <label for="game-description">Краткое описание игры</label>
                                 <textarea
                                     id="game-description"
