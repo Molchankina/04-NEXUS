@@ -426,6 +426,11 @@ select:focus-visible {
     letter-spacing: -0.035em;
 }
 .card-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
     margin: 0 0 14px;
     color: var(--muted);
     font-size: 10px;
