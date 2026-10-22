@@ -44,6 +44,24 @@ function setOptionalSection(selector, value) {
     const section = document.querySelector(selector);
     section.hidden = !String(value ?? "").trim();
 }
+function renderFeatures(values) {
+    const container = document.querySelector("#game-features");
+    container.replaceChildren();
+    (Array.isArray(values) ? values : []).forEach((value, index) => {
+        const item = document.createElement("li");
+        item.className = "feature-item";
+        const number = document.createElement("span");
+        number.className = "feature-number";
+        number.textContent = String(index + 1).padStart(2, "0");
+        const text = document.createElement("p");
+        text.className = "feature-text";
+        text.textContent = value;
+        item.append(number, text);
+        container.append(item);
+    });
+    document.querySelector("#game-features-section").hidden =
+        container.children.length === 0;
+}
 function showError(message) {
     loading.hidden = true;
     gamePage.hidden = true;
