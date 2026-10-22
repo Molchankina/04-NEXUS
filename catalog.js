@@ -64,7 +64,7 @@ function createCard(game, index) {
 function getFilteredGames() {
     const query = searchInput.value.trim().toLocaleLowerCase("ru");
     return games.filter((game) => {
-        const searchableText = `${game.title} ${game.universe} ${game.category} ${game.tags.join(" ")}`.toLocaleLowerCase("ru");
+        const searchableText = `${game.title} ${game.description} ${game.universe} ${game.category} ${game.tags.join(" ")}`.toLocaleLowerCase("ru");
         const matchesSearch = !query || searchableText.includes(query);
         const matchesStory = storyFilter.value === "all" || game.story === storyFilter.value;
         const matchesMode = modeFilter.value === "all" || game.modes.includes(modeFilter.value);
