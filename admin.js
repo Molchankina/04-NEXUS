@@ -212,6 +212,7 @@ function resetGameForm() {
     showMessage(gameFormMessage, "");
 }
 gameForm.addEventListener("submit", async (event) => {
+    console.log("Форма сохранения запущена");
     event.preventDefault();
     const gameId = document.querySelector("#game-id").value;
     const gameData = getGameFormData();
@@ -221,9 +222,10 @@ gameForm.addEventListener("submit", async (event) => {
         : supabaseClient.from("games").insert(gameData);
     const { error } = await request;
     if (error) {
+        console.error("Ошибка сохранения игры:", error);
         showMessage(
             gameFormMessage,
-            "Не удалось сохранить игру. Проверь обязательные поля и права доступа.",
+            `Ошибка сохранения: ${error.message}`,
             true
         );
         return;
