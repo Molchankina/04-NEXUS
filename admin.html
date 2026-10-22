@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="theme-color" content="#090B0E">
+        <title>Админ-панель — NEXUS</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        >
+        <link rel="stylesheet" href="admin.css">
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="supabase-config.js"></script>
+        <script src="admin.js" defer></script>
+    </head>
+    <body>
+        <div class="admin-shell">
+            <header class="admin-header">
+                <a class="admin-logo" href="index.html">
+                    <span class="admin-logo-mark">N</span>
+                    <span>NEXUS<span class="accent">.</span></span>
+                </a>
+                <a class="admin-back" href="catalog.html">
+                    Вернуться в каталог <span aria-hidden="true">↗</span>
+                </a>
+            </header>
+            <main class="admin-main">
+                <section class="admin-intro">
+                    <p class="admin-kicker">NEXUS / CONTROL CENTER</p>
+                    <h1>Панель <span>управления.</span></h1>
+                    <p>
+                        Управляй игровым архивом, добавляй новые миры
+                        и обновляй информацию о существующих играх.
+                    </p>
+                </section>
+                <section class="admin-login" id="login-section">
+                    <div class="panel-heading">
+                        <span class="panel-number">01 / ACCESS</span>
+                        <h2>Вход в систему</h2>
+                        <p>Войди в аккаунт администратора.</p>
+                    </div>
+                    <form id="login-form">
+                        <label for="login-email">Email</label>
+                        <input
+                            id="login-email"
+                            name="email"
+                            type="email"
+                            autocomplete="username"
+                            placeholder="admin@example.com"
+                            required
+                        >
+                        <label for="login-password">Пароль</label>
+                        <input
+                            id="login-password"
+                            name="password"
+                            type="password"
+                            autocomplete="current-password"
+                            placeholder="Введи пароль"
+                            required
+                        >
+                        <button class="admin-button" type="submit">
+                            Войти <span aria-hidden="true">→</span>
+                        </button>
+                        <p class="form-message" id="login-message" role="status"></p>
+                    </form>
+                </section>
+                <section class="admin-dashboard" id="dashboard-section" hidden>
+                    <div class="dashboard-top">
+                        <div>
+                            <span class="panel-number">02 / LIBRARY</span>
+                            <h2>Игровой архив</h2>
+                            <p>Добавляй игры и управляй опубликованными записями.</p>
+                        </div>
+                        <button class="admin-button admin-button-secondary" id="logout-button" type="button">
+                            Выйти
+                        </button>
+                    </div>
+                    <div class="admin-stats">
+                        <div class="stat-card">
+                            <span>Всего игр</span>
+                            <strong id="total-games">—</strong>
+                        </div>
+                        <div class="stat-card">
+                            <span>Опубликовано</span>
+                            <strong id="published-games">—</strong>
+                        </div>
+                    </div>
+                    <div class="admin-workspace">
+                        <section class="admin-game-form">
+                            <div class="panel-heading">
+                                <span class="panel-number">03 / EDITOR</span>
+                                <h2 id="game-form-title">Добавить игру</h2>
+                                <p>Заполни информацию для карточки каталога.</p>
+                            </div>
+                            <form id="game-form">
+                                <input type="hidden" id="game-id">
+                                <label for="game-title">Название игры</label>
+                                <input id="game-title" name="title" required>
+                                <label for="game-slug">Идентификатор (slug)</label>
+                                <input
+                                    id="game-slug"
+                                    name="slug"
+                                    placeholder="the-witcher-3"
+                                    required
+                                >
+                                <p class="field-hint">
+                                    Используй латиницу, цифры и дефисы.
+                                </p>
+                                <label for="game-universe">Вселенная / серия</label>
+                                <input id="game-universe" name="universe" required>
+                                <label for="game-category">Категория</label>
+                                <input id="game-category" name="category" required>
+                                <label for="game-image">Путь к изображению</label>
+                                <input
+                                    id="game-image"
+                                    name="image"
+                                    placeholder="images/game-poster.jpg"
+                                    required
+                                >
+                                <label for="game-alt">Описание изображения (alt)</label>
+                                <input id="game-alt" name="alt" required>
+                                <label for="game-url">Путь к странице игры</label>
+                                <input
+                                    id="game-url"
+                                    name="url"
+                                    placeholder="games/witcher.html"
+                                    required
+                                >
+                                <label for="game-story">Тип игры</label>
+                                <select id="game-story" name="story" required>
+                                    <option value="story">Сюжетная</option>
+                                    <option value="open">Свободное исследование</option>
+                                </select>
+                                <label for="game-modes">Режимы игры</label>
+                                <input
+                                    id="game-modes"
+                                    name="modes"
+                                    placeholder="solo, coop"
+                                    required
+                                >
+                                <p class="field-hint">
+                                    Несколько значений разделяй запятыми: solo, coop, multi.
+                                </p>
+                                <label for="game-genres">Жанры</label>
+                                <input
+                                    id="game-genres"
+                                    name="genres"
+                                    placeholder="action, rpg"
+                                    required
+                                >
+                                <label for="game-camera">Камера</label>
+                                <select id="game-camera" name="camera" required>
+                                    <option value="third">От третьего лица</option>
+                                    <option value="first">От первого лица</option>
+                                </select>
+
+                                <label for="game-moods">Атмосфера</label>
+                                <input
+                                    id="game-moods"
+                                    name="moods"
+                                    placeholder="dark, emotional"
+                                    required
+                                >
+                                <label for="game-tags">Теги карточки</label>
+                                <input
+                                    id="game-tags"
+                                    name="tags"
+                                    placeholder="Мрачная, Выборы, Приключение"
+                                    required
+                                >
+                                <label class="publish-option" for="game-published">
+                                    <input id="game-published" type="checkbox" checked>
+                                    Опубликовать игру в каталоге
+                                </label>
+                                <div class="form-actions">
+                                    <button class="admin-button" id="save-game-button" type="submit">
+                                        Сохранить игру <span aria-hidden="true">→</span>
+                                    </button>
+                                    <button
+                                        class="admin-button admin-button-secondary"
+                                        id="cancel-edit-button"
+                                        type="button"
+                                        hidden
+                                    >
+                                        Отмена
+                                    </button>
+                                </div>
+                                <p class="form-message" id="game-form-message" role="status"></p>
+                            </form>
+                        </section>
+                        <section class="admin-game-list">
+                            <div class="panel-heading">
+                                <span class="panel-number">04 / DATABASE</span>
+                                <h2>Игры в базе</h2>
+                                <p>Выбери игру, чтобы изменить её данные.</p>
+                            </div>
+                            <div class="admin-games" id="admin-games-list">
+                                <p>Загрузка игр...</p>
+                            </div>
+                            <p class="form-message" id="games-list-message" role="status"></p>
+                        </section>
+                    </div>
+                </section>
+            </main>
+            <footer class="admin-footer">
+                <span>NEXUS<span class="accent">.</span></span>
+                <span>ADMIN CONTROL CENTER</span>
+            </footer>
+        </div>
+    </body>
+</html>

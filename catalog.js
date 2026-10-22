@@ -107,4 +107,40 @@ resetButton.addEventListener("click", resetFilters);
 document.querySelectorAll(".empty-reset").forEach((button) => {
     button.addEventListener("click", resetFilters);
 });
-renderGames();
+async function loadGames() {
+    try {
+        const { data, error } = await window.supabase
+            .from("games")
+            .select("*")
+            .eq("published", true)
+            .order("id", { ascending: true });
+        if (error) {
+            throw error;
+        }
+        games = data.map((game) => ({
+            id: game.slug,
+            title: game.title,
+            universe: game.universe,
+            category: game.category,
+            image: game.image,
+            alt: game.alt,
+            url: game.url,
+            story: game.story ? "story" : "open",
+            modes: game.modes ?? [],
+            genres: game.genres ?? [],
+            camera: game.camera,
+            moods: game.moods ?? [],
+            tags: game.tags ?? []
+        }));
+        renderGames();
+    } catch (error) {
+        console.error("Ошибка загрузки игр из Supabase:", error);
+        grid.hidden = true;
+        emptyState.hidden = false;
+        emptyState.querySelector("h3").textContent = "Не удалось загрузить игры.";
+        emptyState.querySelector("p").textContent =
+            "Проверь подключение к Supabase и настройки базы данных.";
+        resultsCount.textContent = "00";
+    }
+}
+loadGames();

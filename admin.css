@@ -1,0 +1,550 @@
+:root {
+    --bg: #090B0E;
+    --bg-soft: #101318;
+    --panel: #171B20;
+    --text: #F1F2F4;
+    --muted: #9299A5;
+    --line: rgba(182, 187, 197, 0.16);
+    --accent: #B6BBC5;
+    --accent-soft: #343B45;
+    --container: 1440px;
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    min-height: 100%;
+    background: var(--bg);
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(182, 187, 197, 0.07),
+            transparent 45%
+        ),
+        var(--bg);
+    color: var(--text);
+    font-family: "Manrope", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+body,
+button,
+input,
+select {
+    font-family: "Manrope", sans-serif;
+}
+button,
+input,
+select {
+    font: inherit;
+}
+button,
+a,
+input,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+button,
+input,
+select {
+    color: var(--text);
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+::selection {
+    background: var(--accent);
+    color: var(--bg);
+}
+[hidden] {
+    display: none !important;
+}
+.admin-shell {
+    width: 100%;
+    max-width: 1920px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.admin-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 84px;
+    padding: 18px clamp(22px, 6vw, 96px);
+    border-bottom: 1px solid var(--line);
+    background: rgba(9, 11, 14, 0.88);
+}
+.admin-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+}
+.admin-logo-mark {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 19px;
+    transform: skew(-7deg);
+}
+.accent {
+    color: var(--accent);
+}
+.admin-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 15px;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+.admin-back:hover {
+    border-color: rgba(182, 187, 197, 0.45);
+    color: var(--text);
+}
+.admin-back span {
+    color: var(--accent);
+    font-size: 16px;
+}
+.admin-main {
+    flex: 1;
+    width: min(100% - 44px, 1240px);
+    margin: 0 auto;
+    padding: clamp(48px, 8vw, 100px) 0 90px;
+}
+.admin-intro {
+    max-width: 760px;
+    margin-bottom: 54px;
+}
+.admin-kicker,
+.panel-number {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+.admin-kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.admin-kicker::before {
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+    content: "";
+}
+.admin-intro h1 {
+    margin: 22px 0 16px;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 600;
+    letter-spacing: -0.065em;
+    line-height: 1.05;
+}
+.admin-intro h1 span {
+    color: var(--accent);
+}
+.admin-intro > p:last-child,
+.panel-heading > p,
+.dashboard-top > div > p {
+    max-width: 580px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+.admin-login,
+.admin-game-form,
+.admin-game-list {
+    padding: clamp(22px, 4vw, 40px);
+    border: 1px solid var(--line);
+    background: linear-gradient(
+        145deg,
+        rgba(23, 27, 32, 0.92),
+        rgba(13, 16, 20, 0.96)
+    );
+}
+.admin-login {
+    width: min(100%, 540px);
+    margin: 0 auto;
+}
+.panel-heading {
+    margin-bottom: 30px;
+}
+.panel-heading h2,
+.dashboard-top h2 {
+    margin: 14px 0 10px;
+    font-size: clamp(23px, 3vw, 32px);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+}
+.admin-login form,
+.admin-game-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.admin-login label,
+.admin-game-form form > label:not(.publish-option) {
+    margin: 19px 0 9px;
+    color: #D9DCE1;
+    font-size: 11px;
+    font-weight: 700;
+}
+.admin-login input,
+.admin-game-form input:not([type="checkbox"]),
+.admin-game-form select {
+    width: 100%;
+    min-height: 48px;
+    padding: 13px 14px;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    background: rgba(5, 7, 9, 0.62);
+    color: var(--text);
+    font-size: 12px;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+.admin-login input::placeholder,
+.admin-game-form input::placeholder {
+    color: #69717D;
+}
+.admin-login input:focus,
+.admin-game-form input:focus,
+.admin-game-form select:focus {
+    border-color: rgba(182, 187, 197, 0.6);
+    background: rgba(5, 7, 9, 0.9);
+    outline: none;
+}
+.admin-game-form select {
+    cursor: pointer;
+}
+.admin-game-form select option {
+    background: var(--panel);
+    color: var(--text);
+}
+.field-hint {
+    margin: 8px 0 0;
+    color: #727B87;
+    font-size: 10px;
+    line-height: 1.7;
+}
+.admin-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: 48px;
+    padding: 13px 18px;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #090B0E;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+.admin-button:hover {
+    border-color: #E1E4E9;
+    background: #E1E4E9;
+}
+.admin-button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+}
+.admin-login .admin-button {
+    width: 100%;
+    margin-top: 28px;
+}
+.admin-button-secondary {
+    border-color: var(--line);
+    background: transparent;
+    color: var(--text);
+}
+.admin-button-secondary:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: var(--text);
+}
+.form-message {
+    min-height: 18px;
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+.dashboard-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+.dashboard-top h2 {
+    font-size: clamp(28px, 4vw, 42px);
+}
+.dashboard-top .admin-button {
+    flex-shrink: 0;
+}
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+}
+.stat-card {
+    padding: 24px;
+    border: 1px solid var(--line);
+    background: rgba(16, 19, 24, 0.75);
+}
+.stat-card span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+}
+.stat-card strong {
+    display: block;
+    margin-top: 12px;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 600;
+    letter-spacing: -0.05em;
+}
+.admin-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    align-items: start;
+    gap: 22px;
+}
+.admin-game-form,
+.admin-game-list {
+    min-width: 0;
+}
+.publish-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 0 8px;
+    color: #D9DCE1;
+    font-size: 11px;
+    line-height: 1.6;
+    cursor: pointer;
+}
+.publish-option input {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+.form-actions .admin-button {
+    flex: 1;
+}
+.admin-games {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.admin-games > p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+.admin-game-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px;
+    border: 1px solid var(--line);
+    background: rgba(5, 7, 9, 0.42);
+}
+.admin-game-item-info {
+    min-width: 0;
+}
+.admin-game-item-info strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+.admin-game-item-info span {
+    display: block;
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+.admin-game-item-actions {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+.admin-small-button {
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--text);
+    font-size: 10px;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+.admin-small-button:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+.admin-small-button.danger:hover {
+    border-color: #C66D76;
+    background: rgba(198, 109, 118, 0.12);
+}
+.admin-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px clamp(22px, 6vw, 96px);
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+.admin-footer > span:first-child {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+}
+@media (max-width: 900px) {
+    .admin-workspace {
+        grid-template-columns: 1fr;
+    }
+    .admin-game-list {
+        order: 2;
+    }
+}
+@media (max-width: 600px) {
+    .admin-header {
+        min-height: 72px;
+        gap: 12px;
+        padding: 14px 20px;
+    }
+    .admin-logo {
+        gap: 8px;
+        font-size: 14px;
+    }
+    .admin-logo-mark {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+    .admin-back {
+        gap: 8px;
+        padding: 10px;
+        font-size: 9px;
+    }
+    .admin-main {
+        width: calc(100% - 32px);
+        padding: 48px 0 60px;
+    }
+    .admin-intro {
+        margin-bottom: 36px;
+    }
+    .admin-intro h1 {
+        font-size: clamp(34px, 10vw, 48px);
+    }
+    .admin-login,
+    .admin-game-form,
+    .admin-game-list {
+        padding: 22px 17px;
+    }
+    .admin-stats {
+        gap: 10px;
+    }
+    .stat-card {
+        padding: 17px;
+    }
+    .dashboard-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+    .dashboard-top .admin-button {
+        width: 100%;
+    }
+    .admin-game-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .admin-game-item-actions {
+        width: 100%;
+    }
+    .admin-small-button {
+        flex: 1;
+    }
+    .form-actions {
+        flex-direction: column;
+    }
+    .form-actions .admin-button {
+        width: 100%;
+        flex: initial;
+    }
+    .admin-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        padding: 22px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+} 
