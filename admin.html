@@ -127,9 +127,30 @@
                                 <input
                                     id="game-url"
                                     name="url"
-                                    placeholder="games/witcher.html"
+                                    list="game-url-suggestions"
+                                    placeholder="Например, stray/stray.html"
+                                    aria-describedby="game-url-hint"
                                     required
                                 >
+                                <datalist id="game-url-suggestions"></datalist>
+                                <p class="field-hint" id="game-url-hint">
+                                    Выбери существующую страницу из подсказок или укажи путь к новому HTML-файлу.
+                                    Путь начинается от корня сайта, без домена.
+                                </p>
+
+                                <label for="game-description">Краткое описание игры</label>
+                                <textarea
+                                    id="game-description"
+                                    name="description"
+                                    rows="4"
+                                    maxlength="500"
+                                    placeholder="Опиши мир, атмосферу и главную идею игры — без спойлеров."
+                                    aria-describedby="game-description-hint"
+                                ></textarea>
+                                <p class="field-hint" id="game-description-hint">
+                                    До 500 символов. Расскажи, что ждёт игрока и чем интересна игра.
+                                </p>
+
                                 <label for="game-story">Тип игры</label>
                                 <select id="game-story" name="story" required>
                                     <option value="story">Сюжетная</option>

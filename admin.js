@@ -230,4 +230,38 @@ async function deleteGame(game) {
 document
     .querySelector("#cancel-edit-button")
     .addEventListener("click", resetGameForm);
+async function loadPageSuggestions() {
+    const urlInput = document.querySelector("#game-url");
+    const datalist = document.querySelector("#game-url-suggestions");
+    try {
+        const response = await fetch(
+            "https://api.github.com/repos/Molchankina/04-NEXUS/git/trees/main?recursive=1"
+        );
+        if (!response.ok) {
+            throw new Error("Не удалось получить список страниц");
+        }
+        const data = await response.json();
+        const pages = data.tree
+            .filter((file) =>
+                file.type === "blob" &&
+                file.path.endsWith(".html") &&
+                !["index.html", "catalog.html", "admin.html"].includes(file.path)
+            )
+            .map((file) => file.path)
+            .sort();
+        datalist.replaceChildren();
+        pages.forEach((page) => {
+            const option = document.createElement("option");
+            option.value = page;
+            datalist.append(option);
+        });
+        urlInput.placeholder = pages.length
+            ? "Начни вводить название страницы"
+            : "Например, stray/stray.html";
+    } catch (error) {
+        console.error("Ошибка загрузки страниц GitHub:", error);
+        urlInput.placeholder = "Введи путь к HTML-странице вручную";
+    }
+}
+loadPageSuggestions();
 checkSession();
