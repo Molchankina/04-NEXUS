@@ -150,6 +150,8 @@ function editGame(game) {
         game.pc_recommended_requirements ?? "";
     document.querySelector("#game-category").value = game.category ?? "";
     document.querySelector("#game-image").value = game.image ?? "";
+    document.querySelector("#game-background-image").value =
+        game.background_image ?? "";
     document.querySelector("#game-alt").value = game.alt ?? "";
     document.querySelector("#game-description").value =
         game.description ?? "";
@@ -197,6 +199,9 @@ function getGameFormData() {
             document.querySelector("#game-pc-recommended").value.trim(),
         category: document.querySelector("#game-category").value,
         image: document.querySelector("#game-image").value.trim(),
+        background_image: document
+            .querySelector("#game-background-image")
+            .value.trim(),
         alt: document.querySelector("#game-alt").value.trim(),
         description: document.querySelector("#game-description").value.trim(),
         url: document.querySelector("#game-url").value.trim(),

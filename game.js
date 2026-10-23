@@ -95,9 +95,12 @@ async function loadGame() {
         poster.alt = game.alt || game.title;
         poster.hidden = !game.image;
         const heroBackground = document.querySelector("#hero-background");
-        if (game.image) {
+        const backgroundImage = game.background_image || game.image;
+        if (backgroundImage) {
             heroBackground.style.backgroundImage =
-                `url("${game.image.replace(/["\\\n\r]/g, "")}")`;
+                `url("${backgroundImage.replace(/["\\\n\r]/g, "")}")`;
+        } else {
+            heroBackground.style.backgroundImage = "";
         }
         setText("#game-developer", game.universe);
         setText("#game-title", game.title);

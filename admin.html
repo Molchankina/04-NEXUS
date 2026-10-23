@@ -192,6 +192,18 @@
                                 >
                                 <label for="game-alt">Описание изображения (alt)</label>
                                 <input id="game-alt" name="alt" required>
+                                <label for="game-background-image">
+                                    Путь к фоновому изображению
+                                </label>
+                                <input
+                                    id="game-background-image"
+                                    name="background_image"
+                                    placeholder="images/backgrounds/witcher-3.jpg"
+                                >
+                                <p class="field-hint">
+                                    Укажи путь к отдельному фоновому изображению.
+                                    Если оставить поле пустым, будет использоваться основное изображение.
+                                </p>
                                 <label for="game-url">Путь к странице игры</label>
                                 <input
                                     id="game-url"
@@ -218,7 +230,6 @@
                                 <p class="field-hint" id="game-description-hint">
                                     До 500 символов. Расскажи, что ждёт игрока и чем интересна игра.
                                 </p>
-
                                 <label for="game-story">Тип игры</label>
                                 <select id="game-story" name="story" required>
                                     <option value="story">Сюжетная</option>
