@@ -160,16 +160,13 @@ body.itt-page {
 
 .itt-hero-may {
   color: #fff8e9;
-  background: #b98246;
+  background: #edbd28;
 }
 
 .itt-hero-cody {
   color: #fff9e9;
   background: #62874a;
 }
-
-/* ФОНОВЫЕ ИЗОБРАЖЕНИЯ */
-
 .itt-hero-image,
 .itt-hero-overlay {
   position: absolute;
@@ -313,99 +310,89 @@ body.itt-page {
 
 /* ЦЕНТРАЛЬНЫЙ ЗАГОЛОВОК */
 
+
+/* Центральная композиция */
+
 .itt-hero-center {
   position: absolute;
   z-index: 5;
   top: 50%;
   left: 50%;
-  width: min(680px, 76%);
-  padding: 28px 18px;
+  width: min(760px, 90%);
+  padding: 25px 18px;
   text-align: center;
   transform: translate(-50%, -50%);
 }
 
-.itt-title-top {
-  display: inline-block;
-  margin-bottom: 9px;
-  padding: 7px 15px;
-  border: 1px solid rgba(111, 76, 36, 0.24);
-  border-radius: 50px;
-  background: rgba(255, 250, 239, 0.91);
-  color: var(--itt-wood-dark);
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 3px;
-}
+/* Заголовок остаётся на одной центральной оси */
 
 .itt-main-title {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   margin: 0;
   font-family: "Fredoka", sans-serif;
-  font-size: clamp(45px, 7.4vw, 108px);
+  font-size: clamp(54px, 8vw, 112px);
   font-weight: 700;
-  letter-spacing: -4px;
-  line-height: 0.94;
-  filter: drop-shadow(0 5px 0 rgba(65, 49, 29, 0.12));
+  letter-spacing: -3px;
+  line-height: 0.95;
+  filter: drop-shadow(0 4px 0 rgba(50, 45, 30, 0.12));
 }
 
-.itt-title-may,
-.itt-title-cody {
-  display: inline-block;
-  padding: 0.05em 0.04em;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-}
+/* Мэй: чистый синий с жёлтым контуром */
 
 .itt-title-may {
-  background-image:
-    repeating-linear-gradient(
-      4deg,
-      transparent 0 7px,
-      rgba(92, 52, 23, 0.2) 8px 10px,
-      transparent 11px 17px
-    ),
-    linear-gradient(
-      145deg,
-      #fff1b5 0%,
-      #f0bd60 24%,
-      #b87539 48%,
-      #e8c07a 69%,
-      #92552e 100%
-    );
-  -webkit-text-stroke: 1px #89552e;
+  display: inline-block;
+  padding: 0.04em 0.06em;
+  color: #2454bd;
+  -webkit-text-fill-color: #2454bd;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-stroke: 1.5px #ffdc45;
+  text-shadow:
+    2px 2px 0 #ffdc45,
+    -1px -1px 0 #ffdc45;
 }
 
+/* Коди: красный с оливковым контуром */
+
 .itt-title-cody {
-  background-image:
-    repeating-linear-gradient(
-      120deg,
-      transparent 0 12px,
-      rgba(58, 94, 39, 0.18) 13px 15px,
-      transparent 16px 22px
-    ),
-    linear-gradient(
-      145deg,
-      #f6d4a1 0%,
-      #d98a61 31%,
-      #9a6047 55%,
-      #6f984d 76%,
-      #d5e5a1 100%
-    );
-  -webkit-text-stroke: 1px #8a6244;
+  display: inline-block;
+  padding: 0.04em 0.06em;
+  color: #df4037;
+  -webkit-text-fill-color: #df4037;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-stroke: 1.5px #84953b;
+  text-shadow:
+    2px 2px 0 #84953b,
+    -1px -1px 0 #84953b;
 }
 
 .itt-hero-tagline {
   max-width: 430px;
   margin: 19px auto 22px;
-  color: #493e2d;
+  color: #34352b;
   font-size: 14px;
   font-weight: 900;
   line-height: 1.5;
-  text-shadow: 0 1px 0 rgba(255, 250, 239, 0.7);
+  text-shadow: 0 1px 0 rgba(255, 253, 245, 0.8);
+}
+
+.itt-title-top {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 15px;
+  border: 2px solid #edbd28;
+  border-radius: 50px;
+  background: #fffdf5;
+  color: #244eae;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 3px;
 }
 
 .itt-button {
