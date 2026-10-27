@@ -10,6 +10,10 @@ const gameForm = document.querySelector("#game-form");
 const gameFormMessage = document.querySelector("#game-form-message");
 const gamesListMessage = document.querySelector("#games-list-message");
 const adminGamesList = document.querySelector("#admin-games-list");
+const adminGameSearch = document.querySelector("#admin-game-search");
+const adminSearchClear = document.querySelector("#admin-search-clear");
+const adminSearchCount = document.querySelector("#admin-search-count");
+let allAdminGames = [];
 const totalGames = document.querySelector("#total-games");
 const publishedGames = document.querySelector("#published-games");
 function showMessage(element, message, isError = false) {
@@ -85,12 +89,18 @@ async function loadGames() {
     publishedGames.textContent = data.filter(
         (game) => game.published
     ).length;
-    renderGames(data);
+    allAdminGames = data;
+    filterAdminGames();
 }
 function renderGames(games) {
     adminGamesList.innerHTML = "";
     if (games.length === 0) {
-        showMessage(gamesListMessage, "Игр пока нет.");
+        showMessage(
+            gamesListMessage,
+            adminGameSearch.value.trim()
+                ? "По вашему запросу ничего не найдено."
+                : "Игр пока нет."
+        );
         return;
     }
     showMessage(gamesListMessage, "");
@@ -304,5 +314,31 @@ async function loadPageSuggestions() {
         urlInput.placeholder = "Введи путь к HTML-странице вручную";
     }
 }
+function filterAdminGames() {
+    const query = adminGameSearch.value
+        .trim()
+        .toLocaleLowerCase("ru");
+    const filteredGames = allAdminGames.filter((game) => {
+        const title = (game.title ?? "").toLocaleLowerCase("ru");
+        const slug = (game.slug ?? "").toLocaleLowerCase("ru");
+        const developer = (game.universe ?? "").toLocaleLowerCase("ru");
+        return (
+            title.includes(query) ||
+            slug.includes(query) ||
+            developer.includes(query)
+        );
+    });
+    adminSearchClear.hidden = query.length === 0;
+    adminSearchCount.textContent = query
+        ? `Найдено игр: ${filteredGames.length} из ${allAdminGames.length}`
+        : `Всего игр в списке: ${allAdminGames.length}`;
+    renderGames(filteredGames);
+}
+adminGameSearch.addEventListener("input", filterAdminGames);
+adminSearchClear.addEventListener("click", () => {
+    adminGameSearch.value = "";
+    filterAdminGames();
+    adminGameSearch.focus();
+});
 loadPageSuggestions();
 checkSession();

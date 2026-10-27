@@ -490,6 +490,57 @@ select:focus-visible {
     font-weight: 800;
     letter-spacing: 0.15em;
 }
+.admin-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0 8px;
+    padding: 0 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: var(--bg-soft);
+    transition: border-color 0.2s ease;
+}
+.admin-search:focus-within {
+    border-color: var(--accent);
+}
+.admin-search-icon {
+    color: #aeb2bd;
+    font-size: 25px;
+}
+#admin-game-search {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #f2f3f5;
+    font: inherit;
+}
+#admin-game-search::placeholder {
+    color: #777c87;
+}
+#admin-search-clear {
+    padding: 4px 8px;
+    border: none;
+    background: transparent;
+    color: #aeb2bd;
+    font-size: 24px;
+    cursor: pointer;
+}
+#admin-search-clear:hover {
+    color: #ffffff;
+}
+.admin-search-count {
+    min-height: 18px;
+    margin: 0 0 12px;
+    color: #969ba6;
+    font-size: 12px;
+}
+#admin-search-clear[hidden] {
+    display: none;
+}
 @media (max-width: 900px) {
     .admin-workspace {
         grid-template-columns: 1fr;

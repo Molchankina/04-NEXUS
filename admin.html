@@ -388,6 +388,27 @@
                                 <h2>Игры в базе</h2>
                                 <p>Выбери игру, чтобы изменить её данные.</p>
                             </div>
+                            <div class="admin-search">
+                                <span class="admin-search-icon" aria-hidden="true">⌕</span>
+                                <input
+                                    type="search"
+                                    id="admin-game-search"
+                                    placeholder="Найти игру по названию или slug..."
+                                    autocomplete="off"
+                                    aria-label="Поиск игр в базе"
+                                >
+                                <button
+                                    type="button"
+                                    id="admin-search-clear"
+                                    aria-label="Очистить поиск"
+                                    hidden
+                                >×</button>
+                            </div>
+                            <p
+                                class="admin-search-count"
+                                id="admin-search-count"
+                                aria-live="polite"
+                            ></p>
                             <div class="admin-games" id="admin-games-list">
                                 <p>Загрузка игр...</p>
                             </div>

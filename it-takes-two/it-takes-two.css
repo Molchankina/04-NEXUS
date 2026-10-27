@@ -165,9 +165,6 @@ body.itt-page {
   font-size: 9px; font-weight: 900; letter-spacing: 1.7px;
 }
 .itt-bottom-divider { width: 5px; height: 5px; border-radius: 50%; background: var(--itt-clay); }
-.itt-floating-small { position: absolute; z-index: 0; pointer-events: none; font-size: clamp(25px,4vw,48px); opacity: .75; }
-.itt-floating-star { top: 31%; left: 12%; color: #ffdc45; }
-.itt-floating-circle { top: 28%; right: 12%; color: #ff8170; }
 
 /* ОБЩИЕ СЕКЦИИ */
 .itt-section { width: min(100%, var(--itt-container)); margin-inline: auto; padding: clamp(65px,8vw,115px) clamp(20px,5vw,76px); }
