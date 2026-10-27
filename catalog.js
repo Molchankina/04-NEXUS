@@ -6,6 +6,7 @@ const modeFilter = document.querySelector("#mode-filter");
 const genreFilter = document.querySelector("#genre-filter");
 const cameraFilter = document.querySelector("#camera-filter");
 const moodFilter = document.querySelector("#mood-filter");
+const platformFilter = document.querySelector("#platform-filter");
 const resetButton = document.querySelector("#reset-filters");
 const emptyState = document.querySelector("#empty-state");
 const resultsCount = document.querySelector("#results-count");
@@ -68,14 +69,42 @@ function createCard(game, index) {
 function getFilteredGames() {
     const query = searchInput.value.trim().toLocaleLowerCase("ru");
     return games.filter((game) => {
-        const searchableText = `${game.title} ${game.description} ${game.universe} ${game.category} ${game.tags.join(" ")}`.toLocaleLowerCase("ru");
-        const matchesSearch = !query || searchableText.includes(query);
-        const matchesStory = storyFilter.value === "all" || game.story === storyFilter.value;
-        const matchesMode = modeFilter.value === "all" || game.modes.includes(modeFilter.value);
-        const matchesGenre = genreFilter.value === "all" || game.genres.includes(genreFilter.value);
-        const matchesCamera = cameraFilter.value === "all" || game.camera === cameraFilter.value;
-        const matchesMood = moodFilter.value === "all" || game.moods.includes(moodFilter.value);
-        return matchesSearch && matchesStory && matchesMode && matchesGenre && matchesCamera && matchesMood;
+        const searchableText = `
+            ${game.title}
+            ${game.description}
+            ${game.universe}
+            ${game.category}
+            ${game.tags.join(" ")}
+        `.toLocaleLowerCase("ru");
+        const matchesSearch =
+            !query || searchableText.includes(query);
+        const matchesStory =
+            storyFilter.value === "all" ||
+            game.story === storyFilter.value;
+        const matchesMode =
+            modeFilter.value === "all" ||
+            game.modes.includes(modeFilter.value);
+        const matchesGenre =
+            genreFilter.value === "all" ||
+            game.genres.includes(genreFilter.value);
+        const matchesCamera =
+            cameraFilter.value === "all" ||
+            game.camera === cameraFilter.value;
+        const matchesMood =
+            moodFilter.value === "all" ||
+            game.moods.includes(moodFilter.value);
+        const matchesPlatform =
+            platformFilter.value === "all" ||
+            game.platforms.includes(platformFilter.value);
+        return (
+            matchesSearch &&
+            matchesStory &&
+            matchesMode &&
+            matchesGenre &&
+            matchesCamera &&
+            matchesMood &&
+            matchesPlatform
+        );
     });
 }
 function describeFilters() {
@@ -84,7 +113,11 @@ function describeFilters() {
     if (modeFilter.value !== "all") selected.push(modeFilter.options[modeFilter.selectedIndex].text);
     if (genreFilter.value !== "all") selected.push(genreFilter.options[genreFilter.selectedIndex].text);
     if (cameraFilter.value !== "all") selected.push(cameraFilter.options[cameraFilter.selectedIndex].text);
-    if (moodFilter.value !== "all") selected.push(moodFilter.options[moodFilter.selectedIndex].text);
+    if (platformFilter.value !== "all") {
+        selected.push(
+            platformFilter.options[platformFilter.selectedIndex].text
+        );
+    }
     if (searchInput.value.trim()) selected.push(`Поиск: «${searchInput.value.trim()}»`);
     activeFilterNote.textContent = selected.length ? selected.join(" · ") : "Все игры каталога";
 }
@@ -105,9 +138,10 @@ function resetFilters() {
     genreFilter.value = "all";
     cameraFilter.value = "all";
     moodFilter.value = "all";
+    platformFilter.value = "all";
     renderGames();
 }
-[searchInput, storyFilter, modeFilter, genreFilter, cameraFilter, moodFilter].forEach((control) => {
+[searchInput, storyFilter, modeFilter, genreFilter, cameraFilter, moodFilter, platformFilter].forEach((control) => {
     control.addEventListener(control === searchInput ? "input" : "change", renderGames);
 });
 resetButton.addEventListener("click", resetFilters);
@@ -137,7 +171,13 @@ async function loadGames() {
             modes: game.modes ?? [],
             genres: game.genres ?? [],
             camera: game.camera,
-            moods: game.moods ?? [],
+            moods: (game.moods ?? []).map((mood) => ({
+                dark: "dark-fantasy",
+                emotional: "dramatic",
+                calm: "contemplative",
+                energetic: "adrenaline"
+            }[mood] ?? mood)),
+            platforms: game.platforms ?? [],
             tags: game.tags ?? []
         }));
         renderGames();

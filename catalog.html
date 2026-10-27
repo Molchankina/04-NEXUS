@@ -91,13 +91,40 @@
                             <label for="mood-filter">Атмосфера</label>
                             <select id="mood-filter">
                                 <option value="all">Любая</option>
-                                <option value="dark">Мрачная</option>
-                                <option value="emotional">Эмоциональная</option>
-                                <option value="calm">Спокойное исследование</option>
-                                <option value="energetic">Динамичная</option>
+                                <option value="dark-fantasy">Тёмное фэнтези</option>
+                                <option value="cyberpunk">Киберпанк и футуризм</option>
+                                <option value="horror">Ужас и тревога</option>
+                                <option value="mystery">Мистическая</option>
+                                <option value="melancholic">Меланхоличная</option>
+                                <option value="dramatic">Драматичная</option>
+                                <option value="fairytale">Сказочная и волшебная</option>
+                                <option value="adventure">Приключенческая</option>
+                                <option value="post-apocalyptic">Постапокалиптическая</option>
+                                <option value="contemplative">Атмосферная и созерцательная</option>
+                                <option value="urban">Современный городской мир</option>
+                                <option value="nostalgic">Ностальгическая</option>
+                                <option value="cozy">Уютная</option>
+                                <option value="adrenaline">Адреналиновая</option>
                             </select>
                         </div>
-                        <button class="reset-filters" id="reset-filters" type="button">Сбросить фильтры <span aria-hidden="true">↺</span></button>
+                        <div class="filter-field">
+                            <label for="platform-filter">Платформа</label>
+                            <select id="platform-filter">
+                                <option value="all">Любая платформа</option>
+                                <option value="PC">PC</option>
+                                <option value="PlayStation 4">PlayStation 4</option>
+                                <option value="PlayStation 5">PlayStation 5</option>
+                                <option value="Xbox One">Xbox One</option>
+                                <option value="Xbox Series X|S">Xbox Series X|S</option>
+                                <option value="Nintendo Switch">Nintendo Switch</option>
+                                <option value="Nintendo Switch 2">Nintendo Switch 2</option>
+                                <option value="macOS">macOS</option>
+                                <option value="iOS">iOS</option>
+                            </select>
+                        </div>
+                        <button class="reset-filters" id="reset-filters" type="button">
+                            Сбросить фильтры <span aria-hidden="true">↺</span>
+                        </button>
                     </div>
                 </div>
                 <div class="results-bar" aria-live="polite">

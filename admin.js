@@ -172,7 +172,15 @@ function editGame(game) {
     setCheckboxes("#game-genres", game.genres);
     setCheckboxes("#game-platforms", game.platforms);
     document.querySelector("#game-camera").value = game.camera ?? "";
-    setCheckboxes("#game-moods", game.moods);
+    const legacyMoodMap = {
+        dark: "dark-fantasy",
+        emotional: "dramatic",
+        calm: "contemplative",
+        energetic: "adrenaline"
+    };
+    const currentMoods = (Array.isArray(game.moods) ? game.moods : [])
+        .map((mood) => legacyMoodMap[mood] ?? mood);
+    setCheckboxes("#game-moods", currentMoods);
     setCheckboxes("#game-tags", game.tags);
     document.querySelector("#game-published").checked =
         Boolean(game.published);
