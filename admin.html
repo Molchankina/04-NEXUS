@@ -90,6 +90,57 @@
                         </div>
                     </div>
                     <div class="admin-workspace">
+                        <section class="admin-import">
+                            <div class="panel-heading">
+                                <span class="panel-number">02.5 / BULK IMPORT</span>
+                                <h2>Массовое добавление игр</h2>
+                                <p>
+                                    Загрузи JSON-файл, проверь список и добавь несколько
+                                    игр в каталог одним действием.
+                                </p>
+                            </div>
+                            <label for="games-import-file">Файл с играми (.json)</label>
+                            <input
+                                type="file"
+                                id="games-import-file"
+                                accept=".json,application/json"
+                            >
+                            <p class="field-hint">
+                                Используй JSON-массив объектов. Каждая игра должна содержать
+                                название, slug, разработчика, категорию, изображение, alt
+                                и путь к HTML-странице.
+                            </p>
+                            <div
+                                id="games-import-preview"
+                                class="games-import-preview"
+                                aria-live="polite"
+                            >
+                                <p>Сначала выбери JSON-файл.</p>
+                            </div>
+                            <div class="form-actions">
+                                <button
+                                    class="admin-button"
+                                    id="import-games-button"
+                                    type="button"
+                                    disabled
+                                >
+                                    Добавить игры
+                                    <span aria-hidden="true">→</span>
+                                </button>
+                                <button
+                                    class="admin-button admin-button-secondary"
+                                    id="clear-import-button"
+                                    type="button"
+                                >
+                                    Очистить
+                                </button>
+                            </div>
+                            <p
+                                class="form-message"
+                                id="games-import-message"
+                                role="status"
+                            ></p>
+                        </section>
                         <section class="admin-game-form">
                             <div class="panel-heading">
                                 <span class="panel-number">03 / EDITOR</span>

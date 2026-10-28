@@ -541,6 +541,34 @@ select:focus-visible {
 #admin-search-clear[hidden] {
     display: none;
 }
+.admin-import {
+    margin: 28px 0;
+    padding: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.025);
+}
+.admin-import > label {
+    display: block;
+    margin: 20px 0 10px;
+}
+.games-import-preview {
+    margin-top: 20px;
+    overflow-wrap: anywhere;
+}
+.games-import-preview ul {
+    display: grid;
+    gap: 10px;
+    padding-left: 22px;
+}
+.games-import-preview li {
+    line-height: 1.6;
+}
+#games-import-button:disabled,
+#import-games-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
 @media (max-width: 900px) {
     .admin-workspace {
         grid-template-columns: 1fr;
@@ -550,6 +578,9 @@ select:focus-visible {
     }
 }
 @media (max-width: 600px) {
+    .admin-import {
+        padding: 18px;
+    }
     .admin-header {
         min-height: 72px;
         gap: 12px;

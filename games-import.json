@@ -1,0 +1,42 @@
+[
+  {
+    "title": "The Witcher 3: Wild Hunt",
+    "slug": "the-witcher-3",
+    "universe": "CD Projekt Red",
+    "release_year": 2015,
+    "plot_summary": "Описание сюжета без спойлеров.",
+    "gameplay": "Исследование мира, сражения и выполнение заданий.",
+    "features": [
+      "Открытый мир",
+      "Сюжетные решения"
+    ],
+    "pc_min_requirements": "",
+    "pc_recommended_requirements": "",
+    "category": "rpg",
+    "image": "images/witcher-3.jpg",
+    "background_image": "",
+    "alt": "Геральт из Ривии в мире Ведьмака 3",
+    "description": "Краткое описание игры без спойлеров.",
+    "url": "witcher/witcher.html",
+    "story": true,
+    "modes": ["solo"],
+    "genres": ["action", "rpg", "adventure"],
+    "platforms": [
+      "PC",
+      "PlayStation 4",
+      "PlayStation 5",
+      "Xbox One",
+      "Xbox Series X|S",
+      "Nintendo Switch"
+    ],
+    "camera": "third",
+    "moods": [
+      "dark-fantasy",
+      "adventure",
+      "dramatic",
+      "mystery"
+    ],
+    "tags": [],
+    "published": true
+  }
+]

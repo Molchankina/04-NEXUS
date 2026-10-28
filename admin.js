@@ -16,6 +16,13 @@ const adminSearchCount = document.querySelector("#admin-search-count");
 let allAdminGames = [];
 const totalGames = document.querySelector("#total-games");
 const publishedGames = document.querySelector("#published-games");
+const importFileInput = document.querySelector("#games-import-file");
+const importPreview = document.querySelector("#games-import-preview");
+const importButton = document.querySelector("#import-games-button");
+const clearImportButton = document.querySelector("#clear-import-button");
+const importMessage = document.querySelector("#games-import-message");
+let pendingImportGames = [];
+let importFileErrors = [];
 function showMessage(element, message, isError = false) {
     element.textContent = message;
     element.classList.toggle("is-error", isError);
@@ -92,6 +99,225 @@ async function loadGames() {
     allAdminGames = data;
     filterAdminGames();
 }
+function normalizeImportedGame(game, index, fileSlugs) {
+    const errors = [];
+    const requiredFields = [
+        "title",
+        "slug",
+        "universe",
+        "category",
+        "image",
+        "alt",
+        "url"
+    ];
+    if (!game || typeof game !== "object" || Array.isArray(game)) {
+        return {
+            game: null,
+            errors: [`Запись ${index + 1}: ожидался объект игры.`]
+        };
+    }
+    requiredFields.forEach((field) => {
+        if (
+            typeof game[field] !== "string" ||
+            !game[field].trim()
+        ) {
+            errors.push(`Не заполнено поле ${field}.`);
+        }
+    });
+    if (
+        typeof game.slug === "string" &&
+        !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(game.slug.trim())
+    ) {
+        errors.push("slug должен содержать латиницу, цифры и дефисы.");
+    }
+    if (
+        typeof game.slug === "string" &&
+        allAdminGames.some(
+            (existing) => existing.slug === game.slug.trim()
+        )
+    ) {
+        errors.push("Игра с таким slug уже есть в базе.");
+    }
+    if (typeof game.slug === "string") {
+        const slug = game.slug.trim();
+        if (fileSlugs.has(slug)) {
+            errors.push("Этот slug повторяется в загружаемом файле.");
+        }
+        fileSlugs.add(slug);
+    }
+    const arrayFields = [
+        "modes",
+        "genres",
+        "platforms",
+        "moods",
+        "tags",
+        "features"
+    ];
+    arrayFields.forEach((field) => {
+        if (
+            game[field] !== undefined &&
+            !Array.isArray(game[field])
+        ) {
+            errors.push(`${field} должен быть массивом.`);
+        }
+    });
+    if (
+        game.release_year !== undefined &&
+        game.release_year !== null &&
+        (
+            !Number.isInteger(Number(game.release_year)) ||
+            Number(game.release_year) < 1970 ||
+            Number(game.release_year) > 2100
+        )
+    ) {
+        errors.push("Проверь год выхода игры.");
+    }
+    if (
+        game.camera !== undefined &&
+        !["first", "third"].includes(game.camera)
+    ) {
+        errors.push('camera должен быть "first" или "third".');
+    }
+    const normalized = {
+        title: game.title?.trim(),
+        slug: game.slug?.trim(),
+        universe: game.universe?.trim(),
+        release_year:
+            game.release_year === undefined ||
+            game.release_year === null ||
+            game.release_year === ""
+                ? null
+                : Number(game.release_year),
+        plot_summary: game.plot_summary ?? "",
+        gameplay: game.gameplay ?? "",
+        features: game.features ?? [],
+        pc_min_requirements: game.pc_min_requirements ?? "",
+        pc_recommended_requirements:
+            game.pc_recommended_requirements ?? "",
+        category: game.category?.trim(),
+        image: game.image?.trim(),
+        background_image: game.background_image ?? "",
+        alt: game.alt?.trim(),
+        description: game.description ?? "",
+        url: game.url?.trim(),
+        story: game.story === true || game.story === "story",
+        modes: game.modes ?? [],
+        genres: game.genres ?? [],
+        platforms: game.platforms ?? [],
+        camera: game.camera ?? "third",
+        moods: game.moods ?? [],
+        tags: game.tags ?? [],
+        published: game.published !== false
+    };
+    return {
+        game: errors.length === 0 ? normalized : null,
+        errors
+    };
+}
+function renderImportPreview(records) {
+    importPreview.replaceChildren();
+    const summary = document.createElement("p");
+    const validCount = records.filter((record) => record.game).length;
+    const invalidCount = records.length - validCount;
+    summary.textContent =
+        `Всего записей: ${records.length}. ` +
+        `Готово к импорту: ${validCount}. ` +
+        `С ошибками: ${invalidCount}.`;
+    importPreview.append(summary);
+    const list = document.createElement("ul");
+    records.forEach((record, index) => {
+        const item = document.createElement("li");
+        const title = record.game?.title || `Запись ${index + 1}`;
+        item.textContent = record.errors.length
+            ? `✗ ${title}: ${record.errors.join(" ")}`
+            : `✓ ${title}`;
+        list.append(item);
+    });
+    importPreview.append(list);
+    importButton.disabled = validCount === 0;
+}
+importFileInput.addEventListener("change", async () => {
+    pendingImportGames = [];
+    importFileErrors = [];
+    importButton.disabled = true;
+    showMessage(importMessage, "");
+    const file = importFileInput.files[0];
+    if (!file) {
+        importPreview.replaceChildren();
+        importPreview.textContent = "Файл не выбран.";
+        return;
+    }
+    try {
+        const content = await file.text();
+        const parsed = JSON.parse(content);
+        const games = Array.isArray(parsed) ? parsed : parsed.games;
+        if (!Array.isArray(games) || games.length === 0) {
+            throw new Error(
+                "В файле должен быть непустой массив игр."
+            );
+        }
+        const fileSlugs = new Set();
+        const records = games.map((game, index) =>
+            normalizeImportedGame(game, index, fileSlugs)
+        );
+        pendingImportGames = records
+            .filter((record) => record.game)
+            .map((record) => record.game);
+        importFileErrors = records.filter(
+            (record) => record.errors.length > 0
+        );
+        renderImportPreview(records);
+    } catch (error) {
+        pendingImportGames = [];
+        importButton.disabled = true;
+        importPreview.textContent =
+            `Не удалось прочитать файл: ${error.message}`;
+        showMessage(importMessage, "Проверь формат JSON.", true);
+    }
+});
+importButton.addEventListener("click", async () => {
+    if (pendingImportGames.length === 0) return;
+    const skippedCount = importFileErrors.length;
+    const confirmed = window.confirm(
+        `Добавить игр: ${pendingImportGames.length}.\n` +
+        `Пропустить записей с ошибками: ${skippedCount}.\n\n` +
+        "Существующие игры изменены не будут. Продолжить?"
+    );
+    if (!confirmed) return;
+    importButton.disabled = true;
+    showMessage(importMessage, "Добавляем игры…");
+    const { error } = await supabaseClient
+        .from("games")
+        .insert(pendingImportGames);
+    if (error) {
+        console.error("Ошибка массового импорта:", error);
+        showMessage(
+            importMessage,
+            `Импорт не выполнен: ${error.message}`,
+            true
+        );
+        importButton.disabled = false;
+        return;
+    }
+    const importedCount = pendingImportGames.length;
+    pendingImportGames = [];
+    importFileErrors = [];
+    importFileInput.value = "";
+    importPreview.textContent = "Импорт завершён.";
+    showMessage(
+        importMessage,
+        `Успешно добавлено игр: ${importedCount}.`
+    );
+    await loadGames();
+});
+clearImportButton.addEventListener("click", () => {
+    pendingImportGames = [];
+    importFileErrors = [];
+    importFileInput.value = "";
+    importButton.disabled = true;
+    importPreview.textContent = "Сначала выбери JSON-файл.";
+    showMessage(importMessage, "");
+});
 function renderGames(games) {
     adminGamesList.innerHTML = "";
     if (games.length === 0) {
