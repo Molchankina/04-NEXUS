@@ -104,7 +104,7 @@ async function loadGameData() {
             .maybeSingle();
 
         if (error) throw error;
-        if (!game) return; // Оставляем встроенный контент страницы как резервный вариант.
+        if (!game) return; 
 
         document.title = `${game.title || "The Last of Us Part I"} — NEXUS`;
         setText("#game-developer", game.universe);
@@ -159,8 +159,6 @@ function initRouteInteractions() {
             button.setAttribute("aria-expanded", "false");
         });
     });
-
-    // Прорисовка линии маршрута по мере прокрутки.
     const routeSection = document.querySelector(".route-map");
     const routeLine = document.querySelector(".route-line-main");
     if (routeSection && routeLine && "IntersectionObserver" in window) {
@@ -175,8 +173,6 @@ function initRouteInteractions() {
     } else if (routeLine) {
         routeLine.classList.add("is-visible");
     }
-
-    // Точки маршрута подсвечиваются, когда соответствующий эпизод входит в экран.
     if ("IntersectionObserver" in window) {
         const stopObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
