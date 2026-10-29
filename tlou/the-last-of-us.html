@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#171a16">
+    <meta name="description" content="The Last of Us Part I — история выживания Джоэла и Элли в мире, который природа медленно возвращает себе. Игровое досье NEXUS.">
+    <title>The Last of Us Part I — NEXUS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="the-last-of-us.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="the-last-of-us.js" defer></script>
+</head>
+<body class="tlou-body">
+    <div class="page-grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="NEXUS — главная">
+            <span class="brand-mark">N</span>
+            <span>NEXUS<span class="brand-dot">.</span></span>
+        </a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <a href="index.html">Главная</a>
+            <a href="catalog.html">Каталог игр</a>
+        </nav>
+        <a class="header-index" href="#journey">FILE / TLOU-001 <span>↘</span></a>
+    </header>
+
+    <main>
+        <section class="hero" id="top">
+            <div class="hero-image" id="hero-background" role="img" aria-label="Заброшенный мир The Last of Us"></div>
+            <div class="hero-vignette"></div>
+            <div class="hero-content">
+                <p class="eyebrow"><span class="live-dot"></span> NEXUS FIELD ARCHIVE / 001</p>
+                <p class="hero-developer" id="game-developer">NAUGHTY DOG</p>
+                <h1 id="game-title">THE LAST<br><span>OF US</span></h1>
+                <p class="hero-subtitle" id="game-description">Мир изменился. Дорога осталась.</p>
+                <div class="hero-meta">
+                    <span id="game-year">2022</span>
+                    <span class="meta-rule"></span>
+                    <span>SURVIVAL / STORY</span>
+                </div>
+                <a class="hero-cta" href="#journey">Проследить маршрут <span>↓</span></a>
+            </div>
+            <div class="hero-side-note">UNITED STATES<br>20 YEARS AFTER THE OUTBREAK</div>
+            <div class="hero-bottom-line"><span>НАДЕЖДА — ЭТО ТОЖЕ РЕСУРС</span><span>01 / 06</span></div>
+        </section>
+
+        <section class="intro-strip" aria-label="Краткая информация">
+            <p>ОДНА ДОРОГА</p><span></span><p>ДВА ПУТНИКА</p><span></span><p>МИР, КОТОРЫЙ ЗАРОС ТИШИНОЙ</p>
+        </section>
+
+        <section class="journey section-wrap" id="journey">
+            <div class="section-heading journey-heading">
+                <p class="eyebrow">THE JOURNEY</p>
+                <h2>Следуй<br><em>за маршрутом.</em></h2>
+                <p class="section-intro">Это не точная карта событий, а визуальный след путешествия через разрушенную Америку. Прокручивай страницу и открывай главы пути.</p>
+            </div>
+
+            <div class="route-map">
+                <svg class="route-line" viewBox="0 0 1000 1900" preserveAspectRatio="none" aria-hidden="true">
+                    <path class="route-line-shadow" d="M500 0 C500 100 240 95 250 230 S760 360 720 500 S230 650 300 820 S790 980 700 1150 S220 1330 310 1480 S730 1650 500 1900" />
+                    <path class="route-line-main" d="M500 0 C500 100 240 95 250 230 S760 360 720 500 S230 650 300 820 S790 980 700 1150 S220 1330 310 1480 S730 1650 500 1900" />
+                </svg>
+
+                <article class="route-stop route-stop-left" data-route-stop="0">
+                    <div class="route-image image-city" role="img" aria-label="Заброшенный американский город"></div>
+                    <div class="route-copy">
+                        <span class="route-number">THE QUARANTINE ZONE</span>
+                        <h3>Город<br>за стеной</h3>
+                        <p>За ограждениями ещё держится подобие порядка. За их пределами правила диктуют страх, нехватка ресурсов и люди, которым больше нечего терять.</p>
+                        <button class="route-button" type="button" data-open-route="0">Открыть запись <span>↗</span></button>
+                    </div>
+                    <span class="route-pin" aria-hidden="true"></span>
+                </article>
+
+                <article class="route-stop route-stop-right" data-route-stop="1">
+                    <div class="route-image image-overgrowth" role="img" aria-label="Заросшие руины"></div>
+                    <div class="route-copy">
+                        <span class="route-number">THE OUTSIDE</span>
+                        <h3>Природа<br>возвращает своё</h3>
+                        <p>Дороги исчезают под травой, здания разрушаются, а знакомые места становятся чужими. Здесь важно замечать не только угрозы, но и путь вперёд.</p>
+                        <button class="route-button" type="button" data-open-route="1">Открыть запись <span>↗</span></button>
+                    </div>
+                    <span class="route-pin" aria-hidden="true"></span>
+                </article>
+
+                <article class="route-stop route-stop-left" data-route-stop="2">
+                    <div class="route-image image-interior" role="img" aria-label="Тёмное заброшенное здание"></div>
+                    <div class="route-copy">
+                        <span class="route-number">KEEP MOVING</span>
+                        <h3>Тишина<br>не означает безопасность</h3>
+                        <p>Каждое помещение может скрывать припасы, следы чужой жизни или опасность. Иногда внимательность важнее силы, а осторожность — быстрее любого оружия.</p>
+                        <button class="route-button" type="button" data-open-route="2">Открыть запись <span>↗</span></button>
+                    </div>
+                    <span class="route-pin" aria-hidden="true"></span>
+                </article>
+
+                <article class="route-stop route-stop-right" data-route-stop="3">
+                    <div class="route-image image-wilderness" role="img" aria-label="Дорога через дикую местность"></div>
+                    <div class="route-copy">
+                        <span class="route-number">THE LONG ROAD</span>
+                        <h3>Дальше —<br>только вместе</h3>
+                        <p>Путь меняет не только тех, кто его проходит, но и то, что возникает между ними. В этом мире доверие становится не менее важным ресурсом, чем еда или патроны.</p>
+                        <button class="route-button" type="button" data-open-route="3">Открыть запись <span>↗</span></button>
+                    </div>
+                    <span class="route-pin" aria-hidden="true"></span>
+                </article>
+            </div>
+
+            <div class="route-detail" id="route-detail" aria-live="polite" hidden>
+                <button class="route-detail-close" id="route-detail-close" type="button" aria-label="Закрыть запись">×</button>
+                <p class="eyebrow" id="route-detail-kicker">FIELD NOTE / 01</p>
+                <h3 id="route-detail-title">Полевые заметки</h3>
+                <p id="route-detail-text"></p>
+            </div>
+        </section>
+
+        <section class="story-section section-wrap" id="about-game">
+            <div class="section-heading">
+                <p class="eyebrow">ABOUT THE GAME</p>
+                <h2>Мир после<br><em>конца света.</em></h2>
+            </div>
+            <div class="story-layout">
+                <div class="story-image" id="story-image" role="img" aria-label="Путешествие Джоэла и Элли"></div>
+                <div class="story-copy">
+                    <p class="copy-label">ОБ ИГРЕ / БЕЗ СПОЙЛЕРОВ</p>
+                    <p class="body-copy" id="game-plot">После вспышки грибковой инфекции цивилизация распалась. Спустя годы выжившие пытаются удержаться среди карантинных зон, заброшенных городов и территорий, где опасность может исходить как от заражённых, так и от людей.</p>
+                    <p class="body-copy">Джоэл привык не привязываться и думать прежде всего о следующем дне. Элли выросла в мире, которого почти не осталось. Их совместная дорога начинается как поручение, но постепенно превращается в историю о доверии, потере и выборе, который не всегда бывает простым.</p>
+                    <p class="body-copy muted-copy">Описание раскрывает завязку и атмосферу, не затрагивая ключевые повороты сюжета.</p>
+                </div>
+            </div>
+            <div class="game-facts" id="game-information">
+                <div class="fact"><span>ГОД ВЫХОДА</span><strong id="info-year">2022</strong></div>
+                <div class="fact"><span>РАЗРАБОТЧИК</span><strong id="info-developer">Naughty Dog</strong></div>
+                <div class="fact"><span>ЖАНРЫ</span><div class="fact-chips" id="game-genres"><span>Приключения</span><span>Экшен</span></div></div>
+                <div class="fact"><span>РЕЖИМ</span><div class="fact-chips" id="game-modes"><span>Одиночная игра</span></div></div>
+                <div class="fact"><span>ПЛАТФОРМЫ</span><div class="fact-chips" id="game-platforms"><span>PC</span><span>PlayStation 5</span></div></div>
+            </div>
+        </section>
+
+        <section class="gameplay-section section-wrap" id="gameplay">
+            <div class="section-heading">
+                <p class="eyebrow">SURVIVAL SYSTEMS</p>
+                <h2>Выжить —<br><em>значит думать.</em></h2>
+                <p class="section-intro" id="game-gameplay">Исследуй окружение, собирай полезные ресурсы, выбирай между скрытностью и прямым столкновением и используй пространство, чтобы получить преимущество.</p>
+            </div>
+            <div class="mechanic-grid">
+                <article class="mechanic-card"><span>01</span><h3>Исследование</h3><p>Осматривай заброшенные помещения, ищи припасы и замечай детали, которые могут подсказать безопасный путь.</p></article>
+                <article class="mechanic-card"><span>02</span><h3>Скрытность</h3><p>Слушай окружение, используй укрытия и решай, когда лучше пройти незаметно, а когда придётся вступить в бой.</p></article>
+                <article class="mechanic-card"><span>03</span><h3>Ресурсы</h3><p>Боеприпасы и материалы ограничены. Не каждое столкновение стоит потраченных запасов.</p></article>
+                <article class="mechanic-card"><span>04</span><h3>Напарники</h3><p>Диалоги, совместные действия и меняющиеся отношения героев придают путешествию человеческое измерение.</p></article>
+            </div>
+        </section>
+
+        <section class="backpack-section section-wrap" id="backpack">
+            <div class="section-heading backpack-heading">
+                <p class="eyebrow">FIELD EQUIPMENT</p>
+                <h2>Рюкзак<br><em>выжившего.</em></h2>
+                <p class="section-intro">В пути каждый предмет имеет значение. Нажимай на вещи, чтобы изучить их. Попробуй собрать полезный комплект из найденных припасов.</p>
+            </div>
+
+            <div class="backpack-playground">
+                <div class="backpack-visual">
+                    <img class="backpack-image" id="backpack-image" src="image/tlou-backpack.jpg" alt="Рюкзак выжившего — нажми, чтобы изучить снаряжение" onerror="this.hidden=true; document.querySelector('.backpack-fallback').hidden=false;">
+                    <div class="backpack-fallback" hidden><span>FIELD KIT</span><small>assets/tlou-backpack.png</small></div>
+                    <span class="backpack-stamp">PROPERTY<br>OF A SURVIVOR</span>
+                </div>
+                <div class="inventory-panel">
+                    <div class="inventory-top"><span>INVENTORY / 04 ITEMS</span><span id="inventory-count">0 / 4 изучено</span></div>
+                    <div class="inventory-items" id="inventory-items">
+                        <button class="inventory-item" type="button" data-item="bandage" aria-pressed="false"><span class="item-symbol">＋</span><span><strong>Бинты</strong><small>Медицина</small></span><span class="item-arrow">↗</span></button>
+                        <button class="inventory-item" type="button" data-item="scissors" aria-pressed="false"><span class="item-symbol">⌁</span><span><strong>Ножницы</strong><small>Инструмент</small></span><span class="item-arrow">↗</span></button>
+                        <button class="inventory-item" type="button" data-item="rag" aria-pressed="false"><span class="item-symbol">▤</span><span><strong>Кусок ткани</strong><small>Материал</small></span><span class="item-arrow">↗</span></button>
+                        <button class="inventory-item" type="button" data-item="alcohol" aria-pressed="false"><span class="item-symbol">◉</span><span><strong>Спирт</strong><small>Расходник</small></span><span class="item-arrow">↗</span></button>
+                    </div>
+                    <div class="item-inspection" id="item-inspection" aria-live="polite">
+                        <p class="copy-label">ОСМОТР ПРЕДМЕТА</p>
+                        <h3 id="item-title">Выбери предмет</h3>
+                        <p id="item-description">Вещи в рюкзаке могут пригодиться позже. Нажми на любой предмет, чтобы прочитать полевую заметку.</p>
+                    </div>
+                    <div class="crafting-box">
+                        <div><p class="copy-label">ПРОВЕРКА СНАРЯЖЕНИЯ</p><h3>Собрать аптечку</h3></div>
+                        <p>Выбери бинты и спирт, затем проверь, хватает ли материалов для игрового набора.</p>
+                        <div class="crafting-actions"><button class="craft-button" id="craft-button" type="button">Проверить комплект <span>↗</span></button><button class="reset-button" id="inventory-reset" type="button">Сбросить</button></div>
+                        <p class="craft-result" id="craft-result" role="status" aria-live="polite"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section section-wrap" id="features">
+            <div class="section-heading">
+                <p class="eyebrow">WHY IT STAYS WITH YOU</p>
+                <h2>Особенности<br><em>этого мира.</em></h2>
+            </div>
+            <div class="feature-list" id="game-features">
+                <article class="feature-row"><span>01</span><h3>Реалистичная атмосфера</h3><p>Выцветшие города, заросшие дороги и детали окружающей среды рассказывают о мире не хуже диалогов.</p></article>
+                <article class="feature-row"><span>02</span><h3>Человеческая история</h3><p>В центре — не только борьба за жизнь, но и то, как меняются отношения людей в экстремальных обстоятельствах.</p></article>
+                <article class="feature-row"><span>03</span><h3>Напряжённое выживание</h3><p>Ограниченные ресурсы и опасные встречи заставляют оценивать обстановку и принимать решения.</p></article>
+                <article class="feature-row"><span>04</span><h3>Мир, который рассказывает сам</h3><p>Записки, оставленные вещи и заброшенные пространства помогают представить жизни людей, которых уже нет рядом.</p></article>
+            </div>
+        </section>
+
+        <section class="requirements-section section-wrap" id="requirements">
+            <div class="section-heading">
+                <p class="eyebrow">PC CHECK</p>
+                <h2>Готов ли твой<br><em>компьютер?</em></h2>
+                <p class="section-intro">Системные требования зависят от версии игры и обновлений. Сверь данные с магазином, где собираешься её запускать.</p>
+            </div>
+            <div class="requirements-grid">
+                <article class="requirement-card" id="minimum-card"><div class="requirement-label"><span>01</span> MINIMUM / МИНИМАЛЬНЫЕ</div><p id="game-minimum">Windows 10 64-bit · Intel Core i7-4770K / AMD Ryzen 5 1500X · 16 GB RAM · GeForce GTX 970 / Radeon RX 470 · 100 GB SSD</p></article>
+                <article class="requirement-card" id="recommended-card"><div class="requirement-label"><span>02</span> RECOMMENDED / РЕКОМЕНДУЕМЫЕ</div><p id="game-recommended">Windows 10 64-bit · Intel Core i7-8700 / AMD Ryzen 5 3600X · 16 GB RAM · GeForce RTX 2080 Ti / Radeon RX 6750 XT · 100 GB SSD</p></article>
+            </div>
+            <p class="requirements-note">Проверь актуальные требования конкретной версии перед установкой. Здесь показаны справочные данные, которые нужно сверить с официальной страницей игры.</p>
+        </section>
+
+        <section class="closing-section">
+            <div class="closing-backdrop" aria-hidden="true"></div>
+            <p class="eyebrow">END OF TRANSMISSION</p>
+            <h2>Продолжай<br><em>путь.</em></h2>
+            <p>Не все истории заканчиваются там, где обрывается дорога.</p>
+            <a href="catalog.html" class="hero-cta">Вернуться в архив <span>↗</span></a>
+        </section>
+    </main>
+
+    <footer class="site-footer"><a class="brand" href="index.html"><span class="brand-mark">N</span><span>NEXUS<span class="brand-dot">.</span></span></a><p>НЕ ПРОСТО ИГРЫ. ЦЕЛЫЕ МИРЫ.</p><a href="#top">НАВЕРХ ↑</a></footer>
+</body>
+</html>
