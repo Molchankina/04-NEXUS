@@ -20,7 +20,6 @@ const routeNotes = [
         text: "Путешествие проверяет не только выносливость, но и способность доверять другому человеку. Иногда поддержка напарника важнее найденного снаряжения."
     }
 ];
-
 const inventoryData = {
     bandage: {
         title: "Бинты",
@@ -160,18 +159,24 @@ function initRouteInteractions() {
         });
     });
     const routeSection = document.querySelector(".route-map");
-    const routeLine = document.querySelector(".route-line-main");
-    if (routeSection && routeLine && "IntersectionObserver" in window) {
+    const routeLines = document.querySelectorAll(".route-line-main");
+    const showRouteLines = () => {
+        routeLines.forEach((line) => {
+            line.classList.add("is-visible");
+        });
+    };
+    if (routeSection && routeLines.length && "IntersectionObserver" in window) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    routeLine.classList.add("is-visible");
+                    showRouteLines();
+                    observer.disconnect();
                 }
             });
-        }, { threshold: 0.05 });
+        }, { threshold: 0.1 });
         observer.observe(routeSection);
-    } else if (routeLine) {
-        routeLine.classList.add("is-visible");
+    } else if (routeLines.length) {
+        showRouteLines();
     }
     if ("IntersectionObserver" in window) {
         const stopObserver = new IntersectionObserver((entries) => {
@@ -182,7 +187,6 @@ function initRouteInteractions() {
         document.querySelectorAll(".route-stop").forEach((stop) => stopObserver.observe(stop));
     }
 }
-
 function initBackpack() {
     const buttons = [...document.querySelectorAll(".inventory-item")];
     const countLabel = document.querySelector("#inventory-count");
