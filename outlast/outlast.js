@@ -1,28 +1,27 @@
 (() => {
-  const hero = document.querySelector("#hero");
-  const toggle = document.querySelector("#night-toggle");
-  const toggleLabel = document.querySelector(".toggle-label");
   const page = document.querySelector("#outlast-page");
-  if (!hero || !toggle || !page) return;
-  window.addEventListener("load", () => {
-    window.setTimeout(() => {
-      hero.classList.add("opened");
-    }, 650);
-  });
-  toggle.addEventListener("click", () => {
+  const toggle = document.querySelector("#night-toggle");
+  if (!page || !toggle) {
+    return;
+  }
+  const toggleLabel = toggle.querySelector(".toggle-label");
+  const hudStatus = document.querySelector(".hud-bottom-right");
+  const batteryLevel = document.querySelector(".battery i");
+  function toggleNightVision() {
     const enabled = page.classList.toggle("night-mode");
     toggle.setAttribute("aria-pressed", String(enabled));
-    toggleLabel.textContent = enabled
-      ? "ВЫКЛЮЧИТЬ НОЧНОЕ ВИДЕНИЕ"
-      : "ВКЛЮЧИТЬ НОЧНОЕ ВИДЕНИЕ";
-    const hudStatus = document.querySelector(".hud-bottom-right");
+    if (toggleLabel) {
+      toggleLabel.textContent = enabled
+        ? "ВЫКЛЮЧИТЬ НОЧНОЕ ВИДЕНИЕ"
+        : "ВКЛЮЧИТЬ НОЧНОЕ ВИДЕНИЕ";
+    }
     if (hudStatus) {
       hudStatus.innerHTML = enabled
-        ? 'NIGHT VISION <b>●</b>'
-        : 'NIGHT VISION <b>○</b>';
+        ? "NIGHT VISION <b>●</b>"
+        : "NIGHT VISION <b>○</b>";
     }
-  });
-  const batteryLevel = document.querySelector(".battery i");
+  }
+  toggle.addEventListener("click", toggleNightVision);
   if (batteryLevel) {
     batteryLevel.style.width = "72%";
   }
