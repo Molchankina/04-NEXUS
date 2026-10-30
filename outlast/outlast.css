@@ -125,11 +125,17 @@ button {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* До включения камеры фон не виден */
   opacity: 0;
   visibility: hidden;
   transition:
-    opacity .8s ease,
-    visibility .8s ease;
+    opacity 1s ease,
+    visibility 1s ease;
+}
+/* При включении камеры фон появляется */
+.night-mode .hero-background {
+  opacity: 1;
+  visibility: visible;
 }
 /* Две части исходной фотографии */
 .door-left,
@@ -165,12 +171,12 @@ button {
   visibility: visible;
 }
 /* Исчезновение правой части фотографии */
-.night-mode .door-right {
+.night-mode .door-left {
   opacity: 0;
   visibility: hidden;
 }
 /* Левая часть остаётся поверх фоновой фотографии */
-.night-mode .door-left {
+.night-mode .door-right {
   opacity: 1;
   visibility: visible;
 }
