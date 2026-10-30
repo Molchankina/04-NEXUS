@@ -5,7 +5,9 @@
   const page = document.querySelector("#outlast-page");
   if (!hero || !toggle || !page) return;
   window.addEventListener("load", () => {
-    window.setTimeout(() => hero.classList.add("opened"), 650);
+    window.setTimeout(() => {
+      hero.classList.add("opened");
+    }, 650);
   });
   toggle.addEventListener("click", () => {
     const enabled = page.classList.toggle("night-mode");
@@ -13,9 +15,12 @@
     toggleLabel.textContent = enabled
       ? "ВЫКЛЮЧИТЬ НОЧНОЕ ВИДЕНИЕ"
       : "ВКЛЮЧИТЬ НОЧНОЕ ВИДЕНИЕ";
-    document.querySelector(".hud-bottom-right").innerHTML = enabled
-      ? 'NIGHT VISION <b>●</b>'
-      : 'NIGHT VISION <b>○</b>';
+    const hudStatus = document.querySelector(".hud-bottom-right");
+    if (hudStatus) {
+      hudStatus.innerHTML = enabled
+        ? 'NIGHT VISION <b>●</b>'
+        : 'NIGHT VISION <b>○</b>';
+    }
   });
   const batteryLevel = document.querySelector(".battery i");
   if (batteryLevel) {

@@ -35,8 +35,52 @@ button { font: inherit; }
   inset: 0;
   z-index: -3;
   overflow: hidden;
-  perspective: 1400px;
   background: #020302;
+}
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("image/outlast-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.door-left,
+.door-right {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+.door-right {
+  z-index: 2;
+  clip-path: inset(0 0 0 44.5%);
+  opacity: 1;
+  transition:
+    opacity 1.2s ease,
+    visibility 1.2s ease;
+}
+.door-left {
+  z-index: 3;
+  clip-path: inset(0 55.5% 0 0);
+  opacity: 1;
+  transition: transform 2.2s cubic-bezier(.65, 0, .35, 1);
+  will-change: transform;
+}
+.hero.opened .door-left {
+  transform: translateX(-44.5%);
+}
+.night-mode .door-right {
+  opacity: 0;
+  visibility: hidden;
+}
+.night-mode .door-left {
+  opacity: 1;
+  visibility: visible;
 }
 .wall-image {
   position: absolute;
@@ -46,14 +90,6 @@ button { font: inherit; }
   object-fit: cover;
   object-position: center;
 }
-
-/*
-  В исходной фотографии:
-  - левая часть до границы чёрного участка — дверное полотно;
-  - чёрная вертикальная часть справа — уже открытый проём.
-  Под дверью оставляем темноту. Правая часть исходной фотографии
-  (проём, коробка и стена справа) остаётся неподвижной.
-*/
 .door-underlay {
   position: absolute;
   z-index: 1;
@@ -75,8 +111,6 @@ button { font: inherit; }
   transition: transform 2.2s cubic-bezier(.65, 0, .35, 1);
   will-change: transform;
 }
-
-/* Картинка внутри сохраняет исходные пропорции и совпадает с фоном. */
 .door-leaf img {
   position: absolute;
   top: 0;
@@ -88,19 +122,27 @@ button { font: inherit; }
   object-position: center;
   backface-visibility: hidden;
 }
-
-/* Левая часть просто уезжает влево. Проём и правая часть фотографии неподвижны. */
 .hero.opened .door-leaf {
   transform: translateX(-105%);
 }
 .hero-vignette {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(0,0,0,.32), rgba(0,0,0,.08) 55%, rgba(0,0,0,.32)),
-    linear-gradient(0deg, #080b08 0%, transparent 32%, rgba(0,0,0,.12));
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.32),
+      rgba(0,0,0,.08) 55%,
+      rgba(0,0,0,.32)
+    ),
+    linear-gradient(
+      0deg,
+      #080b08 0%,
+      transparent 32%,
+      rgba(0,0,0,.12)
+    );
 }
 .hero-copy { position: absolute; z-index: 4; top: 50%; left: clamp(24px, 9vw, 150px); width: min(510px, 42%); transform: translateY(-45%); opacity: 0; transition: opacity 1.3s ease 1.15s, transform 1.3s ease 1.15s; }
 .hero.opened .hero-copy { opacity: 1; transform: translateY(-50%); }
@@ -248,4 +290,276 @@ button { font: inherit; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+.camera-hud {
+  position: fixed;
+  z-index: 100;
+  inset: 22px 28px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s ease, visibility .4s ease;
+}
+.night-mode .camera-hud {
+  opacity: 1;
+  visibility: visible;
+}
+.night-toggle {
+  position: fixed;
+  z-index: 110;
+
+  right: 32px;
+  bottom: 32px;
+
+  opacity: 1;
+  visibility: visible;
+}
+.night-toggle,
+.camera-hud {
+  transform: translateZ(0);
+}
+@media (max-width: 560px) {
+  .camera-hud {
+    inset: 15px 17px;
+  }
+
+  .night-toggle {
+    left: 17px;
+    right: 17px;
+    bottom: 20px;
+    justify-content: center;
+  }
+}
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.night-reveal-image {
+  position: absolute;
+  z-index: 1;
+  left: 44.5%;
+  top: 0;
+  width: 18%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  visibility: hidden;
+  filter:
+    grayscale(1)
+    sepia(1)
+    hue-rotate(48deg)
+    saturate(2.5)
+    brightness(1.25)
+    contrast(1.15);
+  transition:
+    opacity .8s ease,
+    visibility .8s ease;
+}
+.night-mode .night-reveal-image {
+  opacity: 1;
+  visibility: visible;
+}
+.door-underlay {
+  z-index: 2;
+}
+.door-leaf {
+  z-index: 3;
+}
+:root{
+  --bg: #171714;
+  --paper: #c8c3b2;
+  --paper-light: #ded9c9;
+  --ink: #292a25;
+  --ink-muted: #65645a;
+  --archive-red: #8c3932;
+  --archive-line: rgba(45, 44, 36, .25);
+}
+.outlast-page {
+  background:
+    radial-gradient(ellipse at 50% 0%, #34352d, #171714 70%);
+}
+.dossier-intro {
+  background: #bcb7a7;
+  color: var(--ink);
+  border-color: var(--archive-line);
+}
+.dossier-intro p {
+  color: #35362f;
+}
+.dossier-intro p span {
+  color: #777366;
+}
+.file-stamp {
+  border-color: var(--archive-red);
+  color: var(--archive-red);
+}
+.section {
+  position: relative;
+  width: min(calc(100% - 64px), 1100px);
+  padding: 65px clamp(22px, 5vw, 65px);
+  margin-top: 55px;
+  margin-bottom: 55px;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 27px,
+      rgba(60, 57, 44, .045) 28px
+    ),
+    var(--paper);
+  border: 1px solid rgba(0, 0, 0, .3);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, .28),
+    inset 0 0 35px rgba(65, 58, 42, .09);
+}
+.section h2 {
+  color: #292a25;
+}
+.section-index {
+  color: #7a4038;
+}
+.section-lead {
+  color: #666457;
+}
+.muted-heading {
+  color: #777467;
+}
+.facts-grid {
+  border-color: var(--archive-line);
+}
+.fact {
+  border-color: var(--archive-line);
+}
+.fact span {
+  color: #777365;
+}
+.fact strong {
+  color: #292a25;
+}
+.fact strong b {
+  color: #8b8170;
+}
+.body-copy {
+  color: #34342d;
+}
+.large-index {
+  color: rgba(90, 62, 48, .25);
+}
+.redacted-note {
+  color: #873d35;
+}
+.gameplay-card {
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 27px,
+      rgba(60, 57, 44, .045) 28px
+    ),
+    #d4cfbf;
+  border: 1px solid var(--archive-line);
+}
+.gameplay-top {
+  color: #706d60;
+}
+.gameplay-card .body-copy {
+  color: #34342d;
+}
+.features-list {
+  border-color: var(--archive-line);
+}
+.feature {
+  border-color: var(--archive-line);
+}
+.feature-number {
+  color: #873d35;
+}
+.feature h3 {
+  color: #292a25;
+}
+.feature p {
+  color: #555448;
+}
+.feature-lock {
+  color: #873d35;
+}
+.requirement-card {
+  background: #d4cfbf;
+  border-color: var(--archive-line);
+}
+.requirement-head {
+  border-color: var(--archive-line);
+}
+.requirement-head span {
+  color: #873d35;
+}
+.requirement-head h3 {
+  color: #292a25;
+}
+.requirement-card dl div {
+  border-color: rgba(45, 44, 36, .15);
+}
+.requirement-card dt {
+  color: #777365;
+}
+.requirement-card dd {
+  color: #34342d;
+}
+.end-card {
+  background: #171714;
+}
+.end-card p {
+  color: #aaa493;
+}
+.section::after,
+.gameplay-card::after,
+.requirement-card::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  opacity: .92;
+  background:
+    radial-gradient(
+      ellipse at 45% 50%,
+      rgba(10, 10, 8, .98) 0%,
+      rgba(10, 10, 8, .88) 45%,
+      rgba(10, 10, 8, .45) 72%,
+      transparent 100%
+    );
+  transition: opacity .7s ease;
+}
+.section::after {
+  width: 35%;
+  height: 145px;
+  right: 5%;
+  top: 38%;
+}
+.gameplay-card {
+  overflow: hidden;
+}
+.gameplay-card::after {
+  width: 42%;
+  height: 120px;
+  right: 0;
+  top: 35%;
+}
+.requirement-card {
+  position: relative;
+  overflow: hidden;
+}
+.requirement-card::after {
+  width: 45%;
+  height: 95px;
+  right: 0;
+  bottom: 8%;
+}
+.night-mode .section::after,
+.night-mode .gameplay-card::after,
+.night-mode .requirement-card::after {
+  opacity: 0;
 }
