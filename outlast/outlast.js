@@ -8,6 +8,12 @@
   const toggleLabel = toggle.querySelector(".toggle-label");
   const hudStatus = document.querySelector(".hud-bottom-right");
   const batteryLevel = document.querySelector(".battery i");
+  const darkCover = document.querySelector("#dark-cover");
+  if (darkCover) {
+    darkCover.addEventListener("click", () => {
+      darkCover.classList.add("is-hint-visible");
+    });
+  }
   if (hero) {
     window.addEventListener("load", () => {
       window.setTimeout(() => {
