@@ -55,9 +55,9 @@
                         </div>
                     </div>
                     <nav class="game-tabs" aria-label="Игровое меню">
-                        <a class="game-tab archive-tab" href="../index.html">
-                            В АРХИВ
-                        </a>
+                        <button class="game-tab" data-tab="story" type="button" aria-selected="false">
+                            СЮЖЕТ
+                        </button>
                         <button class="game-tab is-active" data-tab="characters" type="button" aria-selected="true">
                             ПЕРСОНАЖИ
                         </button>
@@ -71,23 +71,70 @@
                     <div class="interface-content">
                         <aside class="interface-sidebar">
                             <div class="sidebar-heading">СОДЕРЖАНИЕ</div>
+                            <button class="sidebar-item" data-tab="story" type="button">
+                                Сюжет
+                            </button>
                             <button class="sidebar-item is-active" data-tab="characters" type="button">
-                                <span>01</span> Персонажи
+                                Персонажи
                             </button>
                             <button class="sidebar-item" data-tab="city" type="button">
-                                <span>02</span> Лос-Сантос
+                                Лос-Сантос
                             </button>
                             <button class="sidebar-item" data-tab="gameplay" type="button">
-                                <span>03</span> Геймплей
+                                Геймплей
                             </button>
                             <div class="sidebar-divider"></div>
                             <div class="sidebar-note">
                                 <span class="note-label">СИСТЕМА</span>
                                 <span>NEXUS ARCHIVE</span>
-                                <span class="note-muted">GAME FILE: 005</span>
                             </div>
                         </aside>
                         <div class="panel-content">
+                            <section class="tab-panel" id="panel-story" data-panel="story" hidden>
+                                <div class="panel-heading">
+                                    <div>
+                                        <p class="section-index">GAME HISTORY</p>
+                                        <h2>ИСТОРИЯ <span>ИГРЫ</span></h2>
+                                    </div>
+                                    <span class="panel-counter">GTA V / 2013</span>
+                                </div>
+                                <div class="story-summary">
+                                    <span class="story-label">SPOILER-FREE STORY</span>
+                                    <h3>ТРИ СУДЬБЫ. ОДИН ГОРОД.</h3>
+                                    <p>
+                                        Лос-Сантос — город больших возможностей, амбиций и опасных
+                                        решений. Истории трёх совершенно разных людей — Майкла,
+                                        Франклина и Тревора — переплетаются, когда обстоятельства
+                                        вновь сталкивают их с миром преступности. Каждый из них
+                                        преследует собственные цели, но впереди их ждут рискованные
+                                        предприятия, непростые решения и события, способные изменить
+                                        привычный ход жизни.
+                                    </p>
+                                    <span class="story-spoiler-note">
+                                        ОПИСАНИЕ НЕ СОДЕРЖИТ СЮЖЕТНЫХ СПОЙЛЕРОВ
+                                    </span>
+                                </div>
+                                <div class="story-facts">
+                                    <article class="story-fact">
+                                        <span>РАЗРАБОТЧИК</span>
+                                        <h3>Rockstar North</h3>
+                                        <p>Студия Rockstar Games</p>
+                                    </article>
+                                    <article class="story-fact">
+                                        <span>ЖАНР</span>
+                                        <h3>Экшен-приключение</h3>
+                                        <p>Открытый мир / криминальный боевик</p>
+                                    </article>
+                                    <article class="story-fact story-fact-wide">
+                                        <span>ПОДДЕРЖИВАЕМЫЕ ПЛАТФОРМЫ</span>
+                                        <h3>PC / PlayStation / Xbox</h3>
+                                    </article>
+                                </div>
+                                <div class="panel-footer">
+                                    <span>GAME INFORMATION / GTA V</span>
+                                    <span>END OF STORY FILE</span>
+                                </div>
+                            </section>
                             <section class="tab-panel is-active" id="panel-characters" data-panel="characters">
                                 <div class="panel-heading">
                                     <div>
@@ -305,6 +352,70 @@
                         <span>NEXUS / GTA V ARCHIVE</span>
                     </footer>
                 </div>
+            </section>
+            <section class="requirements-section" id="requirements">
+                <div class="requirements-heading">
+                    <p class="section-index">ROCKSTAR GAMES / PC CONFIGURATION</p>
+                    <h2>СИСТЕМНЫЕ <span>ТРЕБОВАНИЯ</span></h2>
+                    <p>Grand Theft Auto V Enhanced / PC</p>
+                </div>
+                <div class="requirements-grid">
+                    <article class="requirement-card">
+                        <div class="requirement-card-heading">
+                            <span class="requirement-index">01 / MINIMUM</span>
+                            <h3>МИНИМАЛЬНЫЕ</h3>
+                        </div>
+                        <div class="requirement-row">
+                            <span>ОПЕРАЦИОННАЯ СИСТЕМА</span>
+                            <strong>Windows 10 (build 1909 или новее)</strong>
+                        </div>
+                        <div class="requirement-row">
+                            <span>ПРОЦЕССОР</span>
+                            <strong>Intel Core i7-4770 / AMD FX-9590</strong>
+                        </div>
+                        <div class="requirement-row">
+                            <span>ОПЕРАТИВНАЯ ПАМЯТЬ</span>
+                            <strong>8 GB RAM</strong>
+                        </div>
+                        <div class="requirement-row">
+                            <span>ВИДЕОКАРТА</span>
+                            <strong>NVIDIA GTX 1630 (4 GB) / AMD RX 6400 (4 GB)</strong>
+                        </div>
+                        <div class="requirement-row">
+                            <span>МЕСТО НА ДИСКЕ</span>
+                            <strong>105 GB / SSD</strong>
+                        </div>
+                    </article>
+                    <article class="requirement-card requirement-card--recommended">
+                        <div class="requirement-card-heading">
+                            <span class="requirement-index">02 / RECOMMENDED</span>
+                            <h3>РЕКОМЕНДУЕМЫЕ</h3>
+                        </div>
+                        <div class="requirement-row">
+                            <span>ОПЕРАЦИОННАЯ СИСТЕМА</span>
+                            <strong>Windows 11</strong>
+                        </div>
+                        <div class="requirement-row">
+                            <span>ПРОЦЕССОР</span>
+                            <strong>Intel Core i5-9600K / AMD Ryzen 5 3600</strong>
+                        </div>
+                        <div class="requirement-row">
+                            <span>ОПЕРАТИВНАЯ ПАМЯТЬ</span>
+                            <strong>16 GB RAM (Dual-Channel)</strong>
+                        </div>
+                        <div class="requirement-row">
+                            <span>ВИДЕОКАРТА</span>
+                            <strong>NVIDIA RTX 3060 (8 GB) / AMD RX 6600 XT (8 GB)</strong>
+                        </div>
+                        <div class="requirement-row">
+                            <span>МЕСТО НА ДИСКЕ</span>
+                            <strong>105 GB / SSD с поддержкой DirectStorage</strong>
+                        </div>
+                    </article>
+                </div>
+                <p class="requirements-note">
+                    GTA V ENHANCED / PC — ТРЕБОВАНИЯ УКАЗАНЫ ДЛЯ WINDOWS
+                </p>
             </section>
             <footer class="site-footer">
                 <a class="nexus-logo" href="../index.html" aria-label="Вернуться в NEXUS">

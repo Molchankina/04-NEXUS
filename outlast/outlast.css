@@ -529,37 +529,6 @@ button {
   font-size: 14px;
   line-height: 2.05;
 }
-
-/* Затемнённые фрагменты документов */
-
-.redaction {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  max-height: 60px;
-  margin-top: 25px;
-  overflow: hidden;
-  border: 1px solid rgba(158, 184, 138, .12);
-  background:
-    repeating-linear-gradient(
-      135deg,
-      #030503 0 8px,
-      #171d15 8px 13px
-    );
-  transition:
-    opacity .5s ease,
-    max-height .5s ease,
-    margin .5s ease;
-}
-
-.redaction span {
-  color: #84927a;
-  font-size: 8px;
-  letter-spacing: .2em;
-}
-
 /* =========================================
    09. ГЕЙМПЛЕЙ
 ========================================= */
@@ -1019,194 +988,154 @@ button {
     height: 65px;
     padding: 0 17px;
   }
-
   .topbar nav {
     gap: 14px;
   }
-
   .topbar nav a,
   .topbar-code {
     font-size: 7px;
   }
-
   .brand {
     font-size: 13px;
   }
-
   .brand-mark {
     width: 25px;
     height: 25px;
   }
-
   .hero {
     height: 500px;
     min-height: 500px;
   }
-
   .hero-copy {
     top: 47%;
     left: 22px;
     width: calc(100% - 44px);
     transform: translateY(-40%);
   }
-
   .hero h1 {
     margin-top: 12px;
     font-size: clamp(76px, 22vw, 112px);
   }
-
   .hero-line {
     margin-top: 20px;
     font-size: 10px;
   }
-
   .hero-description {
     max-width: 390px;
     font-size: 10px;
     line-height: 1.8;
   }
-
   .hero-meta {
     gap: 8px;
     font-size: 7px;
   }
-
   .discover-link {
     margin-top: 20px;
     padding: 11px 13px;
     font-size: 8px;
   }
-
   .hero-bottom {
     right: 17px;
     bottom: 18px;
     left: 17px;
     font-size: 6px;
   }
-
   .dossier-intro {
     padding: 22px 18px;
     gap: 16px;
   }
-
   .dossier-intro p {
     font-size: 7px;
     line-height: 1.7;
   }
-
   .section {
     width: calc(100% - 38px);
     margin: 35px auto;
     padding: 70px 19px;
   }
-
   .section h2 {
-    font-size: 53px;
+    font-size: 32px;
   }
-
   .section-heading {
     margin-bottom: 32px;
   }
-
   .section-lead {
     font-size: 11px;
   }
-
   .fact {
     min-height: 112px;
     padding: 17px 13px;
   }
-
   .fact span {
     font-size: 7px;
   }
-
   .fact strong {
     font-size: 12px;
   }
-
   .story-layout {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-
   .large-index {
     font-size: 56px;
   }
-
   .body-copy {
     font-size: 11px;
     line-height: 1.95;
   }
-
   .gameplay-card {
     padding: 21px 17px;
   }
-
   .feature {
     grid-template-columns: 42px minmax(0, 1fr);
     gap: 13px;
     padding: 24px 0;
   }
-
   .feature-number {
     font-size: 29px;
   }
-
   .feature h3 {
     font-size: 13px;
     line-height: 1.6;
   }
-
   .feature p {
     font-size: 10px;
   }
-
   .feature-lock {
     grid-column: 2;
     padding: 0;
   }
-
   .requirements-grid {
     grid-template-columns: 1fr;
   }
-
   .requirement-card {
     padding: 20px 16px;
   }
-
   .requirement-card dl div {
     grid-template-columns: 95px minmax(0, 1fr);
   }
-
   .requirement-card dt,
   .requirement-card dd {
     font-size: 9px;
   }
-
   .camera-hud {
     inset: 15px 17px;
   }
-
   .rec,
   .hud-time {
     font-size: 13px;
   }
-
   .battery-wrap {
     font-size: 10px;
   }
-
   .battery {
     width: 29px;
     height: 13px;
   }
-
   .hud-bottom-left,
   .hud-bottom-right {
     font-size: 9px;
   }
-
   .night-toggle {
     right: 17px;
     bottom: 20px;
@@ -1216,16 +1145,13 @@ button {
     font-size: 8px;
   }
 }
-
 /* =========================================
    19. ЗАТЕМНЕНИЕ ДОСЬЕ
 ========================================= */
-
 .lower-content {
   position: relative;
   isolation: isolate;
 }
-
 .dark-cover {
   position: absolute;
   z-index: 20;
@@ -1252,7 +1178,6 @@ button {
     opacity .7s ease,
     visibility .7s ease;
 }
-
 .dark-cover-message {
   position: sticky;
   top: 50vh;
@@ -1271,16 +1196,13 @@ button {
   pointer-events: none;
   transition: opacity .3s ease;
 }
-
 .dark-cover-message small {
   font-size: 12px;
   letter-spacing: .22em;
 }
-
 .dark-cover.is-hint-visible .dark-cover-message {
   opacity: 1;
 }
-
 .outlast-page.night-mode .dark-cover {
   opacity: 0;
   visibility: hidden;

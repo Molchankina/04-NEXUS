@@ -7,22 +7,33 @@
         <meta name="description" content="It Takes Two — сказочное кооперативное приключение о Мэй и Коди. История, персонажи, игровой процесс и системные требования без спойлеров.">
         <title>It Takes Two — NEXUS</title>
         <link rel="stylesheet" href="it-takes-two.css">
-        <link rel="stylesheet" href="it-takes-two-minigame.css">
     </head>
     <body class="itt-page">
         <header class="itt-header">
             <a class="itt-logo" href="../index.html" aria-label="NEXUS — главная">
                 NEXUS<span>.</span>
             </a>
-            <nav class="itt-nav" aria-label="Главная навигация">
+            <nav class="itt-nav" id="itt-navigation" aria-label="Главная навигация">
                 <a href="../index.html">Главная</a>
                 <a href="../catalog.html">Каталог игр</a>
                 <a href="#story">История</a>
                 <a href="#gameplay">Игровой процесс</a>
+                <a href="#characters">Персонажи</a>
+                <a href="#details">Подробности</a>
             </nav>
             <a class="itt-back" href="../catalog.html">
-            <span aria-hidden="true">←</span> Все игры
+                <span aria-hidden="true">←</span> Все игры
             </a>
+            <button
+                class="itt-menu-toggle"
+                type="button"
+                aria-label="Открыть меню"
+                aria-expanded="false"
+                aria-controls="itt-navigation"
+            >
+                <span></span>
+                <span></span>
+            </button>
         </header>
         <main>
             <section class="itt-hero" aria-labelledby="hero-title">
@@ -452,6 +463,6 @@
             <p>Исследуй миры. Открывай истории.</p>
             <a href="../catalog.html">Каталог игр ↗</a>
         </footer>
-        <script src="it-takes-two-minigame.js"></script>
+        <script src="it-takes-two.js"></script>
     </body>
 </html>
