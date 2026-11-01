@@ -30,11 +30,17 @@
           <div class="hero-backdrop" aria-hidden="true"></div>
           <div class="hero-photo" aria-hidden="true">
             <div class="hero-background"></div>
-            <img
-              class="door-left"
-              src="image/outlast-door-left.png"
-              alt=""
-            >
+            <picture class="door-left-picture">
+              <source
+                media="(max-width: 1000px)"
+                srcset="image/outlast-door-left-mobile.jpeg"
+              >
+              <img
+                class="door-left"
+                src="image/outlast-door-left.png"
+                alt=""
+              >
+            </picture>
             <img
               class="door-right"
               src="image/outlast-door-right.png"

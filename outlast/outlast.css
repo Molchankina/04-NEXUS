@@ -133,7 +133,11 @@ button {
   overflow: hidden;
   background: #020302;
 }
-
+.door-left-picture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
 /* Фоновая фотография — видна только при ночном видении */
 
 .hero-photo .hero-background {
@@ -970,7 +974,12 @@ button {
 /* =========================================
    17. АДАПТАЦИЯ ПОД ПЛАНШЕТЫ
 ========================================= */
-
+/* На экранах до 1000px правая дверь не отображается */
+@media (max-width: 1000px) {
+  .hero-photo .door-right {
+    display: none;
+  }
+}
 @media (max-width: 800px) {
   .hero {
     height: 760px;
