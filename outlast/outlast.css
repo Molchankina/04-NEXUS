@@ -12,12 +12,15 @@
   --font-main: "Manrope", sans-serif;
   --font-display: "Barlow Condensed", sans-serif;
 }
+
 * {
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   background: var(--bg);
@@ -25,22 +28,27 @@ body {
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
+
 button {
   font: inherit;
 }
+
 .outlast-page {
   width: min(100%, 1920px);
   margin: 0 auto;
   background:
     radial-gradient(ellipse at 50% 0%, #34352d, #171714 70%);
 }
+
 /* =========================================
    02. ШАПКА
 ========================================= */
+
 .topbar {
   position: relative;
   z-index: 10;
@@ -52,6 +60,7 @@ button {
   border-bottom: 1px solid rgba(173, 194, 158, .16);
   background: rgba(7, 10, 7, .94);
 }
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -60,6 +69,7 @@ button {
   font-weight: 800;
   letter-spacing: .18em;
 }
+
 .brand-mark {
   width: 29px;
   height: 29px;
@@ -69,23 +79,28 @@ button {
   font-family: var(--font-display);
   font-size: 18px;
 }
+
 .brand-dot,
 .green {
   color: var(--green);
 }
+
 .topbar nav {
   display: flex;
   gap: 28px;
 }
+
 .topbar nav a,
 .topbar-code {
   color: #9ba493;
   font-size: 9px;
   letter-spacing: .16em;
 }
+
 /* =========================================
    03. HERO
 ========================================= */
+
 .hero {
   position: relative;
   isolation: isolate;
@@ -95,6 +110,7 @@ button {
   max-height: 900px;
   background: #070a07;
 }
+
 .hero-backdrop {
   position: absolute;
   inset: 0;
@@ -107,7 +123,9 @@ button {
     ),
     #030403;
 }
-/* Контейнер всех фотографических слоёв */
+
+/* Контейнер фотографий */
+
 .hero-photo {
   position: absolute;
   inset: 0;
@@ -115,71 +133,105 @@ button {
   overflow: hidden;
   background: #020302;
 }
-/* Фоновая фотография.
-   В обычном режиме полностью скрыта. */
-.hero-background {
+
+/* Фоновая фотография — видна только при ночном видении */
+
+.hero-photo .hero-background {
   position: absolute;
   inset: 0;
   z-index: 0;
+  background-color: #000;
   background-image: url("image/outlast-background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* До включения камеры фон не виден */
   opacity: 0;
   visibility: hidden;
   transition:
-    opacity 1s ease,
-    visibility 1s ease;
+    opacity 1.1s ease,
+    visibility 0s linear 1.1s;
 }
-/* При включении камеры фон появляется */
-.night-mode .hero-background {
+
+.outlast-page.night-mode .hero-photo .hero-background {
   opacity: 1;
   visibility: visible;
+  transition:
+    opacity 1.1s ease,
+    visibility 0s;
 }
-/* Две части исходной фотографии */
-.door-left,
-.door-right {
+
+/* Обе двери: одинаковый размер и исходные пропорции 836 × 942 */
+
+.hero-photo .door-left,
+.hero-photo .door-right {
   position: absolute;
-  inset: 0;
-  width: 100%;
+  bottom: 0;
+  width: 50%;
+  max-width: 50%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
+  object-position: center bottom;
+  clip-path: none;
   pointer-events: none;
 }
-/* Правая часть фотографии */
-.door-right {
-  z-index: 2;
-  clip-path: inset(0 0 0 44.5%);
+
+/* Левая дверь */
+
+.hero-photo .door-left {
+  z-index: 6;
+  top: auto;
+  left: 0;
+  right: auto;
   opacity: 1;
   visibility: visible;
+  transform: translateX(0);
+  filter: none;
+  mix-blend-mode: normal;
   transition:
-    opacity 1.2s ease,
-    visibility 1.2s ease;
+    transform 1.9s cubic-bezier(.72, 0, .28, 1),
+    opacity .35s ease 1.55s,
+    visibility 0s linear 1.9s;
 }
-/* Левая часть фотографии — дверь */
-.door-left {
-  z-index: 3;
-  clip-path: inset(0 55.5% 0 0);
-  opacity: 1;
-  visibility: visible;
-}
-/* Проявление фона только при включённой камере */
-.night-mode .hero-background {
-  opacity: 1;
-  visibility: visible;
-}
-/* Исчезновение правой части фотографии */
-.night-mode .door-left {
+
+/* Анимация открытия левой двери */
+
+.hero.opened .hero-photo .door-left {
+  transform: translateX(-110%);
   opacity: 0;
   visibility: hidden;
 }
-/* Левая часть остаётся поверх фоновой фотографии */
-.night-mode .door-right {
+
+/* Правая дверь остаётся на месте */
+
+.hero-photo .door-right {
+  z-index: 4;
+  top: auto;
+  left: auto;
+  right: 0;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  filter: none;
+  mix-blend-mode: normal;
+  transition: none;
+}
+
+/* Появление текста после открытия левой двери */
+
+.hero .hero-copy {
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 1s ease 1.05s,
+    visibility 0s linear 1.05s;
+}
+
+.hero.opened .hero-copy {
   opacity: 1;
   visibility: visible;
 }
+
 .hero-vignette {
   position: absolute;
   inset: 0;
@@ -199,9 +251,11 @@ button {
       rgba(0, 0, 0, .12)
     );
 }
+
 /* =========================================
    04. ТЕКСТ HERO
 ========================================= */
+
 .hero-copy {
   position: absolute;
   z-index: 5;
@@ -210,6 +264,7 @@ button {
   width: min(510px, 42%);
   transform: translateY(-50%);
 }
+
 .eyebrow,
 .section-index {
   color: #a4b099;
@@ -217,6 +272,7 @@ button {
   font-weight: 700;
   letter-spacing: .2em;
 }
+
 .eyebrow-dot {
   display: inline-block;
   width: 6px;
@@ -226,19 +282,22 @@ button {
   background: #e34c42;
   box-shadow: 0 0 12px #e34c42;
 }
+
 .hero h1 {
   margin: 18px 0 0;
   color: #e6eadd;
   font-family: var(--font-display);
-  font-size: clamp(32px, 9vw, 120px);
+  font-size: clamp(76px, 12vw, 164px);
   font-weight: 900;
   line-height: .78;
   letter-spacing: -.035em;
   text-shadow: 0 5px 35px #000;
 }
+
 .hero h1 span {
   color: var(--green);
 }
+
 .hero-line {
   margin: 28px 0 14px;
   color: var(--green-bright);
@@ -246,12 +305,14 @@ button {
   font-weight: 800;
   letter-spacing: .23em;
 }
+
 .hero-description {
   max-width: 490px;
   color: #c2c9bb;
   font-size: 12px;
   line-height: 2;
 }
+
 .hero-meta {
   display: flex;
   align-items: center;
@@ -261,11 +322,13 @@ button {
   font-size: 9px;
   letter-spacing: .13em;
 }
+
 .hero-meta i {
   width: 18px;
   height: 1px;
   background: #75806d;
 }
+
 .discover-link {
   display: inline-flex;
   align-items: center;
@@ -280,10 +343,12 @@ button {
     background .2s ease,
     color .2s ease;
 }
+
 .discover-link:hover {
   background: var(--green);
   color: #10170d;
 }
+
 .hero-bottom {
   position: absolute;
   z-index: 7;
@@ -296,9 +361,11 @@ button {
   font-size: 8px;
   letter-spacing: .16em;
 }
+
 /* =========================================
    05. ВВОДНАЯ ЧАСТЬ ДОСЬЕ
 ========================================= */
+
 .dossier-intro {
   min-height: 104px;
   padding: 24px clamp(22px, 9vw, 150px);
@@ -309,6 +376,7 @@ button {
   background: #bcb7a7;
   color: var(--ink);
 }
+
 .file-stamp {
   padding: 8px 11px;
   border: 1px solid var(--red);
@@ -318,17 +386,21 @@ button {
   letter-spacing: .12em;
   transform: rotate(-3deg);
 }
+
 .dossier-intro p {
   color: #35362f;
   font-size: 9px;
   letter-spacing: .17em;
 }
+
 .dossier-intro p span {
   color: #777366;
 }
+
 /* =========================================
    06. ОБЩИЕ СТИЛИ ДОКУМЕНТОВ
 ========================================= */
+
 .section {
   position: relative;
   width: min(calc(100% - 64px), 1100px);
@@ -348,14 +420,17 @@ button {
     0 18px 45px rgba(0, 0, 0, .28),
     inset 0 0 35px rgba(65, 58, 42, .09);
 }
+
 .section-heading {
   max-width: 720px;
   margin-bottom: 48px;
 }
+
 .section-index {
   margin: 0 0 18px;
   color: #7a4038;
 }
+
 .section h2 {
   margin: 0;
   color: #292a25;
@@ -365,6 +440,7 @@ button {
   line-height: .98;
   letter-spacing: -.025em;
 }
+
 .section-lead {
   max-width: 560px;
   margin: 20px 0 0;
@@ -372,18 +448,22 @@ button {
   font-size: 13px;
   line-height: 1.9;
 }
+
 .muted-heading {
   color: #777467;
 }
+
 /* =========================================
    07. ФАКТЫ ОБ ИГРЕ
 ========================================= */
+
 .facts-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
 }
+
 .fact {
   grid-column: span 2;
   min-height: 140px;
@@ -391,10 +471,12 @@ button {
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
+
 .fact-wide {
   grid-column: span 6;
   min-height: auto;
 }
+
 .fact span {
   display: block;
   margin-bottom: 16px;
@@ -403,24 +485,29 @@ button {
   font-weight: 700;
   letter-spacing: .19em;
 }
+
 .fact strong {
   color: #292a25;
   font-size: 16px;
   line-height: 1.8;
   font-weight: 600;
 }
+
 .fact strong b {
   color: #8b8170;
   font-weight: 400;
 }
+
 /* =========================================
    08. СЮЖЕТ
 ========================================= */
+
 .story-layout {
   display: grid;
   grid-template-columns: 130px minmax(0, 1fr);
   gap: 35px;
 }
+
 .large-index {
   color: rgba(90, 62, 48, .25);
   font-family: var(--font-display);
@@ -428,18 +515,22 @@ button {
   font-weight: 700;
   line-height: .8;
 }
+
 .redacted-note {
   color: #873d35;
   font-size: 8px;
   letter-spacing: .16em;
 }
+
 .body-copy {
   margin: 0;
   color: #34342d;
   font-size: 14px;
   line-height: 2.05;
 }
+
 /* Затемнённые фрагменты документов */
+
 .redaction {
   position: relative;
   display: flex;
@@ -461,14 +552,17 @@ button {
     max-height .5s ease,
     margin .5s ease;
 }
+
 .redaction span {
   color: #84927a;
   font-size: 8px;
   letter-spacing: .2em;
 }
+
 /* =========================================
    09. ГЕЙМПЛЕЙ
 ========================================= */
+
 .gameplay-card {
   position: relative;
   overflow: hidden;
@@ -483,6 +577,7 @@ button {
     ),
     #d4cfbf;
 }
+
 .gameplay-top {
   display: flex;
   justify-content: space-between;
@@ -491,18 +586,23 @@ button {
   font-size: 8px;
   letter-spacing: .17em;
 }
+
 .recording-pulse {
   color: #c86b5e;
 }
+
 .gameplay-redaction {
   margin-top: 27px;
 }
+
 /* =========================================
    10. ОСОБЕННОСТИ
 ========================================= */
+
 .features-list {
   border-top: 1px solid var(--line);
 }
+
 .feature {
   display: grid;
   grid-template-columns: 65px minmax(0, 1fr) 110px;
@@ -511,37 +611,44 @@ button {
   padding: 32px 0;
   border-bottom: 1px solid var(--line);
 }
+
 .feature-number {
   color: #873d35;
   font-family: var(--font-display);
   font-size: 37px;
   font-weight: 700;
 }
+
 .feature h3 {
   margin: 3px 0 13px;
   color: #292a25;
   font-size: 16px;
 }
+
 .feature p {
   margin: 0;
   color: #555448;
   font-size: 12px;
   line-height: 1.95;
 }
+
 .feature-lock {
   padding-top: 8px;
   color: #873d35;
   font-size: 7px;
   letter-spacing: .1em;
 }
+
 /* =========================================
    11. СИСТЕМНЫЕ ТРЕБОВАНИЯ
 ========================================= */
+
 .requirements-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 17px;
 }
+
 .requirement-card {
   position: relative;
   overflow: hidden;
@@ -549,6 +656,7 @@ button {
   border: 1px solid var(--line);
   background: #d4cfbf;
 }
+
 .requirement-head {
   display: flex;
   align-items: center;
@@ -557,19 +665,23 @@ button {
   margin-bottom: 18px;
   border-bottom: 1px solid var(--line);
 }
+
 .requirement-head span {
   color: #873d35;
   font-family: var(--font-display);
   font-size: 26px;
 }
+
 .requirement-head h3 {
   margin: 0;
   color: #292a25;
   font-size: 16px;
 }
+
 .requirement-card dl {
   margin: 0;
 }
+
 .requirement-card dl div {
   display: grid;
   grid-template-columns: 115px minmax(0, 1fr);
@@ -577,13 +689,16 @@ button {
   padding: 11px 0;
   border-bottom: 1px solid rgba(45, 44, 36, .15);
 }
+
 .requirement-card dl div:last-child {
   border-bottom: 0;
 }
+
 .requirement-card dt {
   color: #777365;
   font-size: 9px;
 }
+
 .requirement-card dd {
   margin: 0;
   color: #34342d;
@@ -591,9 +706,11 @@ button {
   line-height: 1.7;
   overflow-wrap: anywhere;
 }
+
 /* =========================================
    13. ПОДВАЛ
 ========================================= */
+
 .end-card {
   display: flex;
   flex-direction: column;
@@ -603,24 +720,29 @@ button {
   background: #171714;
   text-align: center;
 }
+
 .end-card .brand {
   font-size: 23px;
 }
+
 .end-card p,
 .end-card a {
   color: #aaa493;
   font-size: 8px;
   letter-spacing: .18em;
 }
+
 .end-card a {
   margin-top: 12px;
   color: #c5d5b9;
 }
+
 /* =========================================
    14. НОЧНОЕ ВИДЕНИЕ — ВЕСЬ САЙТ
 ========================================= */
-/* Общий зелёный слой поверх всей страницы.
-   По умолчанию он полностью выключен. */
+
+/* Общий зелёный слой поверх всей страницы */
+
 .night-overlay {
   position: fixed;
   inset: 0;
@@ -634,11 +756,14 @@ button {
     opacity .5s ease,
     visibility .5s ease;
 }
+
 .night-mode ~ .night-overlay {
   opacity: 1;
   visibility: visible;
 }
+
 /* Дополнительная зелёная подсветка текста */
+
 .night-mode .hero h1,
 .night-mode .hero-description,
 .night-mode .hero-line,
@@ -648,13 +773,17 @@ button {
 .night-mode .requirement-card dd {
   text-shadow: 0 0 8px rgba(155, 230, 105, .38);
 }
+
 /* Зелёное свечение заголовков документов */
+
 .night-mode .section h2,
 .night-mode .feature h3,
 .night-mode .requirement-head h3 {
   text-shadow: 0 0 12px rgba(155, 230, 105, .3);
 }
+
 /* Лёгкие помехи камеры */
+
 .scanlines {
   position: fixed;
   inset: 0;
@@ -669,13 +798,17 @@ button {
     );
   transition: opacity .4s ease;
 }
+
 .night-mode ~ .scanlines {
   opacity: .28;
 }
+
 /* Лёгкое мерцание изображения */
+
 .night-mode .hero {
   animation: camera-flicker 7s infinite;
 }
+
 @keyframes camera-flicker {
   0%, 96%, 100% {
     filter: brightness(1);
@@ -687,9 +820,11 @@ button {
     filter: brightness(1.12);
   }
 }
+
 /* =========================================
    15. HUD КАМЕРЫ
 ========================================= */
+
 .camera-hud {
   position: fixed;
   z-index: 100;
@@ -704,10 +839,12 @@ button {
   letter-spacing: .15em;
   text-shadow: 0 1px 5px #000;
 }
+
 .night-mode ~ .camera-hud {
   opacity: 1;
   visibility: visible;
 }
+
 .rec {
   position: absolute;
   top: 0;
@@ -715,6 +852,7 @@ button {
   color: #f0eee6;
   font-size: 18px;
 }
+
 .rec-dot {
   display: inline-block;
   width: 9px;
@@ -725,6 +863,7 @@ button {
   box-shadow: 0 0 12px #f04439;
   animation: blink 1.1s steps(2, end) infinite;
 }
+
 .hud-time {
   position: absolute;
   top: 0;
@@ -733,6 +872,7 @@ button {
   color: #e1ead7;
   font-size: 17px;
 }
+
 .battery-wrap {
   position: absolute;
   top: 0;
@@ -743,6 +883,7 @@ button {
   color: #e1ead7;
   font-size: 13px;
 }
+
 .battery {
   position: relative;
   width: 37px;
@@ -750,6 +891,7 @@ button {
   padding: 2px;
   border: 1px solid #e1ead7;
 }
+
 .battery::after {
   content: "";
   position: absolute;
@@ -759,12 +901,14 @@ button {
   height: 6px;
   background: #e1ead7;
 }
+
 .battery i {
   display: block;
   width: 72%;
   height: 100%;
   background: #c7eaa8;
 }
+
 .hud-bottom-left,
 .hud-bottom-right {
   position: absolute;
@@ -773,20 +917,25 @@ button {
   font-size: 12px;
   line-height: 1.5;
 }
+
 .hud-bottom-right {
   right: 0;
 }
+
 .hud-bottom-right b {
   color: var(--green-bright);
 }
+
 @keyframes blink {
   50% {
     opacity: .25;
   }
 }
+
 /* =========================================
    16. КНОПКА НОЧНОГО ВИДЕНИЯ
 ========================================= */
+
 .night-toggle {
   position: fixed;
   z-index: 110;
@@ -806,200 +955,252 @@ button {
     background .2s ease,
     border-color .2s ease;
 }
+
 .night-toggle:hover,
 .night-mode ~ .night-toggle {
   background: rgba(108, 149, 77, .3);
   border-color: var(--green);
 }
+
 .toggle-symbol {
   color: var(--green);
   font-size: 19px;
 }
+
 /* =========================================
    17. АДАПТАЦИЯ ПОД ПЛАНШЕТЫ
 ========================================= */
+
 @media (max-width: 800px) {
   .hero {
     height: 760px;
     min-height: 690px;
   }
+
   .hero-copy {
     left: 6%;
     width: min(560px, 65%);
   }
+
   .hero h1 {
-    font-size: clamp(50px, 11vw, 90px);
+    font-size: clamp(80px, 15vw, 130px);
   }
+
   .facts-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .fact,
   .fact-wide {
     grid-column: span 1;
   }
+
   .fact-wide {
     grid-column: span 2;
   }
+
   .section {
     padding: 85px 30px;
   }
 }
+
 /* =========================================
    18. АДАПТАЦИЯ ПОД ТЕЛЕФОНЫ
 ========================================= */
+
 @media (max-width: 560px) {
   .topbar {
     height: 65px;
     padding: 0 17px;
   }
+
   .topbar nav {
     gap: 14px;
   }
+
   .topbar nav a,
   .topbar-code {
     font-size: 7px;
   }
+
   .brand {
     font-size: 13px;
   }
+
   .brand-mark {
     width: 25px;
     height: 25px;
   }
+
   .hero {
     height: 500px;
     min-height: 500px;
   }
+
   .hero-copy {
     top: 47%;
     left: 22px;
     width: calc(100% - 44px);
     transform: translateY(-40%);
   }
+
   .hero h1 {
     margin-top: 12px;
-    font-size: clamp(32px, 15vw, 50px);
+    font-size: clamp(76px, 22vw, 112px);
   }
+
   .hero-line {
     margin-top: 20px;
     font-size: 10px;
   }
+
   .hero-description {
-    max-width: 300px;
+    max-width: 390px;
     font-size: 10px;
     line-height: 1.8;
   }
+
   .hero-meta {
     gap: 8px;
     font-size: 7px;
   }
+
   .discover-link {
     margin-top: 20px;
     padding: 11px 13px;
     font-size: 8px;
   }
+
   .hero-bottom {
     right: 17px;
     bottom: 18px;
     left: 17px;
     font-size: 6px;
   }
+
   .dossier-intro {
     padding: 22px 18px;
     gap: 16px;
   }
+
   .dossier-intro p {
     font-size: 7px;
     line-height: 1.7;
   }
+
   .section {
     width: calc(100% - 38px);
     margin: 35px auto;
     padding: 70px 19px;
   }
+
   .section h2 {
     font-size: 53px;
   }
+
   .section-heading {
     margin-bottom: 32px;
   }
+
   .section-lead {
     font-size: 11px;
   }
+
   .fact {
     min-height: 112px;
     padding: 17px 13px;
   }
+
   .fact span {
     font-size: 7px;
   }
+
   .fact strong {
     font-size: 12px;
   }
+
   .story-layout {
     grid-template-columns: 1fr;
     gap: 15px;
   }
+
   .large-index {
     font-size: 56px;
   }
+
   .body-copy {
     font-size: 11px;
     line-height: 1.95;
   }
+
   .gameplay-card {
     padding: 21px 17px;
   }
+
   .feature {
     grid-template-columns: 42px minmax(0, 1fr);
     gap: 13px;
     padding: 24px 0;
   }
+
   .feature-number {
     font-size: 29px;
   }
+
   .feature h3 {
     font-size: 13px;
     line-height: 1.6;
   }
+
   .feature p {
     font-size: 10px;
   }
+
   .feature-lock {
     grid-column: 2;
     padding: 0;
   }
+
   .requirements-grid {
     grid-template-columns: 1fr;
   }
+
   .requirement-card {
     padding: 20px 16px;
   }
+
   .requirement-card dl div {
     grid-template-columns: 95px minmax(0, 1fr);
   }
+
   .requirement-card dt,
   .requirement-card dd {
     font-size: 9px;
   }
+
   .camera-hud {
     inset: 15px 17px;
   }
+
   .rec,
   .hud-time {
     font-size: 13px;
   }
+
   .battery-wrap {
     font-size: 10px;
   }
+
   .battery {
     width: 29px;
     height: 13px;
   }
+
   .hud-bottom-left,
   .hud-bottom-right {
     font-size: 9px;
   }
+
   .night-toggle {
     right: 17px;
     bottom: 20px;
@@ -1009,10 +1210,16 @@ button {
     font-size: 8px;
   }
 }
+
+/* =========================================
+   19. ЗАТЕМНЕНИЕ ДОСЬЕ
+========================================= */
+
 .lower-content {
   position: relative;
   isolation: isolate;
 }
+
 .dark-cover {
   position: absolute;
   z-index: 20;
@@ -1031,6 +1238,7 @@ button {
     opacity .7s ease,
     visibility .7s ease;
 }
+
 .dark-cover-message {
   position: sticky;
   top: 50vh;
@@ -1049,13 +1257,16 @@ button {
   pointer-events: none;
   transition: opacity .3s ease;
 }
+
 .dark-cover-message small {
   font-size: 12px;
   letter-spacing: .22em;
 }
+
 .dark-cover.is-hint-visible .dark-cover-message {
   opacity: 1;
 }
+
 .outlast-page.night-mode .dark-cover {
   opacity: 0;
   visibility: hidden;
