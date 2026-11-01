@@ -164,14 +164,14 @@ button {
     visibility 0s;
 }
 
-/* Обе двери: одинаковый размер и исходные пропорции 836 × 942 */
+/* Обе двери: масштабирование по высоте Hero */
 
 .hero-photo .door-left,
 .hero-photo .door-right {
   position: absolute;
   bottom: 0;
-  width: 50%;
-  max-width: 50%;
+  width: auto;
+  max-width: none;
   height: 100%;
   object-fit: contain;
   object-position: center bottom;
@@ -241,19 +241,14 @@ button {
   inset: 0;
   z-index: 4;
   pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, .32),
-      rgba(0, 0, 0, .08) 55%,
-      rgba(0, 0, 0, .32)
-    ),
-    linear-gradient(
-      0deg,
-      #080b08 0%,
-      transparent 32%,
-      rgba(0, 0, 0, .12)
-    );
+  background: linear-gradient(
+    to bottom,
+    transparent 38%,
+    rgba(0, 0, 0, .08) 52%,
+    rgba(0, 0, 0, .25) 68%,
+    rgba(0, 0, 0, .55) 84%,
+    #080b08 100%
+  );
 }
 
 /* =========================================
