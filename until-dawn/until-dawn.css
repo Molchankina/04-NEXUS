@@ -239,17 +239,11 @@ button {
 .butterfly-section,
 .requirements-section {
     position: relative;
-    padding: 130px max(6%, calc((100% - var(--container)) / 2));
-}
-.section-number {
-    color: #73889a;
-    font-size: 9px;
-    letter-spacing: 3px;
-    margin-bottom: 70px;
+    padding: 70px max(6%, calc((100% - var(--container)) / 2));
 }
 .story-section {
     position: relative;
-    padding: 145px max(6%, calc((100% - var(--container)) / 2)) 120px;
+    padding: 70px max(6%, calc((100% - var(--container)) / 2)) 80px;
     background:
         radial-gradient(ellipse at 80% 25%, rgba(57,88,112,.12), transparent 45%),
         var(--bg);
@@ -332,12 +326,11 @@ button {
     border-bottom: 1px solid rgba(255,255,255,.06);
 }
 .butterfly-heading {
-    max-width: 780px;
     margin-bottom: 65px;
+    text-align: center;
 }
 .butterfly-heading > p:last-child {
     margin-top: 22px;
-    max-width: 530px;
     color: var(--muted);
     font-size: 13px;
     line-height: 1.9;
@@ -706,11 +699,6 @@ button {
         linear-gradient(0deg, #081019, transparent 75%),
         radial-gradient(ellipse at 40% 30%, #566d7c, #182735 55%, #080d13);
 }
-.image-survival {
-    background:
-        linear-gradient(0deg, #081019, transparent 75%),
-        radial-gradient(ellipse at 60% 30%, #506575, #172532 55%, #080d13);
-}
 .gameplay-card-content {
     position: absolute;
     left: 28px;
@@ -962,7 +950,7 @@ button {
     .butterfly-section,
     .requirements-section,
     .story-section {
-        padding: 85px 7%;
+        padding: 40px 7%;
     }
     .section-number {
         margin-bottom: 45px;
