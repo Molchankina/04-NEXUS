@@ -961,7 +961,7 @@ button {
         font-size: 10px;
     }
     .hero {
-        min-height: 720px;
+        min-height: 600px;
         height: 100svh;
         padding: 100px 7% 110px;
     }
@@ -1009,8 +1009,8 @@ button {
         margin-top: 55px;
     }
     .story-copy p,
-    .story-copy.story-lead{
-        font-size: 10px;
+    .story-copy .story-lead{
+        font-size: 13px;
     }
     .butterfly-heading {
         margin-bottom: 40px;
