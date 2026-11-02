@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d13">
+    <title>Until Dawn — NEXUS</title>
+    <link rel="stylesheet" href="until-dawn.css">
+    <script src="until-dawn.js" defer></script>
+</head>
+    <body>
+        <div class="film-grain"></div>
+        <div class="snow-layer snow-back"></div>
+        <div class="snow-layer snow-front"></div>
+        <header class="site-header">
+            <a class="logo" href="../index.html">NEXUS<span>.</span></a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Открыть меню">
+                <span></span><span></span>
+            </button>
+            <nav class="main-nav" id="main-nav">
+                <a href="#story">История</a>
+                <a href="#butterfly">Эффект бабочки</a>
+                <a href="#gameplay">Игровой процесс</a>
+                <a href="#requirements">Техническое досье</a>
+            </nav>
+        </header>
+        <main>
+            <section class="hero" id="top">
+                <div class="hero-bg"></div>
+                <div class="hero-vignette"></div>
+                <div class="hero-content">
+                    <p class="eyebrow hero-eyebrow">A NIGHT THAT NEVER ENDS</p>
+                    <h1 class="hero-title">
+                        UNTIL<br>
+                        <span>DAWN</span>
+                    </h1>
+                    <div class="hero-divider"></div>
+                    <p class="hero-description">
+                        В горах, где снег скрывает следы прошлого,
+                        каждое решение может изменить всё.
+                    </p>
+                    <a href="#story" class="hero-button">
+                        <span>ВОЙТИ В ИСТОРИЮ</span>
+                        <span class="button-arrow">↓</span>
+                    </a>
+                </div>
+                <div class="hero-bottom">
+                    <span>BLACKWOOD MOUNTAIN</span>
+                    <span>47° 32' N — 123° 08' W</span>
+                    <span>THE NIGHT IS YOUNG</span>
+                </div>
+                <div class="scroll-indicator">
+                    <span>SCROLL TO EXPLORE</span>
+                    <i></i>
+                </div>
+            </section>
+            <section class="story-section cinematic-section" id="story">
+                <div class="section-number">THE STORY</div>
+                <div class="story-layout">
+                    <div class="story-heading">
+                        <p class="eyebrow">ONE MOUNTAIN. ONE NIGHT.</p>
+                        <h2>Некоторые<br>истории лучше<br><span>не вспоминать.</span></h2>
+                    </div>
+                    <div class="story-copy">
+                        <p class="story-lead">
+                            Год назад одна ночь в горах закончилась трагедией.
+                            Теперь компания друзей возвращается туда, где всё началось.
+                        </p>
+                        <p>
+                            Заснеженный лес, изолированный домик и горы,
+                            отрезанные от остального мира. То, что должно было стать
+                            встречей старых друзей, постепенно превращается в борьбу
+                            за выживание.
+                        </p>
+                        <p>
+                            Здесь нельзя просто наблюдать за происходящим.
+                            Каждое действие, каждое решение и каждая ошибка
+                            могут повлиять на дальнейший ход событий.
+                        </p>
+                        <div class="story-signature">
+                            <span>THE PAST NEVER STAYS BURIED</span>
+                            <span class="signature-line"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <div class="story-image-caption">
+                        <span>BLACKWOOD PINES</span>
+                        <span>02:17 AM</span>
+                    </div>
+                </div>
+            </section>
+            <section class="butterfly-section" id="butterfly">
+                <div class="section-number">BUTTERFLY EFFECT</div>
+                <div class="butterfly-heading">
+                    <p class="eyebrow">EVERY CHOICE LEAVES A TRACE</p>
+                    <h2>Одно решение.<br><span>Бесконечность последствий.</span></h2>
+                    <p>
+                        Попробуй пройти собственную историю.
+                        Выбирай осторожно: некоторые последствия проявляются
+                        далеко не сразу.
+                    </p>
+                </div>
+                <div class="decision-layout">
+                    <div class="decision-stage">
+                        <div class="stage-topline">
+                            <span id="scene-counter">SCENE 01 / 04</span>
+                            <span class="live-indicator">● YOUR STORY</span>
+                        </div>
+
+                        <div class="scene-image" id="scene-image">
+                            <div class="scene-image-overlay"></div>
+                            <span id="scene-location">THE LODGE</span>
+                        </div>
+
+                        <div class="scene-content">
+                            <p class="eyebrow" id="scene-eyebrow">THE FIRST SIGN</p>
+                            <h3 id="scene-title">Звук за дверью</h3>
+                            <p id="scene-description">
+                                Из коридора доносится странный шум.
+                                Ты один в комнате. Что будешь делать?
+                            </p>
+                            <div class="choice-list" id="choice-list">
+                            </div>
+                        </div>
+                        <div class="decision-feedback" id="decision-feedback" aria-live="polite">
+                            <span class="feedback-label">CONSEQUENCE</span>
+                            <p id="feedback-text"></p>
+                            <button class="next-scene-button" id="next-scene">
+                                ПРОДОЛЖИТЬ ИСТОРИЮ <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                    <aside class="tree-panel">
+                        <div class="tree-panel-header">
+                            <div>
+                                <p class="eyebrow">YOUR PATH</p>
+                                <h3>Древо решений</h3>
+                            </div>
+                            <span class="tree-count" id="tree-count">0 / 4</span>
+                        </div>
+                        <div class="tree-progress">
+                            <div class="tree-progress-fill" id="tree-progress-fill"></div>
+                        </div>
+                        <div class="decision-tree" id="decision-tree">
+                            <div class="tree-empty">
+                                <span class="tree-empty-icon">✳</span>
+                                <p>Твоя история ещё не началась.</p>
+                                <span>Первое решение создаст первую ветвь.</span>
+                            </div>
+                        </div>
+                        <button class="restart-button" id="restart-story">
+                            ↺ НАЧАТЬ ЗАНОВО
+                        </button>
+                    </aside>
+                </div>
+                <div class="story-ending" id="story-ending" hidden>
+                    <p class="eyebrow">END OF YOUR NIGHT</p>
+                    <h3>До рассвета<br><span>ты дошёл.</span></h3>
+                    <p id="ending-description"></p>
+                    <div class="ending-history" id="ending-history"></div>
+                    <button class="restart-button ending-restart" id="ending-restart">
+                        ПРОЙТИ ЕЩЁ РАЗ ↺
+                    </button>
+                </div>
+            </section>
+            <section class="gameplay-section cinematic-section" id="gameplay">
+                <div class="section-number">GAMEPLAY</div>
+                <div class="gameplay-heading">
+                    <p class="eyebrow">SURVIVAL IS A MATTER OF CHOICE</p>
+                    <h2>Не существует<br><span>безопасного решения.</span></h2>
+                </div>
+                <div class="gameplay-grid">
+                    <article class="gameplay-card gameplay-card-large">
+                        <div class="gameplay-card-image image-exploration"></div>
+                        <div class="gameplay-card-content">
+                            <span>EXPLORATION</span>
+                            <h3>Исследование</h3>
+                            <p>
+                                Исследуй окружающий мир, находи подсказки
+                                и обращай внимание на детали, которые легко пропустить.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="gameplay-card">
+                        <div class="gameplay-card-image image-choices"></div>
+                        <div class="gameplay-card-content">
+                            <span>DECISIONS</span>
+                            <h3>Последствия</h3>
+                            <p>
+                                Решения формируют отношения между героями
+                                и влияют на развитие истории.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="gameplay-card">
+                        <div class="gameplay-card-image image-qte"></div>
+                        <div class="gameplay-card-content">
+                            <span>QUICK TIME EVENTS</span>
+                            <h3>Реакция</h3>
+                            <p>
+                                В напряжённые моменты важны скорость,
+                                внимательность и точность действий.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section class="requirements-section" id="requirements">
+                <div class="section-number">TECHNICAL DOSSIER</div>
+                <div class="requirements-heading">
+                    <p class="eyebrow">SYSTEM INFORMATION</p>
+                    <h2>Готов ли твой компьютер<br><span>к этой ночи?</span></h2>
+                </div>
+                <div class="technical-meta">
+                    <div>
+                        <span>DEVELOPER</span>
+                        <strong>Ballistic Moon</strong>
+                    </div>
+                    <div>
+                        <span>ORIGINAL RELEASE</span>
+                        <strong>2015</strong>
+                    </div>
+                    <div>
+                        <span>REMAKE</span>
+                        <strong>2024</strong>
+                    </div>
+                    <div>
+                        <span>GENRE</span>
+                        <strong>Horror / Adventure</strong>
+                    </div>
+                </div>
+                <div class="requirements-grid">
+                    <article class="requirements-card">
+                        <p class="eyebrow">MINIMUM</p>
+                        <h3>Минимальные</h3>
+                        <div class="spec-row">
+                            <span>ОС</span>
+                            <strong>Windows 10/11 64-bit</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>Процессор</span>
+                            <strong>Intel Core i7-4790K / AMD Ryzen 5 1500X</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>Видеокарта</span>
+                            <strong>NVIDIA GTX 1660 / AMD Radeon RX 470</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>ОЗУ</span>
+                            <strong>8 GB</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>DirectX</span>
+                            <strong>Version 12</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>Место</span>
+                            <strong>70 GB SSD</strong>
+                        </div>
+                    </article>
+                    <article class="requirements-card recommended">
+                        <p class="eyebrow">RECOMMENDED</p>
+                        <h3>Рекомендуемые</h3>
+                        <div class="spec-row">
+                            <span>ОС</span>
+                            <strong>Windows 10/11 64-bit</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>Процессор</span>
+                            <strong>Intel Core i5-8600 / AMD Ryzen 7 2700X</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>Видеокарта</span>
+                            <strong>NVIDIA RTX 2060 / AMD Radeon RX 6600 XT</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>ОЗУ</span>
+                            <strong>16 GB</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>DirectX</span>
+                            <strong>Version 12</strong>
+                        </div>
+                        <div class="spec-row">
+                            <span>Место</span>
+                            <strong>70 GB SSD</strong>
+                        </div>
+                    </article>
+                </div>
+                <p class="requirements-note">
+                    Требования относятся к PC-версии Until Dawn (2024).
+                </p>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <a class="logo" href="../index.html">NEXUS<span>.</span></a>
+            <p>THE NIGHT IS NOT OVER.</p>
+            <a href="#top">BACK TO THE BEGINNING ↑</a>
+        </footer>
+    </body>
+</html>
