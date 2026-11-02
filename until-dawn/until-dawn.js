@@ -352,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
         sceneImage.style.backgroundImage = `
             linear-gradient(0deg, rgba(5,10,16,.9), transparent 80%),
             linear-gradient(90deg, rgba(5,10,15,.3), transparent),
-            url("../images/until-dawn-scenes/${currentNode}.jpg")
+            url("images/until-dawn-scenes/${currentNode}.jpg")
         `;
         choiceList.innerHTML = "";
         scene.choices.forEach((choice, index) => {
