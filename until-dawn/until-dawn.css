@@ -84,13 +84,24 @@ button {
     background: linear-gradient(to bottom, rgba(3,8,13,.7), transparent);
 }
 .logo {
-    font-family: 'Cinzel', serif;
-    font-size: 25px;
-    letter-spacing: 3px;
-    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: .18em;
 }
 .logo span {
     color: var(--ice);
+}
+.logo-mark {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #8e9a83;
+  font-family: var(--font-display);
+  font-size: 18px;
 }
 .main-nav {
     display: flex;
@@ -304,7 +315,7 @@ button {
     position: relative;
     background:
         linear-gradient(0deg, rgba(5,10,15,.8), transparent 40%),
-        url("image/ud-story.jpg") center / cover no-repeat;
+        url("images/ud-story.jpg") center / cover no-repeat;
     border: 1px solid var(--line);
 }
 .story-image-caption {
@@ -369,8 +380,10 @@ button {
     padding: 25px;
     background:
         linear-gradient(0deg, rgba(5,10,16,.9), transparent 80%),
-        radial-gradient(ellipse at 50% 20%, #526b7b, #1a2a38 48%, #080e15 100%);
+        linear-gradient(90deg, rgba(5,10,15,.3), transparent),
+        url("images/until-dawn-scenes/start.jpg") center / cover no-repeat;
     overflow: hidden;
+    transition: background-image .4s ease;
 }
 .scene-image::before {
     content: "";
@@ -687,17 +700,17 @@ button {
 .image-exploration {
     background:
         linear-gradient(0deg, #081019, transparent 75%),
-        radial-gradient(ellipse at 50% 30%, #6b8290, #1a2a38 50%, #080d13);
+        url("images/ud-exploration.png") center / cover no-repeat;
 }
 .image-choices {
     background:
         linear-gradient(0deg, #081019, transparent 75%),
-        radial-gradient(ellipse at 70% 30%, #667c8c, #182735 55%, #080d13);
+        url("images/ud-choices.jpg") center / cover no-repeat;
 }
 .image-qte {
     background:
         linear-gradient(0deg, #081019, transparent 75%),
-        radial-gradient(ellipse at 40% 30%, #566d7c, #182735 55%, #080d13);
+        url("images/ud-qte.png") center / cover no-repeat;
 }
 .gameplay-card-content {
     position: absolute;
