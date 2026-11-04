@@ -78,7 +78,7 @@ async function loadGame() {
     try {
         const { data: game, error } = await supabaseClient
             .from("games")
-            .select("*")
+            .select("title, image, alt, background_image, universe, description, release_year, category, genres, modes, platforms, plot_summary, gameplay, features, pc_min_requirements, pc_recommended_requirements")
             .eq("slug", slug)
             .eq("published", true)
             .maybeSingle();

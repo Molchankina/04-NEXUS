@@ -151,7 +151,7 @@ async function loadGames() {
     try {
         const { data, error } = await window.supabase
             .from("games")
-            .select("*")
+            .select("slug, title, description, universe, category, image, alt, url, story, modes, genres, camera, moods, platforms, tags")
             .eq("published", true)
             .order("id", { ascending: true });
         if (error) {
