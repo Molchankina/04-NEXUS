@@ -60,7 +60,6 @@ function createCard(game, index) {
     open.append(document.createTextNode("ОТКРЫТЬ ИГРУ"));
     const arrow = document.createElement("span");
     arrow.setAttribute("aria-hidden", "true");
-    arrow.textContent = "↗";
     open.append(arrow);
     info.append(developer, title, description, tags, open);
     card.append(top, poster, info);

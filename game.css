@@ -58,11 +58,13 @@ a {
 .game-logo-mark {
     display: grid;
     place-items: center;
-    width: 31px;
-    height: 31px;
+    width: 36px;
+    height: 36px;
     border: 1px solid rgba(230, 235, 242, .65);
-    font-size: 15px;
-    letter-spacing: 0;
+    color: rgba(230, 235, 242, .65);
+    font-size: 21px;
+    font-weight: 800;
+    transform: skew(-7deg);
 }
 .accent {
     color: var(--silver);
