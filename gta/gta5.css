@@ -201,7 +201,6 @@ padding: 10px 14px;
 }
 .pause-background {
     background:
-        url("images/gta5-menu-bg.jpg") center / cover no-repeat,
         linear-gradient(135deg, #5d6351, #202521 65%, #0e100f);
     filter: saturate(0.7);
     transform: scale(1.025);
