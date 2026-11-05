@@ -25,8 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
         tabButtons.forEach((button) => {
             const isActive = button.dataset.tab === tabName;
             button.classList.toggle("is-active", isActive);
-            if (button.matches("button")) {
+            if (button.classList.contains("game-tab")) {
                 button.setAttribute("aria-selected", String(isActive));
+                button.setAttribute("tabindex", isActive ? "0" : "-1");
+            }
+            if (button.classList.contains("sidebar-item")) {
+                button.setAttribute("aria-pressed", String(isActive));
             }
         });
     }

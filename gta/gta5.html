@@ -15,7 +15,13 @@
     <body>
         <main class="gta-page">
             <section class="hero" id="top">
-                <div class="hero-background"></div>
+                <img
+                    class="hero-background"
+                    src="images/gta5-hero.webp"
+                    alt=""
+                    fetchpriority="high"
+                    decoding="async"
+                >
                 <div class="hero-shade"></div>
                 <header class="site-header">
                     <a class="nexus-logo" href="../index.html" aria-label="Вернуться в NEXUS">
@@ -55,16 +61,48 @@
                         </div>
                     </div>
                     <nav class="game-tabs" aria-label="Игровое меню">
-                        <button class="game-tab" data-tab="story" type="button" aria-selected="false">
+                        <button
+                            class="game-tab"
+                            data-tab="story"
+                            type="button"
+                            role="tab"
+                            aria-selected="false"
+                            aria-controls="panel-story"
+                            tabindex="0"
+                        >
                             СЮЖЕТ
                         </button>
-                        <button class="game-tab is-active" data-tab="characters" type="button" aria-selected="true">
+                        <button
+                            class="game-tab is-active"
+                            data-tab="characters"
+                            type="button"
+                            role="tab"
+                            aria-selected="true"
+                            aria-controls="panel-characters"
+                            tabindex="-1"
+                        >
                             ПЕРСОНАЖИ
                         </button>
-                        <button class="game-tab" data-tab="city" type="button" aria-selected="false">
+                        <button
+                            class="game-tab is-active"
+                            data-tab="city"
+                            type="button"
+                            role="tab"
+                            aria-selected="true"
+                            aria-controls="panel-city"
+                            tabindex="-1"
+                        >
                             ЛОС-САНТОС
                         </button>
-                        <button class="game-tab" data-tab="gameplay" type="button" aria-selected="false">
+                        <button
+                            class="game-tab is-active"
+                            data-tab="gameplay"
+                            type="button"
+                            role="tab"
+                            aria-selected="true"
+                            aria-controls="panel-gameplay"
+                            tabindex="-1"
+                        >
                             ГЕЙМПЛЕЙ
                         </button>
                     </nav>
@@ -90,7 +128,15 @@
                             </div>
                         </aside>
                         <div class="panel-content">
-                            <section class="tab-panel" id="panel-story" data-panel="story" hidden>
+                            <section
+                                class="tab-panel"
+                                id="panel-story"
+                                data-panel="story"
+                                role="tabpanel"
+                                aria-labelledby="tab-story"
+                                tabindex="0"
+                                hidden
+                            >
                                 <div class="panel-heading">
                                     <div>
                                         <p class="section-index">GAME HISTORY</p>
@@ -135,7 +181,15 @@
                                     <span>END OF STORY FILE</span>
                                 </div>
                             </section>
-                            <section class="tab-panel is-active" id="panel-characters" data-panel="characters">
+                            <section
+                                class="tab-panel"
+                                id="panel-characters"
+                                data-panel="story"
+                                role="tabpanel"
+                                aria-labelledby="tab-characters"
+                                tabindex="0"
+                                hidden
+                            >
                                 <div class="panel-heading">
                                     <div>
                                         <p class="section-index">ПРОФИЛИ</p>
@@ -150,7 +204,7 @@
                                 <div class="character-grid">
                                     <button class="character-card michael" data-character="michael" type="button" aria-pressed="false">
                                         <div class="character-image">
-                                            <img src="images/gta5-michael.jpg" alt="Майкл Де Санта" loading="lazy" decoding="async">
+                                            <img src="images/gta5-michael.webp" alt="Майкл Де Санта" loading="lazy" decoding="async">
                                             <span class="character-plus">+</span>
                                         </div>
                                         <div class="character-info">
@@ -161,7 +215,7 @@
                                     </button>
                                     <button class="character-card trevor" data-character="trevor" type="button" aria-pressed="false">
                                         <div class="character-image">
-                                            <img src="images/gta5-trevor.jpg" alt="Тревор Филипс" loading="lazy" decoding="async">
+                                            <img src="images/gta5-trevor.webp" alt="Тревор Филипс" loading="lazy" decoding="async">
                                             <span class="character-plus">+</span>
                                         </div>
                                         <div class="character-info">
@@ -172,7 +226,7 @@
                                     </button>
                                     <button class="character-card franklin" data-character="franklin" type="button" aria-pressed="false">
                                         <div class="character-image">
-                                            <img src="images/gta5-franklin.jpg" alt="Франклин Клинтон" loading="lazy" decoding="async">
+                                            <img src="images/gta5-franklin.webp" alt="Франклин Клинтон" loading="lazy" decoding="async">
                                             <span class="character-plus">+</span>
                                         </div>
                                         <div class="character-info">
@@ -202,7 +256,15 @@
                                     <span>SCROLL / EXPLORE</span>
                                 </div>
                             </section>
-                            <section class="tab-panel" id="panel-city" data-panel="city" hidden>
+                            <section
+                                class="tab-panel"
+                                id="panel-city"
+                                data-panel="story"
+                                role="tabpanel"
+                                aria-labelledby="tab-city"
+                                tabindex="0"
+                                hidden
+                            >
                                 <div class="panel-heading">
                                     <div>
                                         <p class="section-index">WORLD MAP</p>
@@ -277,7 +339,15 @@
                                     <span>MAP DATA / SAN ANDREAS</span>
                                 </div>
                             </section>
-                            <section class="tab-panel" id="panel-gameplay" data-panel="gameplay" hidden>
+                            <section
+                                class="tab-panel"
+                                id="panel-gameplay"
+                                data-panel="story"
+                                role="tabpanel"
+                                aria-labelledby="tab-gameplay"
+                                tabindex="0"
+                                hidden
+                            >
                                 <div class="panel-heading">
                                     <div>
                                         <p class="section-index">GAME SYSTEMS</p>

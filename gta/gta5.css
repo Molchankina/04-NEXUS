@@ -68,17 +68,21 @@ img {
     z-index: -1;
 }
 .hero-background {
-    background:
-        linear-gradient(90deg, rgba(8, 10, 9, 0.8), transparent 100%),
-        url("images/gta5-hero.jpg") center 42% / cover no-repeat,
-        linear-gradient(135deg, #666a50, #202824 65%, #111);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 42%;
     transform: scale(1.015);
     animation: hero-arrive 1.2s ease both;
 }
 .hero-shade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
     background:
-        linear-gradient(0deg, rgba(7, 8, 7, 0.85), transparent 28%),
-        linear-gradient(90deg, rgba(9, 11, 10, 0.7), transparent 80%);
+    linear-gradient(90deg, rgba(8, 10, 9, 0.8), transparent 100%),
+    linear-gradient(0deg, rgba(7, 8, 7, 0.85), transparent 28%),
+    linear-gradient(90deg, rgba(9, 11, 10, 0.7), transparent 80%);
 }
 @keyframes hero-arrive {
     from {
@@ -1143,7 +1147,7 @@ padding: 10px 14px;
     padding: 21px 20px;
     }
     .hero-background {
-        background-position: 43% center;
+        object-position: 43% center;
     }
     .hero-shade {
         background:
