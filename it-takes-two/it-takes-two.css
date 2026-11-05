@@ -83,7 +83,7 @@ body.itt-page {
   z-index: -2; background-position: center; background-repeat: no-repeat;
   background-size: cover; transition: transform .8s ease;
 }
-.itt-hero-image { background-image: url("images/hero.jpg"); }
+.itt-hero-image { background-image: url("images/hero.webp"); }
 .itt-world-label {
   position: absolute; top: 34px; left: clamp(20px, 4vw, 60px);
   display: inline-flex; align-items: center; gap: 9px; padding: 9px 14px;
