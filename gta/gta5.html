@@ -63,43 +63,47 @@
                     <nav class="game-tabs" aria-label="Игровое меню">
                         <button
                             class="game-tab"
+                            id="tab-story"
                             data-tab="story"
                             type="button"
                             role="tab"
                             aria-selected="false"
                             aria-controls="panel-story"
-                            tabindex="0"
+                            tabindex="-1"
                         >
                             СЮЖЕТ
                         </button>
                         <button
                             class="game-tab is-active"
+                            id="tab-characters"
                             data-tab="characters"
                             type="button"
                             role="tab"
                             aria-selected="true"
                             aria-controls="panel-characters"
-                            tabindex="-1"
+                            tabindex="0"
                         >
                             ПЕРСОНАЖИ
                         </button>
                         <button
-                            class="game-tab is-active"
+                            class="game-tab"
+                            id="tab-city"
                             data-tab="city"
                             type="button"
                             role="tab"
-                            aria-selected="true"
+                            aria-selected="false"
                             aria-controls="panel-city"
                             tabindex="-1"
                         >
                             ЛОС-САНТОС
                         </button>
                         <button
-                            class="game-tab is-active"
+                            class="game-tab"
+                            id="tab-gameplay"
                             data-tab="gameplay"
                             type="button"
                             role="tab"
-                            aria-selected="true"
+                            aria-selected="false"
                             aria-controls="panel-gameplay"
                             tabindex="-1"
                         >
@@ -184,7 +188,7 @@
                             <section
                                 class="tab-panel"
                                 id="panel-characters"
-                                data-panel="story"
+                                data-panel="characters"
                                 role="tabpanel"
                                 aria-labelledby="tab-characters"
                                 tabindex="0"
@@ -259,7 +263,7 @@
                             <section
                                 class="tab-panel"
                                 id="panel-city"
-                                data-panel="story"
+                                data-panel="city"
                                 role="tabpanel"
                                 aria-labelledby="tab-city"
                                 tabindex="0"
@@ -342,7 +346,7 @@
                             <section
                                 class="tab-panel"
                                 id="panel-gameplay"
-                                data-panel="story"
+                                data-panel="gameplay"
                                 role="tabpanel"
                                 aria-labelledby="tab-gameplay"
                                 tabindex="0"
