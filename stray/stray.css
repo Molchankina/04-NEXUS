@@ -125,25 +125,29 @@ section[id] {
     padding: 0 6.2%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.09);
 }
-.nexus-logo { 
-    display: inline-flex; 
-    align-items: center; 
-    gap: 10px; 
-    font-size: 15px; 
-    font-weight: 800; 
-    letter-spacing: .16em; 
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
 }
-.logo-mark { 
-    display: grid; 
-    place-items: center; 
-    width: 31px; 
-    height: 31px; 
-    border: 1px solid var(--teal); 
-    color: var(--teal); 
-    font-size: 17px; 
+.logo-symbol {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--teal);
+    color: var(--teal);
+    font-size: 21px;
+    font-weight: 800;
+    transform: skew(-7deg);
 }
-.gold { 
-    color: var(--teal); 
+.logo-name {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+.logo-dot {
+    color: var(--teal);
 }
 .navigation {
     display: flex;

@@ -101,25 +101,29 @@ img {
     justify-content: space-between;
     gap: 20px;
 }
-.nexus-logo { 
-    display: inline-flex; 
-    align-items: center; 
-    gap: 10px; 
-    font-size: 15px; 
-    font-weight: 800; 
-    letter-spacing: .16em; 
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
 }
-.logo-mark { 
-    display: grid; 
-    place-items: center; 
-    width: 31px; 
-    height: 31px; 
-    border: 1px solid var(--trevor); 
-    color: var(--trevor); 
-    font-size: 17px; 
+.logo-symbol {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--trevor);
+    color: var(--trevor);
+    font-size: 21px;
+    font-weight: 800;
+    transform: skew(-7deg);
 }
-.gold { 
-    color: var(--trevor); 
+.logo-name {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+.logo-dot {
+    color: var(--trevor);
 }
 .back-link,
 .hero-bottom,

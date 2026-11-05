@@ -86,22 +86,26 @@ button {
 .logo {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: .18em;
+    gap: 11px;
 }
-.logo span {
+.logo-symbol {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--ice);
     color: var(--ice);
+    font-size: 21px;
+    font-weight: 800;
+    transform: skew(-7deg);
 }
-.logo-mark {
-  width: 29px;
-  height: 29px;
-  display: grid;
-  place-items: center;
-  border: 1px solid #8e9a83;
-  font-family: var(--font-display);
-  font-size: 18px;
+.logo-name {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+.logo-dot {
+    color: var(--ice);
 }
 .main-nav {
     display: flex;

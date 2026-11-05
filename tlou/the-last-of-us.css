@@ -42,9 +42,30 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--moss); outline-
     justify-content: space-between;
 }
 .site-header { height: 82px; position: relative; z-index: 5; }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 800; letter-spacing: .17em; }
-.brand-mark { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid #aeb49a; font-family: "Oswald", sans-serif; font-size: 17px; letter-spacing: 0; }
-.brand-dot { color: var(--moss); }
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+}
+.logo-symbol {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--moss);
+    color: var(--moss);
+    font-size: 21px;
+    font-weight: 800;
+    transform: skew(-7deg);
+}
+.logo-name {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+.logo-dot {
+    color: var(--moss);
+}
 .site-nav { display: flex; gap: 30px; }
 .site-nav a, .header-index { color: #c2c5b7; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; transition: color .2s ease; }
 .site-nav a:hover, .header-index:hover { color: #fff; }

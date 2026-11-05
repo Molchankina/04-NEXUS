@@ -69,13 +69,28 @@ button {
     padding: 0 6.5%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
-.brand {
-    font-family: var(--display-font);
-    font-size: 27px;
-    font-weight: 800;
-    letter-spacing: 2px;
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
 }
-.brand span {
+.logo-symbol {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--red);
+    color: var(--red);
+    font-size: 21px;
+    font-weight: 800;
+    transform: skew(-7deg);
+}
+.logo-name {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+.logo-dot {
     color: var(--red);
 }
 .main-nav {

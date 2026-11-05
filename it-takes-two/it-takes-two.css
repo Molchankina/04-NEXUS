@@ -40,8 +40,30 @@ body.itt-page {
   background: linear-gradient(90deg, rgba(233,185,81,.12), rgba(248,241,223,.96) 50%, rgba(111,152,77,.12));
   border-bottom: 1px solid var(--itt-line);
 }
-.itt-logo { flex-shrink: 0; font-family: "Fredoka", sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -1.5px; }
-.itt-logo span { color: var(--itt-clay); }
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+}
+.logo-symbol {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--itt-clay);
+    color: var(--itt-clay);
+    font-size: 21px;
+    font-weight: 800;
+    transform: skew(-7deg);
+}
+.logo-name {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+.logo-dot {
+    color: var(--itt-clay);
+}
 .itt-nav { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: clamp(14px, 2.5vw, 34px); }
 .itt-nav a, .itt-back { font-size: 13px; font-weight: 800; transition: color .2s ease; }
 .itt-nav a:hover, .itt-back:hover, .itt-footer > a:last-child:hover { color: var(--itt-clay); }
