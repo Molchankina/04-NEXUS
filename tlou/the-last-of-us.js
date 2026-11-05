@@ -87,49 +87,6 @@ function renderFeatures(features) {
         container.append(row);
     });
 }
-
-async function loadGameData() {
-    const client = window.supabase;
-    if (!client || typeof client.from !== "function") return;
-
-    try {
-        const params = new URLSearchParams(window.location.search);
-        const slug = params.get("slug") || "tloe1";
-        const { data: game, error } = await client
-            .from("games")
-            .select("*")
-            .eq("slug", slug)
-            .eq("published", true)
-            .maybeSingle();
-
-        if (error) throw error;
-        if (!game) return; 
-
-        document.title = `${game.title || "The Last of Us Part I"} — NEXUS`;
-        setText("#game-developer", game.universe);
-        setText("#game-year", game.release_year);
-        setText("#info-year", game.release_year);
-        setText("#info-developer", game.universe);
-        setText("#game-description", game.description);
-        setText("#game-plot", game.plot_summary);
-        setText("#game-gameplay", game.gameplay);
-        setText("#game-minimum", game.pc_min_requirements);
-        setText("#game-recommended", game.pc_recommended_requirements);
-        renderChips("#game-genres", game.genres);
-        renderChips("#game-modes", game.modes);
-        renderChips("#game-platforms", game.platforms);
-        renderFeatures(game.features);
-
-        const backgroundUrl = game.background_image || game.image;
-        if (backgroundUrl) {
-            document.querySelector("#hero-background").style.backgroundImage =
-                `linear-gradient(90deg, rgba(13, 16, 13, .78), rgba(13, 16, 13, .12)), url("${backgroundUrl.replace(/["\\\n\r]/g, "")}")`;
-        }
-    } catch (error) {
-        console.warn("Не удалось загрузить данные игры из Supabase. Используется встроенный текст страницы.", error);
-    }
-}
-
 function initRouteInteractions() {
     const detail = document.querySelector("#route-detail");
     const closeButton = document.querySelector("#route-detail-close");
@@ -267,8 +224,6 @@ function initScrollEffects() {
         observer.observe(element);
     });
 }
-
-loadGameData();
 initRouteInteractions();
 initBackpack();
 initScrollEffects();
