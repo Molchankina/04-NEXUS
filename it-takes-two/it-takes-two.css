@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
-
 :root {
   --itt-cream: #fff9e9;
   --itt-paper: #fffdf5;
@@ -41,28 +40,29 @@ body.itt-page {
   border-bottom: 1px solid var(--itt-line);
 }
 .logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-family: "Bowlby One", sans-serif;
 }
 .logo-symbol {
-    display: grid;
-    place-items: center;
-    width: 36px;
-    height: 36px;
-    border: 1px solid var(--itt-clay);
-    color: var(--itt-clay);
-    font-size: 21px;
-    font-weight: 800;
-    transform: skew(-7deg);
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--itt-clay);
+  color: var(--itt-clay);
+  font-size: 21px;
+  font-weight: 800;
+  transform: skew(-7deg);
 }
 .logo-name {
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: 0.16em;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
 }
 .logo-dot {
-    color: var(--itt-clay);
+  color: var(--itt-clay);
 }
 .itt-nav { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: clamp(14px, 2.5vw, 34px); }
 .itt-nav a, .itt-back { font-size: 13px; font-weight: 800; transition: color .2s ease; }
