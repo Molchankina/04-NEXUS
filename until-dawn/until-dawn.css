@@ -733,17 +733,17 @@ button {
 .image-exploration {
     background:
         linear-gradient(0deg, #081019, transparent 75%),
-        url("images/ud-exploration.png") center / cover no-repeat;
+        url("images/ud-exploration.webp") center / cover no-repeat;
 }
 .image-choices {
     background:
         linear-gradient(0deg, #081019, transparent 75%),
-        url("images/ud-choices.jpg") center / cover no-repeat;
+        url("images/ud-choices.webp") center / cover no-repeat;
 }
 .image-qte {
     background:
         linear-gradient(0deg, #081019, transparent 75%),
-        url("images/ud-qte.png") center / cover no-repeat;
+        url("images/ud-qte.webp") center / cover no-repeat;
 }
 .gameplay-card-content {
     position: absolute;
