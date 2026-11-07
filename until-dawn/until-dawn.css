@@ -144,7 +144,7 @@ button {
     inset: 0;
     z-index: -3;
     background:
-        url("../images/until-down.jpg") center 42% / cover no-repeat;
+        url("../images/b/until-down.jpg") center 42% / cover no-repeat;
     transform: scale(1.04);
     animation: hero-reveal 2s ease both;
 }
